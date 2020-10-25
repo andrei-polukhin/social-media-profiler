@@ -1,0 +1,20 @@
+[[source]]
+url = "https://pypi.python.org/simple"
+verify_ssl = true
+name = "pypi"
+
+[packages]
+requests = "*"
+tweepy = "*"
+selenium = "*"
+google-api-python-client = "*"
+lxml = "*"
+linkedin-api = "*"
+webdriver-manager = "*"
+instagram-private-api = "==1.6.0"
+nest-asyncio = "*"
+
+[dev-packages]
+
+[requires]
+python_version = "3.8"
