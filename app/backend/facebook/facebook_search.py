@@ -1,3 +1,4 @@
+# -*- coding: utf-8 -*-
 from app.backend.facebook.facebook_authenticate import FacebookAuthenticate
 from app.backend.facebook.tech_params import SEARCH_LINK, FOUND_LINKS
 

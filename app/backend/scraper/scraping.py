@@ -27,7 +27,7 @@ async def organize_tasks(*tuples_of_links_and_configs):
 async def scraper(tuple_of_link_and_config):
     link, config = tuple_of_link_and_config
     html_tree = await get_html_tree(link)
-    result = await find_element(html_tree, config)
+    result = await find_element(link, html_tree, config)
     return result
 
 
@@ -37,8 +37,11 @@ async def get_html_tree(link):
     return html_tree
 
 
-async def find_element(html_tree, conf):
-    result = {"service_name": conf["service_name"]}
+async def find_element(link, html_tree, conf):
+    result = {
+        "service_name": conf["service_name"],
+        "link": link
+    }
     service_name = conf.pop("service_name", None)
     for field in conf:
         xpath_or_with_endpoint = conf[field]
