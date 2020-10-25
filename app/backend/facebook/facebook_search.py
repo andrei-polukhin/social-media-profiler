@@ -40,6 +40,7 @@ class FacebookSearchLinks(FacebookAuthenticate):
         )
 
     def get_hrefs_of_elements(self):
+        self.hrefs_of_elements: set
         for element in self.found_elements_links:
             href = element.get_property("href")
             self.hrefs_of_elements.add(href)

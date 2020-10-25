@@ -4,7 +4,7 @@ from selenium.webdriver.support.ui import WebDriverWait
 
 from app.backend.facebook.tech_params import EMAIL_FIELD, \
     PASSWORD_FIELD, SUBMIT_BUTTON
-from app.backend.config import facebook_login, facebook_password
+from app.backend.config import FACEBOOK_LOGIN, FACEBOOK_PASSWORD
 from app.backend.facebook.facebook_homepage import FacebookHomepage
 
 
@@ -34,8 +34,8 @@ class FacebookAuthenticate(FacebookHomepage):
         )
 
     def send_credentials(self):
-        self.login_field.send_keys(facebook_login)
-        self.pass_field.send_keys(facebook_password)
+        self.login_field.send_keys(FACEBOOK_LOGIN)
+        self.pass_field.send_keys(FACEBOOK_PASSWORD)
 
     def find_and_click_on_submit_button(self):
         self.submit_button = self.wait.until(

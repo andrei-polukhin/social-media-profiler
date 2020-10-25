@@ -1,8 +1,8 @@
 # -*- coding: utf-8 -*-
 from googleapiclient.discovery import build
 import requests
-from app.backend.config import ipstack_api, \
-    google_developer_key, google_search_engine_id
+from app.backend.config import IPSTACK_API_KEY, \
+    GOOGLE_DEVELOPER_KEY, GOOGLE_CSE_ID
 
 
 def mining(query):
@@ -12,7 +12,7 @@ def mining(query):
 
 
 def get_country_code():
-    api = ipstack_api
+    api = IPSTACK_API_KEY
     url = f"http://api.ipstack.com/check?access_key={api}"
     json = requests.get(url).json()
     return json["country_code"].lower()
@@ -21,11 +21,11 @@ def get_country_code():
 def custom_search(query, country):
     service = build(
         "customsearch", "v1",
-        developerKey=google_developer_key
+        developerKey=GOOGLE_DEVELOPER_KEY
     )
     answer = service.cse().list(
         q=query,
-        cx=google_search_engine_id,
+        cx=GOOGLE_CSE_ID,
         gl=country,
     ).execute()
     return answer["items"]
