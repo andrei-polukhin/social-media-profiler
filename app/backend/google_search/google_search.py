@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 from app.backend.google_search.mining import mining
 from app.backend.google_search.filtering import filtering
-from app.backend.google_search.scraping import scraping
+from app.backend.scraper.scraping import scraping
 
 
 def google_search(query):

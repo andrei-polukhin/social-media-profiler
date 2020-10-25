@@ -25,10 +25,10 @@ def google_filter(items):
 
 def read_json_file():
     try:
-        with open("params.json") as file:
+        with open("google_params.json") as file:
             file_contents = json.load(file)
     except FileNotFoundError:
-        with open("app/backend/google_search/params.json") as file:
+        with open("app/backend/google_search/google_params.json") as file:
             file_contents = json.load(file)
     return file_contents
 
