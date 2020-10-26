@@ -8,7 +8,6 @@ tweepy = "*"
 selenium = "*"
 google-api-python-client = "*"
 lxml = "*"
-linkedin-api = "*"
 webdriver-manager = "*"
 instagram-private-api = "==1.6.0"
 nest-asyncio = "*"
@@ -17,6 +16,7 @@ cchardet = "*"
 aiodns = "*"
 brotlipy = "*"
 aiohttp = "*"
+linkedin-api = "==2.0.0a4"
 
 [dev-packages]
 
