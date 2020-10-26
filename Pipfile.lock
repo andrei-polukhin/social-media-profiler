@@ -1,7 +1,7 @@
 {
     "_meta": {
         "hash": {
-            "sha256": "b33e4365b5677bfd194d16ef09339d9ab3d8e21ed6a301d2ae61d134ab4e758e"
+            "sha256": "a8186947c53bba9096b8e39d86a94a3402e627e2b981df03a6ff36798cd35f01"
         },
         "pipfile-spec": 6,
         "requires": {
@@ -21,6 +21,7 @@
                 "sha256:815fdef4607474295d68da46978a54481dd1e7be153c7d60f9e72773cd38d77d",
                 "sha256:aaa5ac584f40fe778013df0aa6544bf157799bd3f608364b451840ed2c8688de"
             ],
+            "index": "pypi",
             "version": "==2.0.0"
         },
         "aiohttp": {
@@ -110,6 +111,7 @@
                 "sha256:dc6c5ee0df9732a44d08edab32f8a616b769cc5a4155a12d2d010d248eb3fb07",
                 "sha256:fd1d1c64214af5d90014d82cee5d8141b13d44c92ada7a0c0ec0679c6f15a471"
             ],
+            "index": "pypi",
             "version": "==0.7.0"
         },
         "cachetools": {
@@ -151,6 +153,7 @@
                 "sha256:f5c94994d876d8709847c3a92643309d716f43716580a2e5831262366a9ee8b6",
                 "sha256:fd16f57ce42a72397cd9fe38977fc809eb02172731cb354572f28a6d8e4cf322"
             ],
+            "index": "pypi",
             "version": "==2.1.6"
         },
         "certifi": {

@@ -13,11 +13,12 @@ webdriver-manager = "*"
 instagram-private-api = "==1.6.0"
 nest-asyncio = "*"
 requests = "*"
+cchardet = "*"
+aiodns = "*"
+brotlipy = "*"
+aiohttp = "*"
 
 [dev-packages]
 
 [requires]
 python_version = "3.8"
-
-[packages.aiohttp]
-extras = [ "speedups",]
