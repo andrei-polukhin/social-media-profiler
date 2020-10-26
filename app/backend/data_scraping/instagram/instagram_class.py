@@ -14,7 +14,7 @@ class Instagram:
 
     def instagram(self):
         self.instagram_authenticate()
-        self.instagram_search_subjects()
+        self.instagram_search_for_subjects()
         self.instagram_get_ids_of_found_subjects()
         self.instagram_extract_info_with_subject_ids()
         self.instagram_filter_info_about_subjects()
@@ -23,7 +23,7 @@ class Instagram:
     def instagram_authenticate(self):
         self.api = Client(INSTAGRAM_LOGIN, INSTAGRAM_PASSWORD)
 
-    def instagram_search_subjects(self):
+    def instagram_search_for_subjects(self):
         self.found_subjects = self.api.search_users(self.query)
 
     def instagram_get_ids_of_found_subjects(self):

@@ -1,7 +1,7 @@
 {
     "_meta": {
         "hash": {
-            "sha256": "5d25ba8d47b77b656125b927142a8d7b8ea9faa153410a672e441e38fe865083"
+            "sha256": "f16dab85bfd5197b5a9535b784a5e92a592e724f5be35b7758ca58d36b9c290b"
         },
         "pipfile-spec": 6,
         "requires": {
@@ -76,14 +76,6 @@
                 "sha256:fce7fc47dfc976152e82d53ff92fa0407700c21acd20886a13777a0d20e655dc"
             ],
             "version": "==20.2.0"
-        },
-        "beautifulsoup4": {
-            "hashes": [
-                "sha256:4c98143716ef1cb40bf7f39a8e3eec8f8b009509e74904ba3a7b315431577e35",
-                "sha256:84729e322ad1d5b4d25f805bfa05b902dd96450f43842c4e99067d5e1369eb25",
-                "sha256:fff47e031e34ec82bf17e00da8f592fe7de69aeea38be00523c04623c04fb666"
-            ],
-            "version": "==4.9.3"
         },
         "brotlipy": {
             "hashes": [
@@ -300,11 +292,11 @@
         },
         "linkedin-api": {
             "hashes": [
-                "sha256:58fa6665aa5370f035d1fc26db32c45cb8107e89ab76730b86e104710983c76e",
-                "sha256:9b34a1dbc0ba8ff0488052753180ebf816edb6ebdf1ad43b7e20049c42f3681a"
+                "sha256:3bcc8d1dc174df00016ba34d49b4e70a9c9d7090f1192a342925c1f137b0596f",
+                "sha256:ef2f9fcdecd71644f53dbc0f227d94f6a2b638cb955c79e8ab75fe4919e3f1ac"
             ],
             "index": "pypi",
-            "version": "==2.0.0a4"
+            "version": "==2.0.0a3"
         },
         "lxml": {
             "hashes": [
@@ -554,14 +546,6 @@
                 "sha256:8b74bedcbbbaca38ff6d7491d76f2b06b3592611af620f8426e82dddb04a5ced"
             ],
             "version": "==1.15.0"
-        },
-        "soupsieve": {
-            "hashes": [
-                "sha256:1634eea42ab371d3d346309b93df7870a88610f0725d47528be902a0d95ecc55",
-                "sha256:a59dc181727e95d25f781f0eb4fd1825ff45590ec8ff49eadfd7f1a537cc0232"
-            ],
-            "markers": "python_version >= '3.0'",
-            "version": "==2.0.1"
         },
         "tweepy": {
             "hashes": [
