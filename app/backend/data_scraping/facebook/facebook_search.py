@@ -1,6 +1,8 @@
 # -*- coding: utf-8 -*-
-from app.backend.facebook.facebook_authenticate import FacebookAuthenticate
-from app.backend.facebook.tech_params import SEARCH_LINK, FOUND_LINKS
+from app.backend.data_scraping.facebook.facebook_authenticate \
+    import FacebookAuthenticate
+from app.backend.data_scraping.facebook.tech_params \
+    import SEARCH_LINK, FOUND_LINKS
 
 from selenium.webdriver.support import expected_conditions as EC
 from urllib.parse import quote

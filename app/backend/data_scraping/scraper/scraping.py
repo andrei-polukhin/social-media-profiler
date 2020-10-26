@@ -74,8 +74,8 @@ async def find_element(link, html_tree, conf):
 
 
 if __name__ == "__main__":
-    from app.backend.google_search.mining import mining
-    from app.backend.google_search.filtering import filtering
+    from app.backend.data_scraping.google_search.mining import mining
+    from app.backend.data_scraping.google_search.filtering import filtering
     findings = mining("pythad")
     filtered = filtering(findings)
     print(scraping(filtered))

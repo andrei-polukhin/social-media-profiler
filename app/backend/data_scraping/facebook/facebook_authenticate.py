@@ -2,10 +2,11 @@
 from selenium.webdriver.support import expected_conditions as EC
 from selenium.webdriver.support.ui import WebDriverWait
 
-from app.backend.facebook.tech_params import EMAIL_FIELD, \
+from app.backend.data_scraping.facebook.tech_params import EMAIL_FIELD, \
     PASSWORD_FIELD, SUBMIT_BUTTON
 from app.backend.config import FACEBOOK_LOGIN, FACEBOOK_PASSWORD
-from app.backend.facebook.facebook_homepage import FacebookHomepage
+from app.backend.data_scraping.facebook.facebook_homepage \
+    import FacebookHomepage
 
 
 class FacebookAuthenticate(FacebookHomepage):
