@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 from app.backend.data_scraping.facebook.facebook_authenticate \
     import FacebookAuthenticate
-from app.backend.data_scraping.facebook.tech_params \
+from app.backend.data_scraping.facebook.facebook_tech_params \
     import SEARCH_LINK, FOUND_LINKS
 
 from selenium.webdriver.support import expected_conditions as EC
