@@ -1,4 +1,4 @@
-from app.backend.data_scraping.linkedin.linkedin_class import Linkedin
+from app.backend.data_scraping.linkedin.linkedin_filter import LinkedinFilter
 
 
 def caller_linkedin(
@@ -9,23 +9,33 @@ def caller_linkedin(
         school=None
 ):
     results_to_filter = {}
-    linkedin_obj = Linkedin(
+    linkedin_obj = LinkedinFilter(
         first_name,
         last_name,
         job_title,
         current_company,
         school
     )
-    linkedin_obj.linkedin()
+    linkedin_obj.linkedin_search()
+    linkedin_obj.linkedin_filter()
     results_to_filter["linkedin"] = list_of_all_items = []
     list_of_all_items.append(
         {"found_subjects": linkedin_obj.found_subjects}
     )
     list_of_all_items.append(
-        {"potential_subjects": linkedin_obj.potential_subjects}
+        {
+            "potential_subjects_after_filtering":
+                linkedin_obj.potential_subjects_after_filtering
+        }
     )
     return results_to_filter
 
 
 if __name__ == "__main__":
-    print(caller_linkedin("Amy", "Butler", school="Michigan"))
+    print(caller_linkedin(
+        "Amy",
+        "Butler",
+        job_title="Director of Studies",
+        current_company="LSE",
+        school="Michigan"
+    ))

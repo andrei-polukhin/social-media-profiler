@@ -3,7 +3,7 @@ from linkedin_api import Linkedin as LinkedinAPI
 from app.backend.config import LINKEDIN_LOGIN, LINKEDIN_PASSWORD
 
 
-class Linkedin:
+class LinkedinSearch:
     def __init__(
             self,
             first_name,
@@ -21,7 +21,7 @@ class Linkedin:
         self.found_subjects = []
         self.potential_subjects = []
 
-    def linkedin(self):
+    def linkedin_search(self):
         self.linkedin_authenticate()
         self.linkedin_search_for_subjects()
 
@@ -52,13 +52,14 @@ class Linkedin:
                     keyword_last_name=self.last_name,
                     keyword_company=None
                     if i != 0
-                    else self.keyword_company if self.keyword_company else 1/0,
+                    else self.keyword_company if self.keyword_company
+                    else 1 / 0,
                     keyword_school=None
                     if i != 1
-                    else self.keyword_school if self.keyword_school else 1/0,
+                    else self.keyword_school if self.keyword_school else 1 / 0,
                     keyword_title=None
                     if i != 2
-                    else self.keyword_title if self.keyword_title else 1/0
+                    else self.keyword_title if self.keyword_title else 1 / 0
                 )
             except ZeroDivisionError:
                 continue
