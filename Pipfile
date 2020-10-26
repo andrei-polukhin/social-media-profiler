@@ -4,7 +4,6 @@ verify_ssl = true
 name = "pypi"
 
 [packages]
-requests = "*"
 tweepy = "*"
 selenium = "*"
 google-api-python-client = "*"
@@ -13,8 +12,12 @@ linkedin-api = "*"
 webdriver-manager = "*"
 instagram-private-api = "==1.6.0"
 nest-asyncio = "*"
+requests = "*"
 
 [dev-packages]
 
 [requires]
 python_version = "3.8"
+
+[packages.aiohttp]
+extras = [ "speedups",]

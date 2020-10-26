@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 from lxml import html
-import requests
+import aiohttp
 import asyncio
 import nest_asyncio
 
@@ -10,31 +10,36 @@ def scraping(list_of_links_and_configs):
     loop = asyncio.get_event_loop()
     nest_asyncio.apply(loop)
     responses = loop.run_until_complete(
-        organize_tasks(*list_of_links_and_configs)
+        organize_tasks(loop, *list_of_links_and_configs)
     )
     for response in responses:
         results.append(response)
     return results
 
 
-async def organize_tasks(*tuples_of_links_and_configs):
+async def organize_tasks(loop, *tuples_of_links_and_configs):
     tasks = []
-    for tuple_of_link_and_config in tuples_of_links_and_configs:
-        tasks.append(scraper(tuple_of_link_and_config))
-    return await asyncio.gather(*tasks)
+    async with aiohttp.ClientSession(loop=loop) as session:
+        for tuple_of_link_and_config in tuples_of_links_and_configs:
+            tasks.append(scraper(session, tuple_of_link_and_config))
+        return await asyncio.gather(*tasks)
 
 
-async def scraper(tuple_of_link_and_config):
+async def scraper(session, tuple_of_link_and_config):
     link, config = tuple_of_link_and_config
-    html_tree = await get_html_tree(link)
+    html_string = await get_html_string(session, link)
+    html_tree = await get_html_tree(html_string)
     result = await find_element(link, html_tree, config)
     return result
 
 
-async def get_html_tree(link):
-    html_string = requests.get(link).content
-    html_tree = html.fromstring(html_string)
-    return html_tree
+async def get_html_string(session, link):
+    async with session.get(link) as response:
+        return await response.text()
+
+
+async def get_html_tree(html_tree):
+    return html.fromstring(html_tree)
 
 
 async def find_element(link, html_tree, conf):
