@@ -2,19 +2,13 @@ from app.backend.data_scraping.linkedin.linkedin_search_info \
     import LinkedinSearchSubjects
 
 
-def caller_linkedin(
-        first_name,
-        last_name,
-        job_title=None,
-        current_company=None,
-        school=None
-):
+def caller_linkedin(first_name, last_name, job_title=None, company=None, school=None):
     results_to_filter = {}
     linkedin_obj = LinkedinSearchSubjects(
         first_name,
         last_name,
         job_title,
-        current_company,
+        company,
         school
     )
     linkedin_obj.linkedin_search()
@@ -38,6 +32,6 @@ if __name__ == "__main__":
         "Amy",
         "Butler",
         job_title="Director of Studies",
-        current_company="LSE",
+        company="LSE",
         school="Michigan"
     ))

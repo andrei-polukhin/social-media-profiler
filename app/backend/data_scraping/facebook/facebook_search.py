@@ -1,20 +1,20 @@
 # -*- coding: utf-8 -*-
+import time
+import json
+import re
+
+from urllib.parse import quote
+from selenium.webdriver.support import expected_conditions as EC
+
 from app.backend.data_scraping.facebook.facebook_authenticate \
     import FacebookAuthenticate
 from app.backend.data_scraping.facebook.facebook_tech_params \
     import SEARCH_LINK, FOUND_LINKS
 
-from selenium.webdriver.support import expected_conditions as EC
-from urllib.parse import quote
-import time
-
-import json
-import re
-
 
 class FacebookSearchLinks(FacebookAuthenticate):
     def __init__(self, query):
-        super(FacebookSearchLinks, self).__init__()
+        super().__init__()
         self.encoded_query = quote(query)
         self.search_link = SEARCH_LINK + self.encoded_query
         self.found_elements_links = None
@@ -50,8 +50,8 @@ class FacebookSearchLinks(FacebookAuthenticate):
 
     def filter_links(self):
         self.read_facebook_params()
-        g = self.get_regex_matching_keys()
-        self.regex_matching_items = list(g)
+        generator = self.get_regex_matching_keys()
+        self.regex_matching_items = list(generator)
 
     def read_facebook_params(self):
         try:

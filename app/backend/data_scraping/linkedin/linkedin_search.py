@@ -4,17 +4,10 @@ from app.backend.config import LINKEDIN_LOGIN, LINKEDIN_PASSWORD
 
 
 class LinkedinSearch:
-    def __init__(
-            self,
-            first_name,
-            last_name,
-            job_title,
-            current_company,
-            school
-    ):
+    def __init__(self, first_name, last_name, job_title, company, school):
         self.first_name = first_name
         self.last_name = last_name
-        self.keyword_company = current_company
+        self.keyword_company = company
         self.keyword_school = school
         self.keyword_title = job_title
         self.api = None

@@ -6,8 +6,8 @@ import re
 def filtering(items):
     only_title_link_snippet = google_filter(items)
     file_contents = read_json_file()
-    g = regex_matching_items(file_contents, only_title_link_snippet)
-    after_regex_checked_items = list(g)
+    generator = regex_matching_items(file_contents, only_title_link_snippet)
+    after_regex_checked_items = list(generator)
     return after_regex_checked_items
 
 

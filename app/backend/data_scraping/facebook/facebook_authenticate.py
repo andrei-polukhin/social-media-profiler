@@ -11,7 +11,7 @@ from app.backend.data_scraping.facebook.facebook_homepage \
 
 class FacebookAuthenticate(FacebookHomepage):
     def __init__(self):
-        super(FacebookAuthenticate, self).__init__()
+        super().__init__()
         self.wait = WebDriverWait(self.driver, 5)
         self.login_field = None
         self.pass_field = None

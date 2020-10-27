@@ -2,21 +2,8 @@ from app.backend.data_scraping.linkedin.linkedin_filter import LinkedinFilter
 
 
 class LinkedinSearchSubjects(LinkedinFilter):
-    def __init__(
-            self,
-            first_name,
-            last_name,
-            job_title,
-            current_company,
-            school
-    ):
-        super().__init__(
-            first_name,
-            last_name,
-            job_title,
-            current_company,
-            school
-        )
+    def __init__(self, first_name, last_name, job_title, company, school):
+        super().__init__(first_name, last_name, job_title, company, school)
         self.found_subjects_info = []
         self.potential_subjects_after_filtering_info = []
         self.searching_instructions = {}

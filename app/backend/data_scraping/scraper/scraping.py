@@ -1,8 +1,9 @@
 # -*- coding: utf-8 -*-
-from lxml import html
-import aiohttp
 import asyncio
+import aiohttp
 import nest_asyncio
+
+from lxml import html
 
 
 def scraping(list_of_links_and_configs):

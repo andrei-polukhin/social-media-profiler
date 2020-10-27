@@ -4,7 +4,7 @@ from app.backend.data_scraping.twitter.twitter_authorize \
 
 class TwitterSearch(TwitterAuthorize):
     def __init__(self, query):
-        super(TwitterSearch, self).__init__()
+        super().__init__()
         self.query = query
         self.found_subjects = []
         self.found_subjects_info = []
