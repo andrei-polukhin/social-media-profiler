@@ -1,4 +1,5 @@
-from app.backend.data_scraping.linkedin.linkedin_search_info import LinkedinSearchSubjects
+from app.backend.data_scraping.linkedin.linkedin_search_info \
+    import LinkedinSearchSubjects
 
 
 def caller_linkedin(
