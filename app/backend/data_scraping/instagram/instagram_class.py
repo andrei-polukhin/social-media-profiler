@@ -53,7 +53,7 @@ class Instagram:
                     "public_email",
                     "public_phone_number",
                     "whatsapp_number"
-                ] and v
+                ]
             }
             self.filtered_info_about_subjects.append(sorted_dictionary)
 
