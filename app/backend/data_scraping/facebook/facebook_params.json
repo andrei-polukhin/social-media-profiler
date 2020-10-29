@@ -1,5 +1,5 @@
 {
-  "https:\/\/www.facebook.com\/[a-zA-Z0-9`~!@#$^*()_+-.,|<>№]+\/?": {
+  "(?!https:\\/\\/www.facebook.com\\/(watch|friends|me|bookmarks|groups)\\/?)https:\\/\\/www.facebook.com\\/[a-zA-Z0-9`~!@#$^*()_+-.,|<>№]+\\/?": {
     "service_name": "Facebook Profile"
   },
   "https:\\/\\/www.facebook.com\\/groups\\/[a-zA-Z0-9`~!@#$^*()_+-.,|<>№]+\\/?": {

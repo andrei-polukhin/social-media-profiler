@@ -5,13 +5,15 @@ import re
 
 from urllib.parse import quote
 from selenium.webdriver.support import expected_conditions as EC
+from selenium.common.exceptions import TimeoutException
 
 from app.backend.data_scraping.facebook.facebook_authenticate import (
     FacebookAuthenticate,
 )
 from app.backend.data_scraping.facebook.facebook_tech_params import (
     SEARCH_LINK,
-    FOUND_LINKS,
+    FOUND_LINKS_USUAL,
+    FOUND_LINKS_OTHER
 )
 
 
@@ -30,6 +32,7 @@ class FacebookSearchLinks(FacebookAuthenticate):
         self.open_search_link()
         self.check_presence_of_elements_links()
         self.get_hrefs_of_elements()
+        self.close_browser()
         self.filter_links()
 
     def open_search_link(self):
@@ -38,16 +41,26 @@ class FacebookSearchLinks(FacebookAuthenticate):
         self.driver.implicitly_wait(5)
 
     def check_presence_of_elements_links(self):
-        self.found_elements_links = self.wait.until(
-            EC.presence_of_all_elements_located(FOUND_LINKS)
-        )
+        try:
+            self.found_elements_links = self.wait.until(
+                EC.presence_of_all_elements_located(FOUND_LINKS_USUAL)
+            )
+        except TimeoutException:
+            self.found_elements_links = self.wait.until(
+                EC.presence_of_all_elements_located(FOUND_LINKS_OTHER)
+            )
 
     def get_hrefs_of_elements(self):
         self.hrefs_of_elements: set
         for element in self.found_elements_links:
             href = element.get_property("href")
+            if not href.endswith("/"):
+                href = href + "/"
             self.hrefs_of_elements.add(href)
         self.hrefs_of_elements = list(self.hrefs_of_elements)
+
+    def close_browser(self):
+        self.driver.quit()
 
     def filter_links(self):
         self.read_facebook_params()
