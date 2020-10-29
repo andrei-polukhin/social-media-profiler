@@ -1,6 +1,6 @@
 from collections import Counter
 
-from app.backend.data_scraping.linkedin.linkedin_search import LinkedinSearch
+from app.backend.scraping.linkedin.linkedin_search import LinkedinSearch
 
 
 class LinkedinFilter(LinkedinSearch):

@@ -1,4 +1,4 @@
-from app.backend.data_scraping.linkedin.linkedin_search_info import (
+from app.backend.scraping.linkedin.linkedin_search_info import (
     LinkedinSearchSubjects,
 )
 

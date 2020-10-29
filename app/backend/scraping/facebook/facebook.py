@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
-from app.backend.data_scraping.facebook.facebook_search import FacebookSearchLinks
-from app.backend.data_scraping.scraper.scraping import scraping
+from app.backend.scraping.facebook.facebook_search import FacebookSearchLinks
+from app.backend.scraping.scraper.scraping import scraping
 
 
 def caller_facebook(query):

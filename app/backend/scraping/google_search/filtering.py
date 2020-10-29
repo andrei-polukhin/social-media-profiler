@@ -41,7 +41,7 @@ def regex_matching_items(file_contents, items):
 
 
 if __name__ == "__main__":
-    from app.backend.data_scraping.google_search.mining import mining
+    from app.backend.scraping.google_search.mining import mining
 
     findings = mining("pythad")
     print("google_filter:\n", google_filter(findings), "\n")

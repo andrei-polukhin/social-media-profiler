@@ -1,4 +1,4 @@
-from app.backend.data_scraping.linkedin.linkedin_filter import LinkedinFilter
+from app.backend.scraping.linkedin.linkedin_filter import LinkedinFilter
 
 
 class LinkedinSearchSubjects(LinkedinFilter):

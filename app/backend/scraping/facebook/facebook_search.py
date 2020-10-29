@@ -7,10 +7,10 @@ from urllib.parse import quote
 from selenium.webdriver.support import expected_conditions as EC
 from selenium.common.exceptions import TimeoutException
 
-from app.backend.data_scraping.facebook.facebook_authenticate import (
+from app.backend.scraping.facebook.facebook_authenticate import (
     FacebookAuthenticate,
 )
-from app.backend.data_scraping.facebook.facebook_tech_params import (
+from app.backend.scraping.facebook.facebook_tech_params import (
     SEARCH_LINK,
     FOUND_LINKS_USUAL,
     FOUND_LINKS_OTHER

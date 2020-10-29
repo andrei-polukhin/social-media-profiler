@@ -1,4 +1,4 @@
-from app.backend.data_scraping.twitter.twitter_search import TwitterSearch
+from app.backend.scraping.twitter.twitter_search import TwitterSearch
 
 
 def caller_twitter(query):

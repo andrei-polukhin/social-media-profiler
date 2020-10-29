@@ -1,4 +1,4 @@
-from app.backend.data_scraping.twitter.twitter_authorize import TwitterAuthorize
+from app.backend.scraping.twitter.twitter_authorize import TwitterAuthorize
 
 
 class TwitterSearch(TwitterAuthorize):

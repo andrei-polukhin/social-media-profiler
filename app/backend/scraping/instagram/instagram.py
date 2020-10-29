@@ -1,4 +1,4 @@
-from app.backend.data_scraping.instagram.instagram_class import Instagram
+from app.backend.scraping.instagram.instagram_class import Instagram
 
 
 def caller_instagram(query):
