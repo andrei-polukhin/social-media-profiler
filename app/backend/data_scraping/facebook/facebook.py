@@ -10,10 +10,11 @@ def caller_facebook(query):
     facebook_obj.facebook_authenticate()
     facebook_obj.find_scraping_links()
     filtered_items = facebook_obj.regex_matching_items
+    print(filtered_items)
     scraped_webpages = scraping(filtered_items)
     results_to_filter["facebook"] = scraped_webpages
     return results_to_filter
 
 
 if __name__ == "__main__":
-    print(caller_facebook("Elon Musk"))
+    print(caller_facebook("ongradient"))

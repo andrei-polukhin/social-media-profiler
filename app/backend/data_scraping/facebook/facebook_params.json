@@ -1,8 +1,15 @@
 {
   "(?!https:\\/\\/www.facebook.com\\/(watch|friends|me|bookmarks|groups)\\/?)https:\\/\\/www.facebook.com\\/[a-zA-Z0-9`~!@#$^*()_+-.,|<>№]+\\/?": {
-    "service_name": "Facebook Profile"
+    "service_name": "Facebook Profile",
+    "name_if_profile": "/html/body/div[1]/div[3]/div[1]/div/div[2]/div[2]/div[1]/div/div[1]/div[1]/div[3]/div/div[1]/div/div/h1/span[1]/a/text()[last()]",
+    "name_if_channel": "//*[@id=\"seo_h1_tag\"]/span",
+    "about_link_if_channel": "//*[@id=\"u_0_p\"]/div/a[2]/@href",
+    "category_if_channel": "//*[@id=\"PagesProfileHomeSecondaryColumnPagelet\"]/div/div[2]/div/div[2]/div[3]/div/div/div/div/div[2]/div/a"
   },
   "https:\\/\\/www.facebook.com\\/groups\\/[a-zA-Z0-9`~!@#$^*()_+-.,|<>№]+\\/?": {
-    "service_name": "Facebook Group"
+    "service_name": "Facebook Group",
+    "group_name": "//*[@id=\"mount_0_0\"]/div/div[1]/div/div[3]/div/div/div[1]/div[1]/div[1]/div[2]/div/div/div/div[1]/div/div/div[1]/h2/span/text()[last()]",
+    "member_number": "//*[@id=\"mount_0_0\"]/div/div[1]/div/div[3]/div/div/div[1]/div[1]/div[1]/div[2]/div/div/div/div[1]/div/div/div[2]/span/div/div[3]/text()[last()]",
+    "publicity": "//*[@id=\"mount_0_0\"]/div/div[1]/div/div[3]/div/div/div[1]/div[1]/div[1]/div[2]/div/div/div/div[1]/div/div/div[2]/span/div/div[1]/div/div[2]/text()[last()]"
   }
 }
