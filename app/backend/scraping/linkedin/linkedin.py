@@ -24,10 +24,10 @@ def caller_linkedin(first_name, last_name, job_title=None, company=None, school=
 if __name__ == "__main__":
     print(
         caller_linkedin(
-            "Amy",
-            "Butler",
-            job_title="Director of Studies",
-            company="LSE",
+            "Dmytro",
+            "Ovchynnykov",
+            job_title="Software Engineer",
+            company="Xenoss",
             school="Michigan",
         )
     )

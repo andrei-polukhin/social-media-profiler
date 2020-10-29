@@ -34,6 +34,7 @@ def _custom_search(query, country):
 
 if __name__ == "__main__":
     from pprint import pprint
+
     pprint(mining("bill gates"))
     print(_get_country_code())
     print(_custom_search("pythad", "us"))

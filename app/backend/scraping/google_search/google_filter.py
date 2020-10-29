@@ -42,6 +42,7 @@ def _regex_matching_items(file_contents, items):
 
 if __name__ == "__main__":
     from app.backend.scraping.google_search.google_mining import mining
+
     findings = mining("pythad")
     print("google_filter:\n", _google_filter(findings), "\n")
     print(filtering(findings))

@@ -11,7 +11,7 @@ from app.backend.scraping.facebook.facebook_authenticate import (
 from app.backend.scraping.facebook.facebook_tech_params import (
     SEARCH_LINK,
     FOUND_LINKS_USUAL,
-    FOUND_LINKS_OTHER
+    FOUND_LINKS_OTHER,
 )
 
 
