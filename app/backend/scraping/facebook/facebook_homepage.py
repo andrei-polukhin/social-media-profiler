@@ -8,7 +8,7 @@ class FacebookHomepage:
         options = self.add_chrome_options()
         self.driver = webdriver.Chrome(ChromeDriverManager().install(), options=options)
 
-    def open_home_page(self):
+    def facebook_open_home_page(self):
         self.driver.get("https://www.facebook.com")
 
     @staticmethod
@@ -21,4 +21,4 @@ class FacebookHomepage:
 
 if __name__ == "__main__":
     o = FacebookHomepage()
-    o.open_home_page()
+    o.facebook_open_home_page()
