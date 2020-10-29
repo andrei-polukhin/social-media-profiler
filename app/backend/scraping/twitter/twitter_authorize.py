@@ -15,14 +15,14 @@ class TwitterAuthorize:
         self.auth = None
 
     def twitter_authorize(self):
-        self.twitter_get_auth()
-        self.twitter_get_api()
+        self._twitter_get_auth()
+        self._twitter_get_api()
 
-    def twitter_get_auth(self):
+    def _twitter_get_auth(self):
         self.auth = tweepy.OAuthHandler(TWITTER_API_KEY, TWITTER_API_SECRET)
         self.auth.set_access_token(TWITTER_ACCESS_TOKEN, TWITTER_ACCESS_SECRET)
 
-    def twitter_get_api(self):
+    def _twitter_get_api(self):
         self.api = tweepy.API(self.auth)
 
 

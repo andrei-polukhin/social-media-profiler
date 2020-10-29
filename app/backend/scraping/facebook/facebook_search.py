@@ -27,17 +27,17 @@ class FacebookSearchLinks(FacebookAuthenticate):
         self.regex_matching_items = []
 
     def facebook_find_scraping_links(self):
-        self.facebook_open_search_link()
-        self.facebook_check_presence_of_elements_links()
-        self.facebook_get_hrefs_of_elements()
-        self.facebook_close_browser()
+        self._facebook_open_search_link()
+        self._facebook_check_presence_of_elements_links()
+        self._facebook_get_hrefs_of_elements()
+        self._facebook_close_browser()
 
-    def facebook_open_search_link(self):
+    def _facebook_open_search_link(self):
         time.sleep(3)
         self.driver.get(self.search_link)
         self.driver.implicitly_wait(5)
 
-    def facebook_check_presence_of_elements_links(self):
+    def _facebook_check_presence_of_elements_links(self):
         try:
             self.found_elements_links = self.wait.until(
                 EC.presence_of_all_elements_located(FOUND_LINKS_USUAL)
@@ -47,7 +47,7 @@ class FacebookSearchLinks(FacebookAuthenticate):
                 EC.presence_of_all_elements_located(FOUND_LINKS_OTHER)
             )
 
-    def facebook_get_hrefs_of_elements(self):
+    def _facebook_get_hrefs_of_elements(self):
         self.hrefs_of_elements: set
         for element in self.found_elements_links:
             href = element.get_property("href")
@@ -56,7 +56,7 @@ class FacebookSearchLinks(FacebookAuthenticate):
             self.hrefs_of_elements.add(href)
         self.hrefs_of_elements = list(self.hrefs_of_elements)
 
-    def facebook_close_browser(self):
+    def _facebook_close_browser(self):
         self.driver.quit()
 
 

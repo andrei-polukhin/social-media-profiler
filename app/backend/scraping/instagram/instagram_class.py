@@ -14,32 +14,32 @@ class Instagram:
         self.filtered_info_about_subjects = []
 
     def instagram(self):
-        self.instagram_authenticate()
-        self.instagram_search_for_subjects()
-        self.instagram_get_ids_of_found_subjects()
-        self.instagram_extract_info_with_subject_ids()
-        self.instagram_filter_info_about_subjects()
-        self.instagram_logout()
+        self._instagram_authenticate()
+        self._instagram_search_for_subjects()
+        self._instagram_get_ids_of_found_subjects()
+        self._instagram_extract_info_with_subject_ids()
+        self._instagram_filter_info_about_subjects()
+        self._instagram_logout()
 
-    def instagram_authenticate(self):
+    def _instagram_authenticate(self):
         self.api = Client(INSTAGRAM_LOGIN, INSTAGRAM_PASSWORD)
 
-    def instagram_search_for_subjects(self):
+    def _instagram_search_for_subjects(self):
         self.found_subjects = self.api.search_users(self.query)
 
-    def instagram_get_ids_of_found_subjects(self):
+    def _instagram_get_ids_of_found_subjects(self):
         users_info_as_list = self.found_subjects["users"]
         for user_as_dict in users_info_as_list:
             user_id = user_as_dict["pk"]
             self.subject_ids.append(user_id)
 
-    def instagram_extract_info_with_subject_ids(self):
+    def _instagram_extract_info_with_subject_ids(self):
         for subject_id in self.subject_ids:
             subject_extracted_info_as_dict = self.api.user_info(subject_id)
             subject_extracted_info = subject_extracted_info_as_dict["user"]
             self.extracted_info_about_subjects.append(subject_extracted_info)
 
-    def instagram_filter_info_about_subjects(self):
+    def _instagram_filter_info_about_subjects(self):
         for info_about_subject in self.extracted_info_about_subjects:
             sorted_dictionary = {
                 k: v
@@ -60,7 +60,7 @@ class Instagram:
             }
             self.filtered_info_about_subjects.append(sorted_dictionary)
 
-    def instagram_logout(self):
+    def _instagram_logout(self):
         self.api.logout()
 
 

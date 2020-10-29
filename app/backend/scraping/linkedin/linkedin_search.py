@@ -15,18 +15,18 @@ class LinkedinSearch:
         self.potential_subjects = []
 
     def linkedin_search(self):
-        self.linkedin_authenticate()
-        self.linkedin_search_for_subjects()
+        self._linkedin_authenticate()
+        self._linkedin_search_for_subjects()
 
-    def linkedin_authenticate(self):
+    def _linkedin_authenticate(self):
         self.api = LinkedinAPI(LINKEDIN_LOGIN, LINKEDIN_PASSWORD)
 
-    def linkedin_search_for_subjects(self):
-        self.linkedin_search_in_ideal_case()
+    def _linkedin_search_for_subjects(self):
+        self._linkedin_search_in_ideal_case()
         if not self.found_subjects:
-            self.linkedin_search_for_potential_candidate()
+            self._linkedin_search_for_potential_candidate()
 
-    def linkedin_search_in_ideal_case(self):
+    def _linkedin_search_in_ideal_case(self):
         if self.keyword_company and self.keyword_school and self.keyword_title:
             self.found_subjects = self.api.search_people(
                 keyword_first_name=self.first_name,
@@ -36,7 +36,7 @@ class LinkedinSearch:
                 keyword_title=self.keyword_title,
             )
 
-    def linkedin_search_for_potential_candidate(self):
+    def _linkedin_search_for_potential_candidate(self):
         for i in range(3):
             try:
                 results = self.api.search_people(

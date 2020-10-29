@@ -9,10 +9,10 @@ class LinkedinSearchSubjects(LinkedinFilter):
         self.searching_instructions = {}
 
     def linkedin_search_for_info(self):
-        self.linkedin_search_for_all_subjects()
-        self.linkedin_filter_for_all_subjects()
+        self._linkedin_search_for_all_subjects()
+        self._linkedin_filter_all_subjects()
 
-    def linkedin_search_for_all_subjects(self):
+    def _linkedin_search_for_all_subjects(self):
         self.searching_instructions = {
             0: {0: self.found_subjects, 1: self.found_subjects_info},
             1: {
@@ -27,7 +27,7 @@ class LinkedinSearchSubjects(LinkedinFilter):
                 subject_info = self.api.get_profile(subject_id)
                 list_to_append_subjects.append(subject_info)
 
-    def linkedin_filter_for_all_subjects(self):
+    def _linkedin_filter_all_subjects(self):
         filtering_lists = [
             self.found_subjects_info,
             self.potential_subjects_after_filtering_info,

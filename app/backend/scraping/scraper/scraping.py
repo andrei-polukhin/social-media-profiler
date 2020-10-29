@@ -11,39 +11,39 @@ def scraping(list_of_links_and_configs):
     loop = asyncio.get_event_loop()
     nest_asyncio.apply(loop)
     responses = loop.run_until_complete(
-        organize_tasks(loop, *list_of_links_and_configs)
+        _organize_tasks(loop, *list_of_links_and_configs)
     )
     for response in responses:
         results.append(response)
     return results
 
 
-async def organize_tasks(loop, *tuples_of_links_and_configs):
+async def _organize_tasks(loop, *tuples_of_links_and_configs):
     tasks = []
     async with aiohttp.ClientSession(loop=loop) as session:
         for tuple_of_link_and_config in tuples_of_links_and_configs:
-            tasks.append(scraper(session, tuple_of_link_and_config))
+            tasks.append(_scraper(session, tuple_of_link_and_config))
         return await asyncio.gather(*tasks)
 
 
-async def scraper(session, tuple_of_link_and_config):
+async def _scraper(session, tuple_of_link_and_config):
     link, config = tuple_of_link_and_config
-    html_string = await get_html_string(session, link)
-    html_tree = await get_html_tree(html_string)
-    result = await find_element(link, html_tree, config)
+    html_string = await _get_html_string(session, link)
+    html_tree = await _get_html_tree(html_string)
+    result = await _find_element(link, html_tree, config)
     return result
 
 
-async def get_html_string(session, link):
+async def _get_html_string(session, link):
     async with session.get(link) as response:
         return await response.text()
 
 
-async def get_html_tree(html_tree):
+async def _get_html_tree(html_tree):
     return html.fromstring(html_tree)
 
 
-async def find_element(link, html_tree, conf):
+async def _find_element(link, html_tree, conf):
     result = {"service_name": conf["service_name"], "link": link}
     service_name = conf.pop("service_name", None)
     for field in conf:
@@ -70,9 +70,8 @@ async def find_element(link, html_tree, conf):
 
 
 if __name__ == "__main__":
-    from app.backend.scraping.google_search.mining import mining
-    from app.backend.scraping.google_search.filtering import filtering
-
+    from app.backend.scraping.google_search.google_mining import mining
+    from app.backend.scraping.google_search.google_filter import filtering
     findings = mining("pythad")
     filtered = filtering(findings)
     print(scraping(filtered))

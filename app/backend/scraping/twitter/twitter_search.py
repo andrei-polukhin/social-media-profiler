@@ -10,19 +10,19 @@ class TwitterSearch(TwitterAuthorize):
         self.filtered_subjects_info = []
 
     def twitter_search(self):
-        self.twitter_search_subjects_with_api()
-        self.twitter_transform_subjects_to_dicts()
-        self.twitter_filter_subjects_info()
+        self._twitter_search_subjects_with_api()
+        self._twitter_transform_subjects_to_dicts()
+        self._twitter_filter_subjects_info()
 
-    def twitter_search_subjects_with_api(self):
+    def _twitter_search_subjects_with_api(self):
         self.found_subjects = self.api.search_users(self.query)
 
-    def twitter_transform_subjects_to_dicts(self):
+    def _twitter_transform_subjects_to_dicts(self):
         for user_object in self.found_subjects:
             user_as_dict = vars(user_object)
             self.found_subjects_info.append(user_as_dict)
 
-    def twitter_filter_subjects_info(self):
+    def _twitter_filter_subjects_info(self):
         for subject_info in self.found_subjects_info:
             filtered_subject_info = {
                 k: v
