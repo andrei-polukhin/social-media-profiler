@@ -6,10 +6,13 @@ import re
 from urllib.parse import quote
 from selenium.webdriver.support import expected_conditions as EC
 
-from app.backend.data_scraping.facebook.facebook_authenticate \
-    import FacebookAuthenticate
-from app.backend.data_scraping.facebook.facebook_tech_params \
-    import SEARCH_LINK, FOUND_LINKS
+from app.backend.data_scraping.facebook.facebook_authenticate import (
+    FacebookAuthenticate,
+)
+from app.backend.data_scraping.facebook.facebook_tech_params import (
+    SEARCH_LINK,
+    FOUND_LINKS,
+)
 
 
 class FacebookSearchLinks(FacebookAuthenticate):
@@ -36,9 +39,7 @@ class FacebookSearchLinks(FacebookAuthenticate):
 
     def check_presence_of_elements_links(self):
         self.found_elements_links = self.wait.until(
-            EC.presence_of_all_elements_located(
-                FOUND_LINKS
-            )
+            EC.presence_of_all_elements_located(FOUND_LINKS)
         )
 
     def get_hrefs_of_elements(self):

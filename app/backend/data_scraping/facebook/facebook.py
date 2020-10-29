@@ -1,6 +1,5 @@
 # -*- coding: utf-8 -*-
-from app.backend.data_scraping.facebook.facebook_search \
-    import FacebookSearchLinks
+from app.backend.data_scraping.facebook.facebook_search import FacebookSearchLinks
 from app.backend.data_scraping.scraper.scraping import scraping
 
 

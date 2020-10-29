@@ -16,9 +16,7 @@ class LinkedinFilter(LinkedinSearch):
 
     def linkedin_get_subjects_ids(self):
         for subject_as_dict in self.potential_subjects:
-            self.potential_subjects_public_ids.append(
-                subject_as_dict["public_id"]
-            )
+            self.potential_subjects_public_ids.append(subject_as_dict["public_id"])
 
     def linkedin_sort_subjects_public_ids_by_frequency_in_list(self):
         counted_candidates_ids = Counter(self.potential_subjects_public_ids)

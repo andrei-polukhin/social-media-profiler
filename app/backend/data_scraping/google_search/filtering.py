@@ -15,9 +15,7 @@ def google_filter(items):
     end_list = []
     for item in items:
         cleaned_dict = {
-            k: v
-            for k, v in item.items()
-            if k in {"title", "link", "snippet"}
+            k: v for k, v in item.items() if k in {"title", "link", "snippet"}
         }
         end_list.append(cleaned_dict)
     return end_list
@@ -44,6 +42,7 @@ def regex_matching_items(file_contents, items):
 
 if __name__ == "__main__":
     from app.backend.data_scraping.google_search.mining import mining
+
     findings = mining("pythad")
     print("google_filter:\n", google_filter(findings), "\n")
     print(filtering(findings))

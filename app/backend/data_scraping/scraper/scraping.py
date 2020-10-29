@@ -44,15 +44,12 @@ async def get_html_tree(html_tree):
 
 
 async def find_element(link, html_tree, conf):
-    result = {
-        "service_name": conf["service_name"],
-        "link": link
-    }
+    result = {"service_name": conf["service_name"], "link": link}
     service_name = conf.pop("service_name", None)
     for field in conf:
         xpath_or_with_endpoint = conf[field]
         if isinstance(xpath_or_with_endpoint, dict):
-            (endpoint, xpath), = xpath_or_with_endpoint.items()
+            ((endpoint, xpath),) = xpath_or_with_endpoint.items()
         else:
             xpath = xpath_or_with_endpoint
             endpoint = None
@@ -64,8 +61,7 @@ async def find_element(link, html_tree, conf):
         except AttributeError:
             scraped = list(scraped)
         for i, scraped_item in enumerate(scraped):
-            scraped[i] = scraped_item if endpoint is None \
-                else endpoint + scraped_item
+            scraped[i] = scraped_item if endpoint is None else endpoint + scraped_item
         if len(scraped) == 1:
             scraped = scraped[0]
         result[field] = scraped
@@ -76,6 +72,7 @@ async def find_element(link, html_tree, conf):
 if __name__ == "__main__":
     from app.backend.data_scraping.google_search.mining import mining
     from app.backend.data_scraping.google_search.filtering import filtering
+
     findings = mining("pythad")
     filtered = filtering(findings)
     print(scraping(filtered))

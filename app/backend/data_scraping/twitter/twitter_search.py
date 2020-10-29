@@ -1,5 +1,4 @@
-from app.backend.data_scraping.twitter.twitter_authorize \
-    import TwitterAuthorize
+from app.backend.data_scraping.twitter.twitter_authorize import TwitterAuthorize
 
 
 class TwitterSearch(TwitterAuthorize):
@@ -16,9 +15,7 @@ class TwitterSearch(TwitterAuthorize):
         self.twitter_filter_subjects_info()
 
     def twitter_search_subjects_with_api(self):
-        self.found_subjects = self.api.search_users(
-            self.query
-        )
+        self.found_subjects = self.api.search_users(self.query)
 
     def twitter_transform_subjects_to_dicts(self):
         for user_object in self.found_subjects:
@@ -30,7 +27,8 @@ class TwitterSearch(TwitterAuthorize):
             filtered_subject_info = {
                 k: v
                 for k, v in subject_info.items()
-                if k in [
+                if k
+                in [
                     "name",
                     "screen_name",
                     "location",
@@ -38,8 +36,7 @@ class TwitterSearch(TwitterAuthorize):
                     "followers_count",
                     "friends_count",
                     "profile_image_url_https",
-                    "url"
-
+                    "url",
                 ]
             }
             self.filtered_subjects_info.append(filtered_subject_info)

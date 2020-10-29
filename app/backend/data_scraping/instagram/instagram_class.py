@@ -42,8 +42,10 @@ class Instagram:
     def instagram_filter_info_about_subjects(self):
         for info_about_subject in self.extracted_info_about_subjects:
             sorted_dictionary = {
-                k: v for k, v in info_about_subject.items()
-                if k in [
+                k: v
+                for k, v in info_about_subject.items()
+                if k
+                in [
                     "username",
                     "full_name",
                     "profile_pic_url",
@@ -53,7 +55,7 @@ class Instagram:
                     "biography",
                     "public_email",
                     "public_phone_number",
-                    "whatsapp_number"
+                    "whatsapp_number",
                 ]
             }
             self.filtered_info_about_subjects.append(sorted_dictionary)
