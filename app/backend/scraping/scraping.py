@@ -22,11 +22,6 @@ def main_scraping(
     full_name = " ".join([first_name, last_name])
     with ProcessPoolExecutor(max_workers=5) as pool:
         facebook_pool = pool.submit(caller_facebook, query=full_name)
-        google_search_pool = pool.submit(caller_google_search, name=full_name, **kwargs)
-        instagram_pool = pool.submit(
-            caller_instagram,
-            query=instagram_profile if instagram_profile else full_name,
-        )
         linkedin_pool = pool.submit(
             caller_linkedin,
             first_name=first_name,
@@ -35,6 +30,11 @@ def main_scraping(
             company=company,
             school=school,
         )
+        instagram_pool = pool.submit(
+            caller_instagram,
+            query=instagram_profile if instagram_profile else full_name,
+        )
+        google_search_pool = pool.submit(caller_google_search, name=full_name, **kwargs)
         twitter_pool = pool.submit(
             caller_twitter, query=twitter_profile if twitter_profile else full_name
         )
