@@ -6,10 +6,12 @@ from webdriver_manager.chrome import ChromeDriverManager
 class FacebookHomepage:
     def __init__(self):
         options = self.add_chrome_options()
-        self.driver = webdriver.Chrome(ChromeDriverManager().install(), options=options)
+        self.__driver = webdriver.Chrome(
+            ChromeDriverManager().install(), options=options
+        )
 
     def facebook_open_home_page(self):
-        self.driver.get("https://www.facebook.com")
+        self.__driver.get("https://www.facebook.com")
 
     @staticmethod
     def add_chrome_options():

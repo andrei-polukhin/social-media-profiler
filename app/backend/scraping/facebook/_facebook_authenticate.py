@@ -14,10 +14,10 @@ from app.backend.scraping.facebook._facebook_homepage import FacebookHomepage
 class FacebookAuthenticate(FacebookHomepage):
     def __init__(self):
         super().__init__()
-        self.wait = WebDriverWait(self.driver, 5)
-        self.login_field = None
-        self.pass_field = None
-        self.submit_button = None
+        self.__wait = WebDriverWait(self.__driver, 5)
+        self._login_field = None
+        self._pass_field = None
+        self._submit_button = None
 
     def facebook_authenticate(self):
         self._facebook_find_login_and_password_fields()
@@ -29,16 +29,22 @@ class FacebookAuthenticate(FacebookHomepage):
         login_value = EMAIL_FIELD[1]
         pass_selector = PASSWORD_FIELD[0]
         pass_value = PASSWORD_FIELD[1]
-        self.login_field = self.driver.find_element(login_selector, login_value)
-        self.pass_field = self.driver.find_element(pass_selector, pass_value)
+        self._login_field = self.__driver.find_element(
+            login_selector, login_value
+        )
+        self._pass_field = self.__driver.find_element(
+            pass_selector, pass_value
+        )
 
     def _facebook_send_credentials(self):
-        self.login_field.send_keys(FACEBOOK_LOGIN)
-        self.pass_field.send_keys(FACEBOOK_PASSWORD)
+        self._login_field.send_keys(FACEBOOK_LOGIN)
+        self._pass_field.send_keys(FACEBOOK_PASSWORD)
 
     def _facebook_find_and_click_on_submit_button(self):
-        self.submit_button = self.wait.until(EC.element_to_be_clickable(SUBMIT_BUTTON))
-        self.submit_button.click()
+        self._submit_button = self.__wait.until(
+            EC.element_to_be_clickable(SUBMIT_BUTTON)
+        )
+        self._submit_button.click()
 
 
 if __name__ == "__main__":

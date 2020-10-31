@@ -11,25 +11,25 @@ class LinkedinSearch:
         self.keyword_company = company
         self.keyword_school = school
         self.keyword_title = job_title
-        self.api = None
-        self.found_subjects = []
-        self.potential_subjects = []
+        self.__api = None
+        self._found_subjects = []
+        self._potential_subjects = []
 
     def linkedin_search(self):
         self._linkedin_authenticate()
         self._linkedin_search_for_subjects()
 
     def _linkedin_authenticate(self):
-        self.api = LinkedinAPI(LINKEDIN_LOGIN, LINKEDIN_PASSWORD)
+        self.__api = LinkedinAPI(LINKEDIN_LOGIN, LINKEDIN_PASSWORD)
 
     def _linkedin_search_for_subjects(self):
         self._linkedin_search_in_ideal_case()
-        if not self.found_subjects:
+        if not self._found_subjects:
             self._linkedin_search_for_potential_candidate()
 
     def _linkedin_search_in_ideal_case(self):
         if self.keyword_company and self.keyword_school and self.keyword_title:
-            self.found_subjects = self.api.search_people(
+            self._found_subjects = self.__api.search_people(
                 keyword_first_name=self.first_name,
                 keyword_last_name=self.last_name,
                 keyword_company=self.keyword_company,
@@ -40,7 +40,7 @@ class LinkedinSearch:
     def _linkedin_search_for_potential_candidate(self):
         for i in range(3):
             try:
-                results = self.api.search_people(
+                results = self.__api.search_people(
                     keyword_first_name=self.first_name,
                     keyword_last_name=self.last_name,
                     keyword_company=None
@@ -61,4 +61,4 @@ class LinkedinSearch:
                 )
             except ZeroDivisionError:
                 continue
-            self.potential_subjects.extend(results)
+            self._potential_subjects.extend(results)

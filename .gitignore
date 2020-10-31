@@ -2,3 +2,4 @@
 __pycache__/
 app/backend/_config.py
 .idea/
+**/cookie_settings.json

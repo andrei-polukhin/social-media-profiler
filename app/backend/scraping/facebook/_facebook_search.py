@@ -18,12 +18,11 @@ from app.backend.scraping.facebook._facebook_tech_params import (
 class FacebookSearchLinks(FacebookAuthenticate):
     def __init__(self, query):
         super().__init__()
-        self.encoded_query = quote(query)
-        self.search_link = SEARCH_LINK + self.encoded_query
-        self.found_elements_links = None
-        self.hrefs_of_elements = set()
-        self.file_contents = {}
-        self.params_keys = []
+        self._search_link = SEARCH_LINK + quote(query)
+        self._found_elements_links = None
+        self._hrefs_of_elements = set()
+        self._file_contents = {}
+        self._params_keys = []
         self.regex_matching_items = []
 
     def facebook_find_scraping_links(self):
@@ -34,30 +33,30 @@ class FacebookSearchLinks(FacebookAuthenticate):
 
     def _facebook_open_search_link(self):
         time.sleep(3)
-        self.driver.get(self.search_link)
-        self.driver.implicitly_wait(5)
+        self.__driver.get(self._search_link)
+        self.__driver.implicitly_wait(5)
 
     def _facebook_check_presence_of_elements_links(self):
         try:
-            self.found_elements_links = self.wait.until(
+            self._found_elements_links = self.__wait.until(
                 EC.presence_of_all_elements_located(FOUND_LINKS_USUAL)
             )
         except TimeoutException:
-            self.found_elements_links = self.wait.until(
+            self._found_elements_links = self.__wait.until(
                 EC.presence_of_all_elements_located(FOUND_LINKS_OTHER)
             )
 
     def _facebook_get_hrefs_of_elements(self):
-        self.hrefs_of_elements: set
-        for element in self.found_elements_links:
+        self._hrefs_of_elements: set
+        for element in self._found_elements_links:
             href = element.get_property("href")
             if not href.endswith("/"):
                 href = href + "/"
-            self.hrefs_of_elements.add(href)
-        self.hrefs_of_elements = list(self.hrefs_of_elements)
+            self._hrefs_of_elements.add(href)
+        self._hrefs_of_elements = list(self._hrefs_of_elements)
 
     def _facebook_close_browser(self):
-        self.driver.quit()
+        self.__driver.quit()
 
 
 if __name__ == "__main__":

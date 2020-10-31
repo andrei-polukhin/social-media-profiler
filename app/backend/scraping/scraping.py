@@ -34,9 +34,12 @@ def main_scraping(
             caller_instagram,
             query=instagram_profile if instagram_profile else full_name,
         )
-        google_search_pool = pool.submit(caller_google_search, name=full_name, **kwargs)
+        google_search_pool = pool.submit(
+            caller_google_search, name=full_name, **kwargs
+        )
         twitter_pool = pool.submit(
-            caller_twitter, query=twitter_profile if twitter_profile else full_name
+            caller_twitter, query=twitter_profile
+            if twitter_profile else full_name
         )
     scraping_results.extend(
         [

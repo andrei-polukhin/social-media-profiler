@@ -11,20 +11,19 @@ from app.backend._config import (
 
 class TwitterAuthorize:
     def __init__(self):
-        self.redirect_url = ""
-        self.api = None
-        self.auth = None
+        self.__api = None
+        self.__auth = None
 
     def twitter_authorize(self):
         self._twitter_get_auth()
         self._twitter_get_api()
 
     def _twitter_get_auth(self):
-        self.auth = tweepy.OAuthHandler(TWITTER_API_KEY, TWITTER_API_SECRET)
-        self.auth.set_access_token(TWITTER_ACCESS_TOKEN, TWITTER_ACCESS_SECRET)
+        self.__auth = tweepy.OAuthHandler(TWITTER_API_KEY, TWITTER_API_SECRET)
+        self.__auth.set_access_token(TWITTER_ACCESS_TOKEN, TWITTER_ACCESS_SECRET)
 
     def _twitter_get_api(self):
-        self.api = tweepy.API(self.auth)
+        self.__api = tweepy.API(self.__auth)
 
 
 if __name__ == "__main__":

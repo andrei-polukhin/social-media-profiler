@@ -13,7 +13,9 @@ def caller_linkedin(first_name, last_name, job_title=None, company=None, school=
     linkedin_obj.linkedin_filter()
     linkedin_obj.linkedin_search_for_info()
     results_to_filter["linkedin"] = list_of_all_items = []
-    list_of_all_items.append({"found_subjects": linkedin_obj.found_subjects_info})
+    list_of_all_items.append(
+        {"found_subjects": linkedin_obj.found_subjects_info}
+    )
     list_of_all_items.append(
         {
             "potential_subjects_after_filtering": linkedin_obj.potential_subjects_after_filtering_info
