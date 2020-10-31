@@ -1,4 +1,5 @@
-from app.backend.scraping.twitter.twitter_search import TwitterSearch
+# -*- coding: utf-8 -*-
+from app.backend.scraping.twitter._twitter_search import TwitterSearch
 
 
 def caller_twitter(query):

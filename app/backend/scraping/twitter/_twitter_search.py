@@ -1,4 +1,5 @@
-from app.backend.scraping.twitter.twitter_authorize import TwitterAuthorize
+# -*- coding: utf-8 -*-
+from app.backend.scraping.twitter._twitter_authorize import TwitterAuthorize
 
 
 class TwitterSearch(TwitterAuthorize):

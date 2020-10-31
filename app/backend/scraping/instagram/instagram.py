@@ -1,4 +1,5 @@
-from app.backend.scraping.instagram.instagram_class import Instagram
+# -*- coding: utf-8 -*-
+from app.backend.scraping.instagram._instagram_class import Instagram
 
 
 def caller_instagram(query):

@@ -1,4 +1,5 @@
-from app.backend.scraping.linkedin.linkedin_filter import LinkedinFilter
+# -*- coding: utf-8 -*-
+from app.backend.scraping.linkedin._linkedin_filter import LinkedinFilter
 
 
 class LinkedinSearchSubjects(LinkedinFilter):

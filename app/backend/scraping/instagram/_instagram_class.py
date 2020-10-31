@@ -1,6 +1,7 @@
+# -*- coding: utf-8 -*-
 from instagram_private_api import Client
 
-from app.backend.config import INSTAGRAM_LOGIN, INSTAGRAM_PASSWORD
+from app.backend._config import INSTAGRAM_LOGIN, INSTAGRAM_PASSWORD
 
 
 class Instagram:

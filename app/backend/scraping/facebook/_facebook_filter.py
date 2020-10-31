@@ -1,6 +1,7 @@
+# -*- coding: utf-8 -*-
 import json
 import re
-from app.backend.scraping.facebook.facebook_search import FacebookSearchLinks
+from app.backend.scraping.facebook._facebook_search import FacebookSearchLinks
 
 
 class FacebookFilterLinks(FacebookSearchLinks):

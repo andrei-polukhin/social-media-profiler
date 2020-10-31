@@ -1,6 +1,7 @@
+# -*- coding: utf-8 -*-
 import tweepy
 
-from app.backend.config import (
+from app.backend._config import (
     TWITTER_API_KEY,
     TWITTER_API_SECRET,
     TWITTER_ACCESS_TOKEN,

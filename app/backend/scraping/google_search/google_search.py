@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
-from app.backend.scraping.google_search.google_mining import mining
-from app.backend.scraping.google_search.google_filter import filtering
+from app.backend.scraping.google_search._google_mining import mining
+from app.backend.scraping.google_search._google_filter import filtering
 from app.backend.scraping.scraper.scraping import scraping
 
 

@@ -1,6 +1,7 @@
+# -*- coding: utf-8 -*-
 from collections import Counter
 
-from app.backend.scraping.linkedin.linkedin_search import LinkedinSearch
+from app.backend.scraping.linkedin._linkedin_search import LinkedinSearch
 
 
 class LinkedinFilter(LinkedinSearch):

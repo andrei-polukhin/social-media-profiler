@@ -1,6 +1,7 @@
+# -*- coding: utf-8 -*-
 from linkedin_api import Linkedin as LinkedinAPI
 
-from app.backend.config import LINKEDIN_LOGIN, LINKEDIN_PASSWORD
+from app.backend._config import LINKEDIN_LOGIN, LINKEDIN_PASSWORD
 
 
 class LinkedinSearch:

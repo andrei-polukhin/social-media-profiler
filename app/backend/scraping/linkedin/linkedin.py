@@ -1,4 +1,5 @@
-from app.backend.scraping.linkedin.linkedin_search_info import (
+# -*- coding: utf-8 -*-
+from app.backend.scraping.linkedin._linkedin_search_info import (
     LinkedinSearchSubjects,
 )
 

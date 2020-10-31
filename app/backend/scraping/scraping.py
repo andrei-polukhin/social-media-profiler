@@ -1,3 +1,4 @@
+# -*- coding: utf-8 -*-
 from concurrent.futures import ProcessPoolExecutor
 
 from app.backend.scraping.facebook.facebook import caller_facebook
