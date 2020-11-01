@@ -12,4 +12,4 @@ def caller_instagram(query):
 
 
 if __name__ == "__main__":
-    print(caller_instagram("cocacola"))
+    print(caller_instagram("fuck.em.idc"))

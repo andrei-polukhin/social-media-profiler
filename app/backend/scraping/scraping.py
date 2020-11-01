@@ -28,11 +28,11 @@ def main_scraping(
             last_name=last_name,
             job_title=job_title,
             company=company,
-            school=school,
+            school=school
         )
         instagram_pool = pool.submit(
             caller_instagram,
-            query=instagram_profile if instagram_profile else full_name,
+            query=instagram_profile if instagram_profile else full_name
         )
         google_search_pool = pool.submit(
             caller_google_search, name=full_name, **kwargs
@@ -55,10 +55,12 @@ def main_scraping(
 
 if __name__ == "__main__":
     response = main_scraping(
-        first_name="Amy",
-        last_name="Butler",
-        company="The London School of English",
-        job_title="Director of Studies",
-        school="University of Cambridge",
-        twitter_profile="WayfarersBook",
+        first_name="Dmytro",
+        last_name="Ovchynnykov",
+        company="Xenoss",
+        job_title="Software Engineer",
+        school="Institute of Mathematics NAS of Ukraine",
+        twitter_profile="Dmytro Ovchynnkov",
+        github="Odvin"
     )
+    print(response)

@@ -16,7 +16,7 @@ class TwitterSearch(TwitterAuthorize):
         self._twitter_filter_subjects_info()
 
     def _twitter_search_subjects_with_api(self):
-        self._found_subjects = self.__api.search_users(self.query)
+        self._found_subjects = self._api.search_users(self.query)
 
     def _twitter_transform_subjects_to_dicts(self):
         for user_object in self._found_subjects:

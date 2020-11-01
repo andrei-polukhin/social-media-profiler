@@ -17,7 +17,7 @@ from app.backend.scraping.facebook._facebook_tech_params import (
 
 class FacebookSearchLinks(FacebookAuthenticate):
     def __init__(self, query):
-        super().__init__()
+        super(FacebookSearchLinks, self).__init__()
         self._search_link = SEARCH_LINK + quote(query)
         self._found_elements_links = None
         self._hrefs_of_elements = set()
@@ -33,16 +33,16 @@ class FacebookSearchLinks(FacebookAuthenticate):
 
     def _facebook_open_search_link(self):
         time.sleep(3)
-        self.__driver.get(self._search_link)
-        self.__driver.implicitly_wait(5)
+        self._driver.get(self._search_link)
+        self._driver.implicitly_wait(5)
 
     def _facebook_check_presence_of_elements_links(self):
         try:
-            self._found_elements_links = self.__wait.until(
+            self._found_elements_links = self._wait.until(
                 EC.presence_of_all_elements_located(FOUND_LINKS_USUAL)
             )
         except TimeoutException:
-            self._found_elements_links = self.__wait.until(
+            self._found_elements_links = self._wait.until(
                 EC.presence_of_all_elements_located(FOUND_LINKS_OTHER)
             )
 
@@ -56,7 +56,7 @@ class FacebookSearchLinks(FacebookAuthenticate):
         self._hrefs_of_elements = list(self._hrefs_of_elements)
 
     def _facebook_close_browser(self):
-        self.__driver.quit()
+        self._driver.quit()
 
 
 if __name__ == "__main__":

@@ -8,7 +8,7 @@ def dump_to_json(python_object):
             "__class__": "bytes",
             "__value__": codecs.encode(python_object, "base64").decode(),
         }
-    raise TypeError(repr(python_object) + " is not JSON serializable")
+    raise TypeError(repr(python_object) + " is not JSON serializable.")
 
 
 def load_from_json(json_object):

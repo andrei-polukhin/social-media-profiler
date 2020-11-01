@@ -11,7 +11,7 @@ from app.backend._config import (
 
 class TwitterAuthorize:
     def __init__(self):
-        self.__api = None
+        self._api = None
         self.__auth = None
 
     def twitter_authorize(self):
@@ -23,7 +23,7 @@ class TwitterAuthorize:
         self.__auth.set_access_token(TWITTER_ACCESS_TOKEN, TWITTER_ACCESS_SECRET)
 
     def _twitter_get_api(self):
-        self.__api = tweepy.API(self.__auth)
+        self._api = tweepy.API(self.__auth)
 
 
 if __name__ == "__main__":

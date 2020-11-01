@@ -13,4 +13,4 @@ def caller_twitter(query):
 
 
 if __name__ == "__main__":
-    print(caller_twitter("code"))
+    print(caller_twitter("Dmytro Ovchynnykov"))

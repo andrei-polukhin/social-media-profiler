@@ -7,10 +7,11 @@ from app.backend.scraping.linkedin._linkedin_search_info import (
 def caller_linkedin(first_name, last_name, job_title=None, company=None, school=None):
     results_to_filter = {}
     linkedin_obj = LinkedinSearchSubjects(
-        first_name, last_name, job_title, company, school
+        first_name=first_name, last_name=last_name,
+        job_title=job_title, company=company, school=school
     )
     linkedin_obj.linkedin_search()
-    linkedin_obj.linkedin_filter()
+    linkedin_obj.linkedin_find_ids()
     linkedin_obj.linkedin_search_for_info()
     results_to_filter["linkedin"] = list_of_all_items = []
     list_of_all_items.append(
@@ -18,7 +19,7 @@ def caller_linkedin(first_name, last_name, job_title=None, company=None, school=
     )
     list_of_all_items.append(
         {
-            "potential_subjects_after_filtering": linkedin_obj.potential_subjects_after_filtering_info
+            "potential_subjects_after_filtering": linkedin_obj.potential_subjects_info_after_filtering
         }
     )
     return results_to_filter

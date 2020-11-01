@@ -6,7 +6,7 @@ from app.backend.scraping.facebook._facebook_search import FacebookSearchLinks
 
 class FacebookFilterLinks(FacebookSearchLinks):
     def __init__(self, query):
-        super().__init__(query)
+        super(FacebookFilterLinks, self).__init__(query)
         self.file_contents = {}
         self.params_keys = []
 
