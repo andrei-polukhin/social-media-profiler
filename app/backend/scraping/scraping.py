@@ -55,12 +55,12 @@ def main_scraping(
 
 if __name__ == "__main__":
     response = main_scraping(
-        first_name="Dmytro",
-        last_name="Ovchynnykov",
-        company="Xenoss",
-        job_title="Software Engineer",
-        school="Institute of Mathematics NAS of Ukraine",
-        twitter_profile="Dmytro Ovchynnkov",
-        github="Odvin"
+        first_name="Amy",
+        last_name="Butler",
+        company="The London School of English",
+        job_title="Director of Studies",
+        school="University of Cambridge",
+        twitter_profile="WayfarersBook",
+        instagram_profile="wayfarersbook"
     )
     print(response)
