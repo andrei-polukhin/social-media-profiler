@@ -1,12 +1,12 @@
 # -*- coding: utf-8 -*-
 from concurrent.futures import ProcessPoolExecutor
+from dotenv import load_dotenv
 
 from app.backend.scraping.facebook.facebook import caller_facebook
 from app.backend.scraping.google_search.google_search import caller_google_search
 from app.backend.scraping.instagram.instagram import caller_instagram
 from app.backend.scraping.linkedin.linkedin import caller_linkedin
 from app.backend.scraping.twitter.twitter import caller_twitter
-from dotenv import load_dotenv
 
 
 def main_scraping(

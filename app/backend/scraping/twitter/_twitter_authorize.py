@@ -13,8 +13,12 @@ class TwitterAuthorize:
         self._twitter_get_api()
 
     def _twitter_get_auth(self):
-        self.__auth = tweepy.OAuthHandler(os.getenv("TWITTER_API_KEY"), os.getenv("TWITTER_API_SECRET"))
-        self.__auth.set_access_token(os.getenv("TWITTER_ACCESS_TOKEN"), os.getenv("TWITTER_ACCESS_SECRET"))
+        self.__auth = tweepy.OAuthHandler(
+            os.getenv("TWITTER_API_KEY"), os.getenv("TWITTER_API_SECRET")
+        )
+        self.__auth.set_access_token(
+            os.getenv("TWITTER_ACCESS_TOKEN"), os.getenv("TWITTER_ACCESS_SECRET")
+        )
 
     def _twitter_get_api(self):
         self._api = tweepy.API(self.__auth)

@@ -19,7 +19,8 @@ def caller_linkedin(first_name, last_name, job_title=None, company=None, school=
     )
     list_of_all_items.append(
         {
-            "potential_subjects_after_filtering": linkedin_obj.potential_subjects_info_after_filtering
+            "potential_subjects_after_filtering":
+                linkedin_obj.potential_subjects_info_after_filtering
         }
     )
     return results_to_filter
