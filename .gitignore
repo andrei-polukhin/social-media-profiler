@@ -1,5 +1,5 @@
 .vscode/
 __pycache__/
-app/backend/_config.py
 .idea/
 **/cookie_settings.json
+app/backend/scraping/.env

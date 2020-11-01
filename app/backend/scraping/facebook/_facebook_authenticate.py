@@ -1,4 +1,5 @@
 # -*- coding: utf-8 -*-
+import os
 from selenium.webdriver.support import expected_conditions as EC
 from selenium.webdriver.support.ui import WebDriverWait
 
@@ -7,7 +8,6 @@ from app.backend.scraping.facebook._facebook_tech_params import (
     PASSWORD_FIELD,
     SUBMIT_BUTTON,
 )
-from app.backend._config import FACEBOOK_LOGIN, FACEBOOK_PASSWORD
 from app.backend.scraping.facebook._facebook_homepage import FacebookHomepage
 
 
@@ -37,8 +37,8 @@ class FacebookAuthenticate(FacebookHomepage):
         )
 
     def _facebook_send_credentials(self):
-        self._login_field.send_keys(FACEBOOK_LOGIN)
-        self._pass_field.send_keys(FACEBOOK_PASSWORD)
+        self._login_field.send_keys(os.getenv("FACEBOOK_LOGIN"))
+        self._pass_field.send_keys(os.getenv("FACEBOOK_PASSWORD"))
 
     def _facebook_find_and_click_on_submit_button(self):
         self._submit_button = self._wait.until(

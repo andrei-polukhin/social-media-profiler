@@ -1,12 +1,6 @@
 # -*- coding: utf-8 -*-
+import os
 import tweepy
-
-from app.backend._config import (
-    TWITTER_API_KEY,
-    TWITTER_API_SECRET,
-    TWITTER_ACCESS_TOKEN,
-    TWITTER_ACCESS_SECRET,
-)
 
 
 class TwitterAuthorize:
@@ -19,8 +13,8 @@ class TwitterAuthorize:
         self._twitter_get_api()
 
     def _twitter_get_auth(self):
-        self.__auth = tweepy.OAuthHandler(TWITTER_API_KEY, TWITTER_API_SECRET)
-        self.__auth.set_access_token(TWITTER_ACCESS_TOKEN, TWITTER_ACCESS_SECRET)
+        self.__auth = tweepy.OAuthHandler(os.getenv("TWITTER_API_KEY"), os.getenv("TWITTER_API_SECRET"))
+        self.__auth.set_access_token(os.getenv("TWITTER_ACCESS_TOKEN"), os.getenv("TWITTER_ACCESS_SECRET"))
 
     def _twitter_get_api(self):
         self._api = tweepy.API(self.__auth)

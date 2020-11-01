@@ -8,7 +8,6 @@ from instagram_private_api import (
     ClientLoginRequiredError,
 )
 
-from app.backend._config import INSTAGRAM_LOGIN, INSTAGRAM_PASSWORD
 from app.backend.scraping.instagram._instagram_cookies import (
     load_from_json,
     on_login_callback,
@@ -41,8 +40,8 @@ class Instagram:
                 # Cookie settings file does not exist
                 # Creating new file
                 self.__api = Client(
-                    INSTAGRAM_LOGIN,
-                    INSTAGRAM_PASSWORD,
+                    os.getenv("INSTAGRAM_LOGIN"),
+                    os.getenv("INSTAGRAM_PASSWORD"),
                     on_login=lambda x: on_login_callback(
                         x, Instagram.SETTINGS_FILE
                     ),
@@ -56,15 +55,15 @@ class Instagram:
                 self.__device_id = cached_settings.get("device_id")
                 # reuse auth settings
                 self.__api = Client(
-                    INSTAGRAM_LOGIN, INSTAGRAM_PASSWORD,
+                    os.getenv("INSTAGRAM_LOGIN"), os.getenv("INSTAGRAM_PASSWORD"),
                     settings=cached_settings
                 )
         except (ClientCookieExpiredError, ClientLoginRequiredError):
             # Cookies have expired
             # Re-login but using default settings
             self.__api = Client(
-                INSTAGRAM_LOGIN,
-                INSTAGRAM_PASSWORD,
+                os.getenv("INSTAGRAM_LOGIN"),
+                os.getenv("INSTAGRAM_PASSWORD"),
                 device_id=self.__device_id,
                 on_login=lambda x: on_login_callback(
                     x, Instagram.SETTINGS_FILE

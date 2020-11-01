@@ -6,6 +6,7 @@ from app.backend.scraping.google_search.google_search import caller_google_searc
 from app.backend.scraping.instagram.instagram import caller_instagram
 from app.backend.scraping.linkedin.linkedin import caller_linkedin
 from app.backend.scraping.twitter.twitter import caller_twitter
+from dotenv import load_dotenv
 
 
 def main_scraping(
@@ -18,6 +19,7 @@ def main_scraping(
     instagram_profile=None,
     **kwargs
 ):
+    load_dotenv(".env")
     scraping_results = []
     full_name = " ".join([first_name, last_name])
     with ProcessPoolExecutor(max_workers=5) as pool:

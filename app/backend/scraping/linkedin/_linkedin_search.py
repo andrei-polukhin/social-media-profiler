@@ -1,7 +1,6 @@
 # -*- coding: utf-8 -*-
+import os
 from linkedin_api import Linkedin as LinkedinAPI
-
-from app.backend._config import LINKEDIN_LOGIN, LINKEDIN_PASSWORD
 
 
 class LinkedinSearch:
@@ -20,7 +19,7 @@ class LinkedinSearch:
         self._linkedin_search_for_subjects()
 
     def _linkedin_authenticate(self):
-        self._api = LinkedinAPI(LINKEDIN_LOGIN, LINKEDIN_PASSWORD)
+        self._api = LinkedinAPI(os.getenv("LINKEDIN_LOGIN"), os.getenv("LINKEDIN_PASSWORD"))
 
     def _linkedin_search_for_subjects(self):
         self._linkedin_search_in_ideal_case()
