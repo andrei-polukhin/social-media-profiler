@@ -10,14 +10,8 @@ from app.backend.scraping.twitter.twitter import caller_twitter
 
 
 def main_scraping(
-    first_name,
-    last_name,
-    company=None,
-    job_title=None,
-    school=None,
-    twitter_profile=None,
-    instagram_profile=None,
-    **kwargs
+        first_name, last_name, company=None, job_title=None, school=None,
+        twitter_profile=None, instagram_profile=None, **kwargs
 ):
     load_dotenv(".env")
     scraping_results = []

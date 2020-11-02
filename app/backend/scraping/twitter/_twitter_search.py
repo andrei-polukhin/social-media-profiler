@@ -1,4 +1,5 @@
 # -*- coding: utf-8 -*-
+import re
 from app.backend.scraping.twitter._twitter_authorize import TwitterAuthorize
 
 
@@ -8,12 +9,15 @@ class TwitterSearch(TwitterAuthorize):
         self.query = query
         self._found_subjects = []
         self._found_subjects_info = []
+        self._subject_screen_name = []
         self.filtered_subjects_info = []
+        self.subjects_posts_text = []
 
     def twitter_search(self):
         self._twitter_search_subjects_with_api()
         self._twitter_transform_subjects_to_dicts()
         self._twitter_filter_subjects_info()
+        self._twitter_get_and_filter_subjects_posts()
 
     def _twitter_search_subjects_with_api(self):
         self._found_subjects = self._api.search_users(self.query)
@@ -41,6 +45,18 @@ class TwitterSearch(TwitterAuthorize):
                 ]
             }
             self.filtered_subjects_info.append(filtered_subject_info)
+            self._subject_screen_name.append(filtered_subject_info["screen_name"])
+
+    def _twitter_get_and_filter_subjects_posts(self):
+        for subject_screen_name in self._subject_screen_name:
+            subject_posts = self._api.user_timeline(screen_name=subject_screen_name)
+            list_for_subject_posts_text = []
+            for subject_post in subject_posts:
+                post_text = subject_post.text
+                # Replace links to tweets with empty strings using regex
+                cleaned_tweet = re.sub(r"http\S+", "", post_text)
+                list_for_subject_posts_text.append(cleaned_tweet)
+            self.subjects_posts_text.append(list_for_subject_posts_text)
 
 
 if __name__ == "__main__":
