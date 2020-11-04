@@ -1,7 +1,7 @@
-from app.backend.analyzing.twitter.twitter_class import TwitterAnalyze
+from app.backend.analyzing.twitter._twitter_class import TwitterAnalyze
 
 
-def analyze_twitter(twitter_response, user_input):
+def caller_analyze_twitter(twitter_response, user_input):
     results_to_visualize = {}
     twitter_obj = TwitterAnalyze(twitter_response, user_input)
     twitter_obj.twitter_analyze()
@@ -60,4 +60,4 @@ if __name__ == "__main__":
             )
         ]
     }
-    print(analyze_twitter(twitter_api_response, taken_input))
+    print(caller_analyze_twitter(twitter_api_response, taken_input))
