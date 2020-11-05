@@ -14,7 +14,6 @@ def main_scraping(
         twitter_profile=None, instagram_profile=None, **kwargs
 ):
     load_dotenv(".env")
-    scraping_results = []
     full_name = " ".join([first_name, last_name])
     with ProcessPoolExecutor(max_workers=5) as pool:
         facebook_pool = pool.submit(caller_facebook, query=full_name)
@@ -37,15 +36,13 @@ def main_scraping(
             caller_twitter, query=twitter_profile
             if twitter_profile else full_name
         )
-    scraping_results.extend(
-        [
-            facebook_pool.result(),
-            google_search_pool.result(),
-            instagram_pool.result(),
-            linkedin_pool.result(),
-            twitter_pool.result(),
-        ]
-    )
+    scraping_results = {
+            **facebook_pool.result(),
+            **google_search_pool.result(),
+            **instagram_pool.result(),
+            **linkedin_pool.result(),
+            **twitter_pool.result(),
+    }
     return scraping_results
 
 
