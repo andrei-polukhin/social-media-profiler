@@ -1,3 +1,4 @@
+# -*- coding: utf-8 -*-
 import string
 from fingerprint import Fingerprint
 
@@ -10,8 +11,8 @@ class TwitterAnalyze:
         modulo=100
     )
 
-    def __init__(self, twitter_response, user_input):
-        self.tuples_of_info_and_posts = twitter_response["twitter"]
+    def __init__(self, scraping_response, user_input):
+        self.tuples_of_info_and_posts = scraping_response["twitter"]
         self.user_input = user_input
         self._tuples_after_name_filter = []
         self._tuples_after_location_filter = []

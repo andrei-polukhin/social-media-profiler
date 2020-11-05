@@ -1,9 +1,10 @@
+# -*- coding: utf-8 -*-
 from app.backend.analyzing.facebook._facebook_class import FacebookAnalyze
 
 
-def caller_analyze_facebook(facebook_response, user_input):
+def caller_analyze_facebook(scraping_response, user_input):
     results_to_visualize = {}
-    facebook_obj = FacebookAnalyze(facebook_response, user_input)
+    facebook_obj = FacebookAnalyze(scraping_response, user_input)
     facebook_obj.facebook_analyze()
     results_to_visualize["facebook"] = facebook_obj.user_info_after_profile_name_filter
     return results_to_visualize

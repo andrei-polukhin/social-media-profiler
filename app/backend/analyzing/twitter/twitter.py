@@ -1,9 +1,10 @@
+# -*- coding: utf-8 -*-
 from app.backend.analyzing.twitter._twitter_class import TwitterAnalyze
 
 
-def caller_analyze_twitter(twitter_response, user_input):
+def caller_analyze_twitter(scraping_response, user_input):
     results_to_visualize = {}
-    twitter_obj = TwitterAnalyze(twitter_response, user_input)
+    twitter_obj = TwitterAnalyze(scraping_response, user_input)
     twitter_obj.twitter_analyze()
     results_to_visualize["twitter"] = twitter_obj.tuples_after_description_filter
     return results_to_visualize

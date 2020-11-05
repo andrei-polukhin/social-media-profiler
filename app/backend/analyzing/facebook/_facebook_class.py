@@ -1,6 +1,7 @@
+# -*- coding: utf-8 -*-
 class FacebookAnalyze:
-    def __init__(self, facebook_response, user_input):
-        self.user_info_as_dicts = facebook_response["facebook"]
+    def __init__(self, scraping_response, user_input):
+        self.user_info_as_dicts = scraping_response["facebook"]
         self.user_input = user_input
         self.user_info_after_profile_name_filter = []
 
