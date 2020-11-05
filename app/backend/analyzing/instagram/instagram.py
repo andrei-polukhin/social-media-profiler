@@ -5,7 +5,14 @@ def caller_analyze_instagram(scraping_response, user_input):
     results_to_visualize = {}
     instagram_obj = InstagramAnalyze(scraping_response, user_input)
     instagram_obj.instagram_analyze()
-    results_to_visualize["instagram"] = instagram_obj.user_info_after_profile_filter
+    if instagram_obj.user_info_after_desc_filter:
+        results_to_visualize["instagram"] = {
+            "found_subjects": instagram_obj.user_info_after_desc_filter
+        }
+    else:
+        results_to_visualize["instagram"] = {
+            "potential_subjects": instagram_obj.user_info_after_name_filter
+        }
     return results_to_visualize
 
 

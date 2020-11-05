@@ -6,7 +6,14 @@ def caller_analyze_twitter(scraping_response, user_input):
     results_to_visualize = {}
     twitter_obj = TwitterAnalyze(scraping_response, user_input)
     twitter_obj.twitter_analyze()
-    results_to_visualize["twitter"] = twitter_obj.tuples_after_description_filter
+    if twitter_obj.tuples_after_description_filter:
+        results_to_visualize["twitter"] = {
+            "found_subjects": twitter_obj.tuples_after_description_filter
+        }
+    else:
+        results_to_visualize["twitter"] = {
+            "potential_subjects": twitter_obj.tuples_after_location_filter
+        }
     return results_to_visualize
 
 
@@ -20,7 +27,7 @@ if __name__ == "__main__":
         "twitter_profile": "abumetsov",
         "instagram_profile": "Wayfarersbook",
         "location": "Ukraine",
-        "additional_text": "CELTA/Delta teacher"
+        "additional_text": "feeling alive!"
     }
     twitter_api_response = {
         'twitter': [
