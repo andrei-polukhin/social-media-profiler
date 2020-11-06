@@ -31,4 +31,3 @@ if __name__ == "__main__":
         "additional_text": "CELTA/Delta teacher"
     }
     print(caller_analyze_instagram(api_response, taken_input))
-

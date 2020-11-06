@@ -23,7 +23,8 @@ class InstagramAnalyze:
             received_instagram_nickname = user_info["username"]
             received_full_name = user_info["full_name"]
             if self.required_instagram_nickname == received_instagram_nickname \
-                    or not self.required_instagram_nickname and self.required_full_name == received_full_name:
+                    or not self.required_instagram_nickname \
+                    and self.required_full_name == received_full_name:
                 self.user_info_after_name_filter.append(user_info)
 
     def _instagram_filter_by_description(self):

@@ -31,11 +31,11 @@ def main_scraping(user_input):
             if user_input.get("twitter_profile") else full_name
         )
     scraping_results = {
-            **facebook_process.result(),
-            **google_search_process.result(),
-            **instagram_process.result(),
-            **linkedin_process.result(),
-            **twitter_process.result(),
+        **facebook_process.result(),
+        **google_search_process.result(),
+        **instagram_process.result(),
+        **linkedin_process.result(),
+        **twitter_process.result(),
     }
     return scraping_results
 

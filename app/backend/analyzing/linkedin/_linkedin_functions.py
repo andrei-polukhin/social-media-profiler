@@ -16,23 +16,23 @@ def linkedin_analyze(scraping_response):
 def _linkedin_analyze_all(subject_after_return):
     selecting_rules = {
         "certifications": [
-                "authority",
-                "name",
-                "timePeriod",
-                "url"
+            "authority",
+            "name",
+            "timePeriod",
+            "url"
             ],
         "education": [
-                "degreeName",
-                "fieldOfStudy",
-                "schoolName",
-                "timePeriod"
+            "degreeName",
+            "fieldOfStudy",
+            "schoolName",
+            "timePeriod"
             ],
         "experience": [
-                "company",
-                "companyName",
-                "locationName",
-                "timePeriod",
-                "title"
+            "company",
+            "companyName",
+            "locationName",
+            "timePeriod",
+            "title"
             ],
         "skills": ["name"]
     }
