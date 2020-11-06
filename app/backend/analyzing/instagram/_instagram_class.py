@@ -1,3 +1,4 @@
+# -*- coding: utf-8 -*-
 from app.backend.analyzing.substring_match.find_similarity_ratio import find_similarity_ratio
 
 

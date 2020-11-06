@@ -1,3 +1,4 @@
+# -*- coding: utf-8 -*-
 from app.backend.analyzing.instagram._instagram_class import InstagramAnalyze
 
 

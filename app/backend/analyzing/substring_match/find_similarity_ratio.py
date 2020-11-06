@@ -1,3 +1,4 @@
+# -*- coding: utf-8 -*-
 from fingerprint import Fingerprint
 
 FINGERPRINT = Fingerprint(kgram_len=3, window_len=4, base=11, modulo=100)
