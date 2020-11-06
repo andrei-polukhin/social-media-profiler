@@ -16,8 +16,8 @@ def main_scraping(
     load_dotenv(".env")
     full_name = " ".join([first_name, last_name])
     with ProcessPoolExecutor(max_workers=5) as pool:
-        facebook_pool = pool.submit(caller_facebook, query=full_name)
-        linkedin_pool = pool.submit(
+        facebook_process = pool.submit(caller_facebook, query=full_name)
+        linkedin_process = pool.submit(
             caller_linkedin,
             first_name=first_name,
             last_name=last_name,
@@ -25,23 +25,23 @@ def main_scraping(
             company=company,
             school=school
         )
-        instagram_pool = pool.submit(
+        instagram_process = pool.submit(
             caller_instagram,
             query=instagram_profile if instagram_profile else full_name
         )
-        google_search_pool = pool.submit(
+        google_search_process = pool.submit(
             caller_google_search, name=full_name, **kwargs
         )
-        twitter_pool = pool.submit(
+        twitter_process = pool.submit(
             caller_twitter, query=twitter_profile
             if twitter_profile else full_name
         )
     scraping_results = {
-            **facebook_pool.result(),
-            **google_search_pool.result(),
-            **instagram_pool.result(),
-            **linkedin_pool.result(),
-            **twitter_pool.result(),
+            **facebook_process.result(),
+            **google_search_process.result(),
+            **instagram_process.result(),
+            **linkedin_process.result(),
+            **twitter_process.result(),
     }
     return scraping_results
 
