@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 from fingerprint import Fingerprint
 
-FINGERPRINT = Fingerprint(kgram_len=3, window_len=4, base=11, modulo=100)
+FINGERPRINT = Fingerprint(kgram_len=4, window_len=3, base=11, modulo=100)
 
 
 def find_similarity_ratio(f_string, s_string):

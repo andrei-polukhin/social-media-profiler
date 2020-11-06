@@ -16,9 +16,9 @@ from app.backend.scraping.facebook._facebook_tech_params import (
 
 
 class FacebookSearchLinks(FacebookAuthenticate):
-    def __init__(self, query):
+    def __init__(self, full_name):
         super(FacebookSearchLinks, self).__init__()
-        self._search_link = SEARCH_LINK + quote(query)
+        self._search_link = SEARCH_LINK + quote(full_name)
         self._found_elements_links = None
         self._hrefs_of_elements = set()
         self._file_contents = {}

@@ -5,8 +5,8 @@ from app.backend.scraping.linkedin._linkedin_search import LinkedinSearch
 
 
 class LinkedinFindIds(LinkedinSearch):
-    def __init__(self, first_name, last_name, job_title, company, school):
-        super().__init__(first_name, last_name, job_title, company, school)
+    def __init__(self, user_input):
+        super().__init__(user_input)
         self._found_subjects_public_ids = []
         self._potential_subjects_public_ids = []
         self._potential_subjects_ids_after_filtering = []

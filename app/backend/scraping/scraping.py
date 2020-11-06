@@ -9,32 +9,26 @@ from app.backend.scraping.linkedin.linkedin import caller_linkedin
 from app.backend.scraping.twitter.twitter import caller_twitter
 
 
-def main_scraping(
-        first_name, last_name, company=None, job_title=None, school=None,
-        twitter_profile=None, instagram_profile=None, **kwargs
-):
+def main_scraping(user_input):
     load_dotenv(".env")
-    full_name = " ".join([first_name, last_name])
+    full_name = " ".join([user_input["first_name"], user_input["last_name"]])
     with ProcessPoolExecutor(max_workers=5) as pool:
-        facebook_process = pool.submit(caller_facebook, query=full_name)
+        facebook_process = pool.submit(caller_facebook, full_name=full_name)
         linkedin_process = pool.submit(
             caller_linkedin,
-            first_name=first_name,
-            last_name=last_name,
-            job_title=job_title,
-            company=company,
-            school=school
+            user_input=user_input
         )
         instagram_process = pool.submit(
             caller_instagram,
-            query=instagram_profile if instagram_profile else full_name
+            query=user_input.get("instagram_profile")
+            if user_input.get("instagram_profile") else full_name
         )
         google_search_process = pool.submit(
-            caller_google_search, name=full_name, **kwargs
+            caller_google_search, user_input=user_input
         )
         twitter_process = pool.submit(
-            caller_twitter, query=twitter_profile
-            if twitter_profile else full_name
+            caller_twitter, query=user_input.get("twitter_profile")
+            if user_input.get("twitter_profile") else full_name
         )
     scraping_results = {
             **facebook_process.result(),
@@ -47,13 +41,16 @@ def main_scraping(
 
 
 if __name__ == "__main__":
-    response = main_scraping(
-        first_name="Amy",
-        last_name="Butler",
-        company="The London School of English",
-        job_title="Director of Studies",
-        school="University of Cambridge",
-        twitter_profile="WayfarersBook",
-        instagram_profile="wayfarersbook"
-    )
+    sample_input = {
+        "first_name": "Amy",
+        "last_name": "Butler",
+        "company": "LSE",
+        "job_title": "Director of Studies",
+        "school": "Cambridge University",
+        "twitter_profile": "WayfarersBook",
+        "instagram_nickname": "Wayfarersbook",
+        "location": "Ukraine",
+        "additional_text": "CELTA/Delta teacher",
+    }
+    response = main_scraping(sample_input)
     print(response)

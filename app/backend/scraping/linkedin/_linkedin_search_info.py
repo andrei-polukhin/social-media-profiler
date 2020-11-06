@@ -3,8 +3,8 @@ from app.backend.scraping.linkedin._linkedin_find_ids import LinkedinFindIds
 
 
 class LinkedinSearchSubjects(LinkedinFindIds):
-    def __init__(self, first_name, last_name, job_title, company, school):
-        super().__init__(first_name, last_name, job_title, company, school)
+    def __init__(self, user_input):
+        super().__init__(user_input)
         self.found_subjects_info = []
         self.potential_subjects_info_after_filtering = []
 

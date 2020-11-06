@@ -4,12 +4,12 @@ from linkedin_api import Linkedin as LinkedinAPI
 
 
 class LinkedinSearch:
-    def __init__(self, first_name, last_name, job_title, company, school):
-        self.first_name = first_name
-        self.last_name = last_name
-        self.keyword_company = company
-        self.keyword_school = school
-        self.keyword_title = job_title
+    def __init__(self, user_input):
+        self.first_name = user_input["first_name"]
+        self.last_name = user_input["last_name"]
+        self.keyword_company = user_input.get("company")
+        self.keyword_school = user_input.get("school")
+        self.keyword_title = user_input.get("job_title")
         self._api = None
         self._found_subjects = []
         self._potential_subjects = []

@@ -4,10 +4,27 @@ from app.backend.scraping.google_search._google_filter import filtering
 from app.backend.scraping.scraper.scraping import scraping
 
 
-def caller_google_search(**kwargs):
+def caller_google_search(user_input):
     results_to_filter = {}
     results_to_filter["google_search"] = scraped_webpages = {}
-    for selector, query in kwargs.items():
+    full_name = " ".join([user_input["first_name"], user_input["last_name"]])
+    input_to_scrape = {
+        k: v
+        for k, v in user_input.items()
+        if k not in [
+            "first_name",
+            "last_name",
+            "company",
+            "job_title",
+            "school",
+            "twitter_profile",
+            "instagram_nickname",
+            "location",
+            "additional_text"
+        ]
+    }
+    input_to_scrape["name"] = full_name
+    for selector, query in input_to_scrape.items():
         if selector == "name":
             searching_query = query
         else:
@@ -20,4 +37,16 @@ def caller_google_search(**kwargs):
 
 
 if __name__ == "__main__":
-    print(caller_google_search(name="Vladyslav Ovchynnykov", github="pythad"))
+    sample_input = {
+        "first_name": "Evan",
+        "last_name": "McCauley",
+        "company": "LSE",
+        "job_title": "Director of Studies",
+        "school": "MIT University",
+        "twitter_profile": "abumetsov",
+        "instagram_nickname": "Wayfarersbook",
+        "location": "Ukraine",
+        "additional_text": "CELTA/Delta teacher",
+        "github": "pythad"
+    }
+    print(caller_google_search(sample_input))

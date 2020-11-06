@@ -3,9 +3,9 @@ from app.backend.scraping.facebook._facebook_filter import FacebookFilterLinks
 from app.backend.scraping.scraper.scraping import scraping
 
 
-def caller_facebook(query):
+def caller_facebook(full_name):
     results_to_filter = {}
-    facebook_obj = FacebookFilterLinks(query)
+    facebook_obj = FacebookFilterLinks(full_name)
     facebook_obj.facebook_open_home_page()
     facebook_obj.facebook_authenticate()
     facebook_obj.facebook_find_scraping_links()

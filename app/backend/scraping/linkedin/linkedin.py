@@ -4,12 +4,9 @@ from app.backend.scraping.linkedin._linkedin_search_info import (
 )
 
 
-def caller_linkedin(first_name, last_name, job_title=None, company=None, school=None):
+def caller_linkedin(user_input):
     results_to_filter = {}
-    linkedin_obj = LinkedinSearchSubjects(
-        first_name=first_name, last_name=last_name,
-        job_title=job_title, company=company, school=school
-    )
+    linkedin_obj = LinkedinSearchSubjects(user_input)
     linkedin_obj.linkedin_search()
     linkedin_obj.linkedin_find_ids()
     linkedin_obj.linkedin_search_for_info()
@@ -26,12 +23,15 @@ def caller_linkedin(first_name, last_name, job_title=None, company=None, school=
 
 
 if __name__ == "__main__":
-    print(
-        caller_linkedin(
-            "Dmytro",
-            "Ovchynnykov",
-            job_title="Software Engineer",
-            company="Xenoss",
-            school="Institute of Mathematics NAS of Ukraine",
-        )
-    )
+    sample_user_input = {
+        "first_name": "Amy",
+        "last_name": "Butler",
+        "company": "LSE",
+        "job_title": "Director of Studies",
+        "school": "Cambridge University",
+        "twitter_profile": "abumetsov",
+        "instagram_nickname": "Wayfarersbook",
+        "location": "Ukraine",
+        "additional_text": "CELTA/Delta teacher",
+    }
+    print(caller_linkedin(sample_user_input))
