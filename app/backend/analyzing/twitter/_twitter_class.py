@@ -9,12 +9,24 @@ class TwitterAnalyze:
         self.user_input = user_input
         self._tuples_after_name_filter = []
         self.tuples_after_location_filter = []
-        self.tuples_after_description_filter = []
+        self.tuples_after_all_filters = []
 
     def twitter_analyze(self):
-        self._twitter_analyze_first_and_last_names()
-        self._twitter_analyze_location()
-        self._analyze_twitter_description()
+        if self.user_input.get("twitter_profile"):
+            self._twitter_analyze_screen_name()
+        else:
+            self._twitter_analyze_first_and_last_names()
+            self._twitter_analyze_location()
+            self._analyze_twitter_description()
+
+    def _twitter_analyze_screen_name(self):
+        required_screen_name = self.user_input.get("twitter_profile")
+        for info_and_posts in self.tuples_of_info_and_posts:
+            only_user_info = info_and_posts[0]
+            twitter_screen_name = only_user_info["screen_name"]
+            if required_screen_name == twitter_screen_name:
+                self.tuples_after_all_filters.append(info_and_posts)
+                break
 
     def _twitter_analyze_first_and_last_names(self):
         required_first_name = self.user_input["first_name"]
@@ -49,7 +61,7 @@ class TwitterAnalyze:
                 required_additional_text, twitter_description
             )
             if similarity >= 0.4:
-                self.tuples_after_description_filter.append(info_and_posts)
+                self.tuples_after_all_filters.append(info_and_posts)
 
     @staticmethod
     def _twitter_sanitize_and_convert_to_set(input_str: str):

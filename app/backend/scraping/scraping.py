@@ -50,7 +50,7 @@ if __name__ == "__main__":
         "twitter_profile": "WayfarersBook",
         "instagram_nickname": "Wayfarersbook",
         "location": "Ukraine",
-        "additional_text": "CELTA/Delta teacher",
+        "additional_text": "CELTA/Delta qualified teacher",
     }
     response = main_scraping(sample_input)
     print(response)
