@@ -11,7 +11,7 @@ def caller_analyze_facebook(scraping_response, user_input):
 
 
 if __name__ == "__main__":
-    facebook_browser_response = {'facebook': [{'service_name': 'Facebook Profile', 'link': 'https://www.facebook.com/evan.caughey.921/'}, {'service_name': 'Facebook Profile', 'link': 'https://www.facebook.com/evan.mcgaughey.3/', 'name_if_profile': 'Evan McGaughey'}, {'service_name': 'Facebook Profile', 'link': 'https://www.facebook.com/evan.mccauley.73/', 'name_if_profile': 'Evan McCauley'}, {'service_name': 'Facebook Profile', 'link': 'https://www.facebook.com/E.EvanM.McG/'}, {'service_name': 'Facebook Profile', 'link': 'https://www.facebook.com/evan.mccaughan/'}, {'service_name': 'Facebook Profile', 'link': 'https://www.facebook.com/evan.mcconaughey/', 'name_if_profile': 'Evan McConaughey'}, {'service_name': 'Facebook Profile', 'link': 'https://www.facebook.com/amccaughey1/', 'name_if_profile': 'Amanda Riel'}, {'service_name': 'Facebook Group', 'link': 'https://www.facebook.com/groups/Scottycameronbuysell1/'}]}
+    sample_facebook_response = {'facebook': [{'service_name': 'Facebook Profile', 'link': 'https://www.facebook.com/evan.mccauley.73/', 'Profile name: ': 'Evan McCauley'}, {'service_name': 'Facebook Profile', 'link': 'https://www.facebook.com/evan.mccauley.9/', 'Profile name: ': 'Evan McCauley'}, {'service_name': 'Facebook Profile', 'link': 'https://www.facebook.com/evan.mccauley.7/', 'Profile name: ': 'Evan McCauley'}, {'service_name': 'Facebook Profile', 'link': 'https://www.facebook.com/evan.mccauley.5/', 'Profile name: ': 'Evan McCauley'}, {'service_name': 'Facebook Profile', 'link': 'https://www.facebook.com/evan.mccauley/', 'Profile name: ': 'Evan E McCauley'}]}
     taken_input = {
         "first_name": "Evan",
         "last_name": "McCauley",
@@ -23,4 +23,4 @@ if __name__ == "__main__":
         "location": "Ukraine",
         "additional_text": "CELTA/Delta teacher"
     }
-    print(caller_analyze_facebook(facebook_browser_response, taken_input))
+    print(caller_analyze_facebook(sample_facebook_response, taken_input))

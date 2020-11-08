@@ -1,7 +1,7 @@
 {
     "_meta": {
         "hash": {
-            "sha256": "1c93793e084a172946608d54e9e823acdcaaa828b6cb47dc7de79f21269a9436"
+            "sha256": "96641a55103089b18f5e93b9fff4452fe8af8723a281b2b0e32f0c4c586e1bde"
         },
         "pipfile-spec": 6,
         "requires": {
@@ -72,10 +72,10 @@
         },
         "attrs": {
             "hashes": [
-                "sha256:26b54ddbbb9ee1d34d5d3668dd37d6cf74990ab23c828c2888dccdceee395594",
-                "sha256:fce7fc47dfc976152e82d53ff92fa0407700c21acd20886a13777a0d20e655dc"
+                "sha256:31b2eced602aa8423c2aea9c76a724617ed67cf9513173fd3a4f03e3a929c7e6",
+                "sha256:832aa3cde19744e49938b91fea06d69ecb9e649c93ba974535d08ad92164f700"
             ],
-            "version": "==20.2.0"
+            "version": "==20.3.0"
         },
         "brotlipy": {
             "hashes": [
@@ -244,6 +244,15 @@
             ],
             "index": "pypi",
             "version": "==0.1.6"
+        },
+        "fpdf": {
+            "hashes": [
+                "sha256:0a94eb783ee933e32a44ad949a1aa6c3ca6fb35b608db53f8b216aec52fc1fb5",
+                "sha256:125840783289e7d12552b1e86ab692c37322e7a65b96a99e0ea86cca041b6779",
+                "sha256:9542f6ad0791d673955da954a0cf3554a0affac79deab87bee06b9b4d4e60990"
+            ],
+            "index": "pypi",
+            "version": "==1.7.2"
         },
         "google-api-core": {
             "hashes": [

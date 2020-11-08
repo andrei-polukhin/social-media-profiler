@@ -14,7 +14,11 @@ class FacebookAnalyze:
         required_full_name = " ".join([required_first_name, required_last_name])
         for user_info in self.user_info_as_dicts:
             user_info: dict
-            user_link = user_info["link"]
-            if "/groups/" in user_link and user_info.get("group_name") == required_full_name\
-                    or user_info.get("name_if_profile") == required_full_name:
+            possible_profile_names = [
+                user_info.get("Profile name: "),
+                user_info.get("Channel name: "),
+                user_info.get("Group name: ")
+
+            ]
+            if required_full_name in possible_profile_names:
                 self.user_info_after_profile_name_filter.append(user_info)

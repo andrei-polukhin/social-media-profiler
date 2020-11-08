@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 from fingerprint import Fingerprint
 
-FINGERPRINT = Fingerprint(kgram_len=4, window_len=3, base=11, modulo=100)
+FINGERPRINT = Fingerprint(kgram_len=4, window_len=4, base=101, modulo=256)
 
 
 def find_similarity_ratio(f_string, s_string):
@@ -16,6 +16,12 @@ def find_similarity_ratio(f_string, s_string):
         for element in s_string_fingerprint
     ]
     common_hashes = set(f_string_only_hashes).intersection(set(s_string_only_hashes))
-    length_common_hashes = len(common_hashes)
-    minimal_length_of_string = len(min(f_string_only_hashes, s_string_only_hashes, key=len))
-    return length_common_hashes / minimal_length_of_string
+    return 2 * len(common_hashes) / (len(f_string_only_hashes) + len(s_string_only_hashes))
+
+
+if __name__ == "__main__":
+    print(find_similarity_ratio(
+        "Institute of Mathematics trains highly skilled mathematicians.",
+        "Institute of Mathematics is the only institution"
+        "that trains highly skilled mathematicians."
+    ))
