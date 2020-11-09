@@ -5,7 +5,7 @@
     "Channel name: ": "//*[@id=\"seo_h1_tag\"]/span",
     "Channel «about» link: ": "//*[@id=\"u_0_p\"]/div/a[2]/@href",
     "Category of the channel: ": "//*[@id=\"PagesProfileHomeSecondaryColumnPagelet\"]/div/div[2]/div/div[2]/div[3]/div/div/div/div/div[2]/div/a",
-    "Picture: ": "//*[@id=\"mount_0_0\"]/div/div[1]/div[1]/div[3]/div/div/div[1]/div[1]/div/div/div[1]/div[2]/div/div/div[1]/div/div/div/a/div/svg/g/image/@href"
+    "img_url": "/html/body/div[1]/div[3]/div[1]/div/div[2]/div[2]/div[1]/div/div[1]/div[1]/div[3]/div/div[2]/div[1]/div/div/div/img/@href"
   },
   "https:\\/\\/www.facebook.com\\/groups\\/[a-zA-Z0-9`~!@#$^*()_+-.,|<>№]+\\/?": {
     "service_name": "Facebook Group",

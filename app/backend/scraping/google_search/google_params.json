@@ -1,15 +1,15 @@
 {
   "https:\/\/github.com\/[a-zA-Z0-9`~!@#$^*()_+-.,|<>№]+": {
     "service_name": "GitHub Profile",
-    "full_name": "//span[@class=\"p-name vcard-fullname d-block overflow-hidden\"]",
-    "nickname": "//span[@class=\"p-nickname vcard-username d-block\"]",
-    "popular_repo": "//*[@id=\"js-pjax-container\"]/div[2]/div/div[2]/div[2]/div/div[1]/div/ol/li/div/div/div/a/span",
-    "url_popular_repos": {
+    "Full name: ": "//span[@class=\"p-name vcard-fullname d-block overflow-hidden\"]",
+    "Nickname: ": "//span[@class=\"p-nickname vcard-username d-block\"]",
+    "Popular repos: ": "//*[@id=\"js-pjax-container\"]/div[2]/div/div[2]/div[2]/div/div[1]/div/ol/li/div/div/div/a/span",
+    "URLs of popular repos: ": {
       "https://github.com": "//*[@id=\"js-pjax-container\"]/div[2]/div/div[2]/div[2]/div/div[1]/div/ol/li/div/div/div/a/@href"
     },
-    "profile_img_url": "//*[@id=\"js-pjax-container\"]/div[2]/div/div[1]/div/div[2]/div[1]/a/img/@src",
-    "number_followers": "//*[@id=\"js-pjax-container\"]/div[2]/div/div[1]/div/div[5]/div[2]/div/div/a[1]/span",
-    "number_following": "//*[@id=\"js-pjax-container\"]/div[2]/div/div[1]/div/div[5]/div[2]/div/div/a[2]/span",
-    "location": "//*[@id=\"js-pjax-container\"]/div[2]/div/div[1]/div/div[5]/div[2]/ul/li[1]/span"
+    "img_url": "//*[@id=\"js-pjax-container\"]/div[2]/div/div[1]/div/div[2]/div[1]/a/img/@src",
+    "Number of followers": "//*[@id=\"js-pjax-container\"]/div[2]/div/div[1]/div/div[5]/div[2]/div/div/a[1]/span",
+    "Number of following": "//*[@id=\"js-pjax-container\"]/div[2]/div/div[1]/div/div[5]/div[2]/div/div/a[2]/span",
+    "Location": "//*[@id=\"js-pjax-container\"]/div[2]/div/div[1]/div/div[5]/div[2]/ul/li[1]/span"
   }
 }
