@@ -27,8 +27,9 @@ class InstagramVisualize(FPDF):
             self._process_and_visualize_image(subject)
             self._put_all_subject_info_in_bullet_list(subject)
             self.ln(15)
-        self.ln(5)
-        # self.cell(w=0, txt="HIII!!!")
+        self.ln()
+        self.line(self.get_x(), self.get_y()-10, 210 - self.get_x(), self.get_y()-10)
+        # """For TEST:""" self.cell(w=0, txt="HIII!!!")
 
     def _process_and_visualize_image(self, subject):
         subject_image_url = subject["profile_pic_url"]
