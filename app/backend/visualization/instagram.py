@@ -1,9 +1,7 @@
 # -*- coding: utf-8 -*-
+from app.backend.visualization.helpers.split_string import split_string_in_words_with_len_limit
+from app.backend.visualization.helpers.get_and_process_image import get_and_process_image
 from fpdf import FPDF
-import io
-from urllib.request import urlopen
-from PIL import Image, ImageDraw
-import numpy as np
 
 
 class InstagramVisualize(FPDF):
@@ -14,38 +12,46 @@ class InstagramVisualize(FPDF):
 
     def instagram_visualize(self):
         if self.list_of_instagram_subjects:
-            self._write_title_of_instagram()
-            self._write_information_about_each_subject()
+            self._instagram_visualize_write_title()
+            self._instagram_visualize_write_info_about_each_subject()
 
-    def _write_title_of_instagram(self):
+    def _instagram_visualize_write_title(self):
         self.set_font("Times", "BI", size=16)
-        self.cell(w=0, h=10, txt="Instagram", ln=2)
+        self.cell(w=0, h=5, txt="Instagram", ln=2)
 
-    def _write_information_about_each_subject(self):
+    def _instagram_visualize_write_info_about_each_subject(self):
+        self.set_font("Times", "I", size=14)
+        if len(self.list_of_instagram_subjects) > 1:
+            self.cell(w=0, h=5, txt="Potential users", ln=2)
+        self.ln(5)
         self.set_font("Times", size=14)
         for subject in self.list_of_instagram_subjects:
-            self._process_and_visualize_image(subject)
-            self._put_all_subject_info_in_bullet_list(subject)
+            self._instagram_visualize_process_and_visualize_image(subject)
+            self._instagram_visualize_put_info_in_bullet_list(subject)
             self.ln(15)
         self.ln()
-        self.line(self.get_x(), self.get_y()-10, 210 - self.get_x(), self.get_y()-10)
+        current_abscissa = self.get_x()
+        current_ordinate = self.get_y()
+        self.line(
+            current_abscissa, current_ordinate - 10, 210 - current_abscissa, current_ordinate - 10
+        )
         # """For TEST:""" self.cell(w=0, txt="HIII!!!")
 
-    def _process_and_visualize_image(self, subject):
+    def _instagram_visualize_process_and_visualize_image(self, subject):
         subject_image_url = subject["profile_pic_url"]
-        processed_image = self._get_and_process_instagram_image(subject_image_url)
+        processed_image = get_and_process_image(subject_image_url)
         self.image(name=processed_image, w=45, h=45)
 
-    def _put_all_subject_info_in_bullet_list(self, subject):
+    def _instagram_visualize_put_info_in_bullet_list(self, subject):
         current_ordinate = self.get_y()
-        self.set_xy(65, current_ordinate-40)
+        self.set_xy(65, current_ordinate - 40)
         username = subject["username"]
         self.cell(
             w=0, h=6, txt=f"\u2022 Instagram nickname: {username}", ln=2,
             link=f"https://www.instagram.com/{username}/"
         )
         biography = subject["biography"]
-        biography_processed = self._split_string_in_words_with_len_limit(biography)
+        biography_processed = split_string_in_words_with_len_limit(biography)
         self.cell(
             w=0, h=6, txt=u"\u2022 Biography: {}".format(biography_processed),
             ln=2
@@ -58,48 +64,6 @@ class InstagramVisualize(FPDF):
         self.cell(w=0, h=6, txt=f"\u2022 Number of followers: {number_of_followers}", ln=2)
         number_of_following = subject["following_count"]
         self.cell(w=0, h=6, txt=f"\u2022 Number of following: {number_of_following}", ln=2)
-
-    @staticmethod
-    def _get_and_process_instagram_image(url):
-        img = io.BytesIO(urlopen(url).read())
-        pillow_img = Image.open(img).convert("RGB")
-        np_image = np.array(pillow_img)
-
-        h, w = pillow_img.size
-        # Create same size alpha layer with circle
-        alpha = Image.new("L", pillow_img.size, 0)
-        draw = ImageDraw.Draw(alpha)
-        draw.pieslice([0, 0, h, w], 0, 360, fill=255)
-
-        # Convert alpha Image to numpy array
-        np_alpha = np.array(alpha)
-
-        # Add alpha layer to RGB
-        np_image = np.dstack((np_image, np_alpha))
-
-        # Save with alpha
-        cropped_image_in_bytes = io.BytesIO()
-        cropped_image = Image.fromarray(np_image)
-        cropped_image.save(cropped_image_in_bytes, "PNG")
-        cropped_image_in_bytes.seek(0)
-        cropped_image = cropped_image_in_bytes.read()
-
-        # Non test code
-        data_bytes_io = io.BytesIO(cropped_image)
-        return data_bytes_io
-
-    @staticmethod
-    def _split_string_in_words_with_len_limit(string: str, limit=45):
-        accumulated_words = []
-        list_of_words_in_string = string.split()
-        for word in list_of_words_in_string:
-            string_from_current_list = " ".join(accumulated_words)
-            if len(string_from_current_list) + len(word) + 1 <= limit:
-                accumulated_words.append(word)
-                continue
-            accumulated_words[-1] += "..."
-            break
-        return " ".join(accumulated_words)
 
 
 if __name__ == "__main__":
