@@ -20,8 +20,8 @@ class LinkedinVisualize(FPDF):
 
     def _linkedin_visualize_write_info_about_each_subject(self):
         self.set_font("Times", "I", size=14)
-        if len(self.lists_of_info) > 1:
-            self.cell(w=0, h=6, txt="Potential users", ln=2)
+        if self.character_of_subjects == "potential_subjects_after_filtering":
+            self.cell(w=0, h=6, txt="Potential user(s)", ln=2)
         self.ln(5)
         for subject in self.lists_of_info:
             self._linkedin_visualize_write_name_of_subject(subject)
