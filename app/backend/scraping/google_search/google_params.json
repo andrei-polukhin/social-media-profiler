@@ -8,8 +8,8 @@
       "https://github.com": "//*[@id=\"js-pjax-container\"]/div[2]/div/div[2]/div[2]/div/div[1]/div/ol/li/div/div/div/a/@href"
     },
     "img_url": "//*[@id=\"js-pjax-container\"]/div[2]/div/div[1]/div/div[2]/div[1]/a/img/@src",
-    "Number of followers": "//*[@id=\"js-pjax-container\"]/div[2]/div/div[1]/div/div[5]/div[2]/div/div/a[1]/span",
-    "Number of following": "//*[@id=\"js-pjax-container\"]/div[2]/div/div[1]/div/div[5]/div[2]/div/div/a[2]/span",
-    "Location": "//*[@id=\"js-pjax-container\"]/div[2]/div/div[1]/div/div[5]/div[2]/ul/li[1]/span"
+    "Number of followers: ": "//*[@id=\"js-pjax-container\"]/div[2]/div/div[1]/div/div[5]/div[2]/div/div/a[1]/span",
+    "Number of following: ": "//*[@id=\"js-pjax-container\"]/div[2]/div/div[1]/div/div[5]/div[2]/div/div/a[2]/span",
+    "Location: ": "//*[@id=\"js-pjax-container\"]/div[2]/div/div[1]/div/div[5]/div[2]/ul/li[1]/span"
   }
 }

@@ -1,3 +1,4 @@
+# -*- coding: utf-8 -*-
 def split_string_in_words_with_len_limit(string: str, limit=45):
     accumulated_words = []
     list_of_words_in_string = string.split()
