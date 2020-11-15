@@ -5,12 +5,14 @@ from app.backend.visualization.helpers.get_and_process_image import get_and_proc
 
 
 class GoogleSearchVisualize(FPDF):
-    def __init__(self, analysis_response):
+    def __init__(self, analysis_response=None):
         super().__init__()
-        self.dict_of_results = analysis_response["google_search"]
+        self.analysis_response = analysis_response
+        self.dict_of_results = {}
         self.set_doc_option("core_fonts_encoding", "windows-1252")
 
     def google_search_visualize(self):
+        self.dict_of_results = self.analysis_response["google_search"]
         if any(self.dict_of_results.values()):
             self._google_search_visualize_write_title()
             self._google_search_visualize_write_info_about_each_subject()

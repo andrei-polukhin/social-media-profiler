@@ -3,11 +3,13 @@ from fpdf import FPDF
 
 
 class FacebookVisualize(FPDF):
-    def __init__(self, analysis_response):
+    def __init__(self, analysis_response=None):
         super().__init__()
-        self.list_of_facebook_subjects = analysis_response["facebook"]
+        self.analysis_response = analysis_response
+        self.list_of_facebook_subjects = []
 
     def facebook_visualize(self):
+        self.list_of_facebook_subjects = self.analysis_response["facebook"]
         if self.list_of_facebook_subjects:
             self._facebook_visualize_write_title_of_facebook()
             self._facebook_visualize_write_info_about_each_subject()

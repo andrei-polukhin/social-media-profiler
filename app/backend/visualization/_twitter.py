@@ -5,13 +5,16 @@ from app.backend.visualization.helpers.get_and_process_image import get_and_proc
 
 
 class TwitterVisualize(FPDF):
-    def __init__(self, analysis_response):
+    def __init__(self, analysis_response=None):
         super().__init__()
-        dict_to_twitter_subjects = analysis_response["twitter"]
-        (self.character_of_subjects, self.tuples_with_info_and_posts), = dict_to_twitter_subjects.items()
+        self.analysis_response = analysis_response
+        self.character_of_subjects = None
+        self.tuples_with_info_and_posts = ()
         self.set_doc_option("core_fonts_encoding", "windows-1252")
 
     def twitter_visualize(self):
+        dict_to_twitter_subjects = self.analysis_response["twitter"]
+        (self.character_of_subjects, self.tuples_with_info_and_posts), = dict_to_twitter_subjects.items()
         if self.tuples_with_info_and_posts:
             self._twitter_visualize_write_title()
             self._twitter_visualize_write_info_about_each_subject()

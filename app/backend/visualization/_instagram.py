@@ -5,13 +5,15 @@ from fpdf import FPDF
 
 
 class InstagramVisualize(FPDF):
-    def __init__(self, analysis_response):
+    def __init__(self, analysis_response=None):
         super().__init__()
-        self.list_of_instagram_subjects = analysis_response["instagram"]
+        self.analysis_response = analysis_response
+        self.list_of_instagram_subjects = []
         self.set_doc_option("core_fonts_encoding", "windows-1252")
 
     def instagram_visualize(self):
-        if self.list_of_instagram_subjects:
+        self.list_of_instagram_subjects = self.analysis_response["instagram"]
+        if any(self.list_of_instagram_subjects.values()):
             self._instagram_visualize_write_title()
             self._instagram_visualize_write_info_about_each_subject()
 

@@ -3,13 +3,16 @@ from fpdf import FPDF
 
 
 class LinkedinVisualize(FPDF):
-    def __init__(self, analysis_response):
+    def __init__(self, analysis_response=None):
         super().__init__()
-        dict_to_linkedin_subjects = analysis_response["linkedin"]
-        (self.character_of_subjects, self.lists_of_info), = dict_to_linkedin_subjects.items()
+        self.analysis_response = analysis_response
+        self.character_of_subjects = None
+        self.lists_of_info = []
         self.set_doc_option("core_fonts_encoding", "windows-1252")
 
     def linkedin_visualize(self):
+        dict_to_linkedin_subjects = self.analysis_response["linkedin"]
+        (self.character_of_subjects, self.lists_of_info), = dict_to_linkedin_subjects.items()
         if self.lists_of_info:
             self._linkedin_visualize_write_title()
             self._linkedin_visualize_write_info_about_each_subject()
