@@ -1,10 +1,22 @@
 # -*- coding: utf-8 -*-
+"""The main module finding similarity ratio between two strings."""
+
 from fingerprint import Fingerprint
 
 FINGERPRINT = Fingerprint(kgram_len=4, window_len=4, base=101, modulo=256)
 
 
-def find_similarity_ratio(f_string, s_string):
+def find_similarity_ratio(f_string: str, s_string: str) -> float:
+    """
+    Take two strings and find similarity between them using \
+    Rabin fingerprint and winnowing by Stanford.
+
+    Args:
+         f_string: first string.
+         s_string: second string.
+    Returns:
+        float: the similarity ratio between two strings.
+    """
     f_string_fingerprint = FINGERPRINT.generate(str=f_string)
     s_string_fingerprint = FINGERPRINT.generate(str=s_string)
     f_string_only_hashes = [

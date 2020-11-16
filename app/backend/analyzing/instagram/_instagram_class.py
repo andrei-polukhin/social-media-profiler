@@ -1,8 +1,11 @@
 # -*- coding: utf-8 -*-
+"""The module with the Instagram analyzing class."""
+
 from app.backend.analyzing.substring_match.find_similarity_ratio import find_similarity_ratio
 
 
 class InstagramAnalyze:
+    """The class to analyze scraped Instagram profiles by their nickname and biography."""
     def __init__(self, scraping_response, user_input):
         self.user_info_as_dicts = scraping_response["instagram"]
         self.required_instagram_nickname = user_input.get("instagram_nickname")
@@ -15,10 +18,12 @@ class InstagramAnalyze:
         self.user_info_after_desc_filter = []
 
     def instagram_analyze(self):
+        """Call other methods to filter profiles by their nickname and biography."""
         self._instagram_filter_by_nick_or_name()
-        self._instagram_filter_by_description()
+        self._instagram_filter_by_biography()
 
     def _instagram_filter_by_nick_or_name(self):
+        """Filter scraped Instagram profiles by their nickname."""
         for user_info in self.user_info_as_dicts:
             received_instagram_nickname = user_info["username"]
             received_full_name = user_info["full_name"]
@@ -27,7 +32,8 @@ class InstagramAnalyze:
                     and self.required_full_name == received_full_name:
                 self.user_info_after_name_filter.append(user_info)
 
-    def _instagram_filter_by_description(self):
+    def _instagram_filter_by_biography(self):
+        """Filter Instagram subjects after the nickname filter by their biography."""
         for user_info in self.user_info_after_name_filter:
             received_description = user_info["biography"]
             similarity = find_similarity_ratio(

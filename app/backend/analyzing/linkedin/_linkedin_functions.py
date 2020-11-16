@@ -1,8 +1,20 @@
 # -*- coding: utf-8 -*-
+"""The LinkedIn analyzing module with functions."""
+
 import copy
 
+from typing import List
 
-def linkedin_analyze(scraping_response):
+
+def linkedin_analyze(scraping_response: dict) -> dict:
+    """
+    Call other functions to take scraping response and confine it to a few keys.
+
+    Args:
+        scraping_response: the dict that has been received after scraping.
+    Returns:
+        dict: the dictionary with filtered information about subjects.
+    """
     returned_dictionary = scraping_response["linkedin"]
     (character_of_return, returned_subjects), = returned_dictionary.items()
     filtered_subjects = {}
@@ -13,7 +25,15 @@ def linkedin_analyze(scraping_response):
     return filtered_subjects
 
 
-def _linkedin_analyze_all(subject_after_return):
+def _linkedin_analyze_all(subject_after_return: dict) -> dict:
+    """
+    Take an initial scraped subject and run filtering rules against it (see code).
+
+    Args:
+        subject_after_return: an initial scraped subject.
+    Returns:
+        dict: the dictionary with filtered information about it.
+    """
     selecting_rules = {
         "certifications": [
             "authority",
@@ -44,7 +64,20 @@ def _linkedin_analyze_all(subject_after_return):
     return filtered_dict
 
 
-def _linkedin_analyze_by_selector(subject_after_return, filtered_dict, dict_key, dict_selector):
+def _linkedin_analyze_by_selector(
+        subject_after_return: dict, filtered_dict: dict, dict_key: str, dict_selector: List[str]
+) -> dict:
+    """
+    Filter a returned subject with selectors key and values.
+
+    Args:
+        subject_after_return: an initial scraped subject.
+        filtered_dict: the dictionary with filtered information from `subject_after_return`.
+        dict_key: the selector in an initial scraped subject to which filtering should run against.
+        dict_selector: the values to which filtering should run against.
+    Returns:
+        filtered_dict: the dictionary with filtered information from `subject_after_return`.
+    """
     returned_certifications = subject_after_return[dict_key]
     filtered_dict[dict_key] = list_of_filtered_certifications = []
     for returned_certification in returned_certifications:
