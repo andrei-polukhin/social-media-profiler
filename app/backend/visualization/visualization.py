@@ -3,7 +3,7 @@ from app.backend.visualization._visualization_class import Visualization
 from datetime import datetime
 
 
-def caller_visualize(analysis_response, user_input, location):
+def main_visualization(analysis_response, user_input, pdf_output_location):
     pdf = Visualization(analysis_response)
     pdf.add_page()
     _display_name_and_location(pdf, user_input)
@@ -13,7 +13,7 @@ def caller_visualize(analysis_response, user_input, location):
     pdf.facebook_visualize()
     pdf.google_search_visualize()
     str_of_output = _choose_name_of_file(user_input)
-    pdf.output(f"{location}/{str_of_output}")
+    pdf.output(f"{pdf_output_location}/{str_of_output}")
 
 
 def _display_name_and_location(pdf_object, user_input):
@@ -45,4 +45,4 @@ if __name__ == "__main__":
         "location": "Ukraine",
         "additional_text": "CELTA/Delta qualified teacher",
     }
-    caller_visualize(to_visualize, sample_input, "/home/andrew")
+    main_visualization(to_visualize, sample_input, "/home/andrew")

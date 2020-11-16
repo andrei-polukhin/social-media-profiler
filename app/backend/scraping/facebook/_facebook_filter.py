@@ -20,7 +20,7 @@ class FacebookFilterLinks(FacebookSearchLinks):
             with open("facebook_params.json") as file:
                 self.file_contents = json.load(file)
         except FileNotFoundError:
-            with open("./facebook/facebook_params.json") as file:
+            with open("scraping/facebook/facebook_params.json") as file:
                 self.file_contents = json.load(file)
         self.params_keys = self.file_contents.keys()
 

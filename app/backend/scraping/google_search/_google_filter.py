@@ -26,7 +26,7 @@ def _read_json_file():
         with open("google_params.json") as file:
             file_contents = json.load(file)
     except FileNotFoundError:
-        with open("./google_search/google_params.json") as file:
+        with open("scraping/google_search/google_params.json") as file:
             file_contents = json.load(file)
     return file_contents
 

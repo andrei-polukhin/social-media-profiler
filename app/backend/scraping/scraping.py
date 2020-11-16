@@ -10,7 +10,7 @@ from app.backend.scraping.twitter.twitter import caller_twitter
 
 
 def main_scraping(user_input):
-    load_dotenv(".env")
+    load_dotenv("scraping/.env")
     full_name = " ".join([user_input["first_name"], user_input["last_name"]])
     with ProcessPoolExecutor(max_workers=5) as pool:
         facebook_process = pool.submit(caller_facebook, full_name=full_name)
