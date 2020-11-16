@@ -1,9 +1,19 @@
 # -*- coding: utf-8 -*-
+"""The Google link filtering module."""
+
 import json
 import re
 
 
-def filtering(items):
+def filtering(items: list) -> list:
+    """
+    Take the list of dictionaries of links and filter them to only needed information.
+
+    Args:
+        items: the list of dictionaries of links that has to be filtered.
+    Returns:
+        list: the list of filtered dictionaries of elements according to the params file.
+    """
     only_title_link_snippet = _google_filter(items)
     file_contents = _read_json_file()
     generator = _regex_matching_items(file_contents, only_title_link_snippet)
@@ -11,7 +21,17 @@ def filtering(items):
     return after_regex_checked_items
 
 
-def _google_filter(items):
+def _google_filter(items: list) -> list:
+    """
+    Take list of dictionaries of items and return \
+    only ``title``, ``link``, ``snippet`` keys from them.
+
+    Args:
+        items: the list of dictionaries of links that has to be filtered.
+    Returns:
+         list: the list of dictionaries of links with \
+         only ``title``, ``link``, ``snippet`` keys.
+    """
     end_list = []
     for item in items:
         cleaned_dict = {
@@ -22,6 +42,12 @@ def _google_filter(items):
 
 
 def _read_json_file():
+    """
+    Read the params JSON file.
+
+    Returns:
+        dict: JSON-loaded contents represented as a Python dict.
+    """
     try:
         with open("google_params.json") as file:
             file_contents = json.load(file)
@@ -31,7 +57,19 @@ def _read_json_file():
     return file_contents
 
 
-def _regex_matching_items(file_contents, items):
+def _regex_matching_items(file_contents: dict, items: list) -> iter:
+    """
+    Take JSON-loaded contents and list of dictionaries of links \
+    and filter to those meeting regex requirements.
+
+    Args:
+        file_contents: JSON-loaded contents represented as a Python dict.
+        items: the list of dictionaries of links with \
+        only ``title``, ``link``, ``snippet`` keys.
+    Returns:
+        iter: iterable that can be transformed to the list of regex matching links \
+        with the XPATH of elements that should be found.
+    """
     keys = file_contents.keys()
     for filtered_dict in items:
         link = filtered_dict["link"]

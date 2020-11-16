@@ -1,4 +1,6 @@
 # -*- coding: utf-8 -*-
+"""The Facebook scraping module saving selectors to find elements on Facebook pages."""
+
 from selenium.webdriver.common.by import By
 
 EMAIL_FIELD = (By.ID, "email")

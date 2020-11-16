@@ -1,4 +1,6 @@
 # -*- coding: utf-8 -*-
+"""The Instagram scraping module with the eponymous class."""
+
 import json
 import os
 
@@ -15,6 +17,7 @@ from app.backend.scraping.instagram._instagram_cookies import (
 
 
 class Instagram:
+    """The class on scrape Instagram information from its official API."""
     SETTINGS_FILE = "cookie_settings.json"
 
     def __init__(self, query):
@@ -28,6 +31,7 @@ class Instagram:
         self.filtered_info_about_subjects = []
 
     def instagram(self):
+        """Call other methods to scrape Instagram information from its API."""
         self._instagram_authenticate()
         self._instagram_search_for_subjects()
         self._instagram_get_ids_of_found_subjects()
@@ -35,6 +39,7 @@ class Instagram:
         self._instagram_filter_info_about_subjects()
 
     def _instagram_authenticate(self):
+        """Authenticate and create/re-use cookie file to avoid throttling."""
         try:
             if not os.path.isfile(Instagram.SETTINGS_FILE):
                 # Cookie settings file does not exist
@@ -53,7 +58,7 @@ class Instagram:
                         file_data, object_hook=load_from_json
                     )
                 self.__device_id = cached_settings.get("device_id")
-                # reuse auth settings
+                # Authenticating with saved settings.
                 self.__api = Client(
                     os.getenv("INSTAGRAM_LOGIN"), os.getenv("INSTAGRAM_PASSWORD"),
                     settings=cached_settings
@@ -71,21 +76,26 @@ class Instagram:
             )
 
     def _instagram_search_for_subjects(self):
+        """Search for potential users using API."""
         self._found_subjects = self.__api.search_users(self.query)
 
     def _instagram_get_ids_of_found_subjects(self):
+        """Get IDs of found Instagram users."""
         users_info_as_list = self._found_subjects["users"]
         for user_as_dict in users_info_as_list:
             user_id = user_as_dict["pk"]
             self._subject_ids.append(user_id)
 
     def _instagram_extract_info_with_subject_ids(self):
+        """Extract more info about found Instagram users using their IDs."""
         for subject_id in self._subject_ids:
             subject_extracted_info_as_dict = self.__api.user_info(subject_id)
             subject_extracted_info = subject_extracted_info_as_dict["user"]
             self._extracted_info_about_subjects.append(subject_extracted_info)
 
     def _instagram_filter_info_about_subjects(self):
+        """Filter found information about subjects saving only information \
+        with specific keys (see code)."""
         for info_about_subject in self._extracted_info_about_subjects:
             sorted_dictionary = {
                 k: v

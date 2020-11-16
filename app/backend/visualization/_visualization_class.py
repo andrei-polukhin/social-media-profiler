@@ -7,7 +7,7 @@ from app.backend.visualization._twitter import TwitterVisualize
 
 
 class Visualization(
-    FacebookVisualize, GoogleSearchVisualize, InstagramVisualize,
-    LinkedinVisualize, TwitterVisualize
+        FacebookVisualize, GoogleSearchVisualize, InstagramVisualize,
+        LinkedinVisualize, TwitterVisualize
 ):
     pass

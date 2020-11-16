@@ -27,5 +27,5 @@ if __name__ == '__main__':
         "location": "Ukraine",
         "additional_text": "CELTA/Delta qualified English teacher",
     }
-    location = "/home/andrew/Downloads"
-    main_backend(sample_input, location)
+    LOCATION = "/home/andrew/Downloads"
+    main_backend(sample_input, LOCATION)

@@ -29,14 +29,14 @@ class LinkedinVisualize(FPDF):
         for subject in self.lists_of_info:
             self._linkedin_visualize_write_name_of_subject(subject)
             self._linkedin_visualize_write_other_info(subject)
-    
+
     def _linkedin_visualize_write_name_of_subject(self, subject_as_dict):
         self.set_font("Times", "B", size=14)
         first_name = subject_as_dict["firstName"]
         last_name = subject_as_dict["lastName"]
         full_name = " ".join([first_name, last_name])
         self.cell(w=0, h=6, txt=full_name, ln=2)
-    
+
     def _linkedin_visualize_write_other_info(self, subject_as_dict):
         self.set_font("Times", size=14)
         headline = subject_as_dict["headline"]

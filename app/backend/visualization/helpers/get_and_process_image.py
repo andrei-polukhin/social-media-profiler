@@ -11,11 +11,11 @@ def get_and_process_image(url):
     pillow_img = pillow_img.resize(size=(400, 400))
     np_image = np.array(pillow_img)
 
-    h, w = pillow_img.size
+    height, width = pillow_img.size
     # Create same size alpha layer with circle
     alpha = Image.new("L", pillow_img.size, 0)
     draw = ImageDraw.Draw(alpha)
-    draw.pieslice([0, 0, h, w], 0, 360, fill=255)
+    draw.pieslice([0, 0, height, width], 0, 360, fill=255)
 
     # Convert alpha Image to numpy array
     np_alpha = np.array(alpha)

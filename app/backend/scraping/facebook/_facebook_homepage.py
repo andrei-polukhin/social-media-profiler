@@ -1,9 +1,12 @@
 # -*- coding: utf-8 -*-
+"""The Facebook scraping module initializing web-browser to open Facebook homepage."""
+
 from selenium import webdriver
 from webdriver_manager.chrome import ChromeDriverManager
 
 
 class FacebookHomepage:
+    """The class to open Facebook homepage with a binary chromebrowser."""
     def __init__(self):
         options = self.add_chrome_options()
         self._driver = webdriver.Chrome(
@@ -11,10 +14,12 @@ class FacebookHomepage:
         )
 
     def facebook_open_home_page(self):
+        """Open Facebook homepage."""
         self._driver.get("https://www.facebook.com")
 
     @staticmethod
     def add_chrome_options():
+        """Add browser options to disable notification and open headlessly."""
         options = webdriver.ChromeOptions()
         options.add_argument("--disable-notifications")
         # options.add_argument("headless")

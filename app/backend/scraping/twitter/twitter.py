@@ -1,8 +1,18 @@
 # -*- coding: utf-8 -*-
+"""The main Twitter scraping module."""
+
 from app.backend.scraping.twitter._twitter_search import TwitterSearch
 
 
-def caller_twitter(query):
+def caller_twitter(query: str) -> dict:
+    """
+    Call Twitter scraping methods and write information about found subjects to the dict.
+
+    Args:
+        query: the query to run API calls against.
+    Returns:
+        dict: the dictionary with information about subjects found on Twitter.
+    """
     results_to_filter = {}
     twitter_obj = TwitterSearch(query)
     twitter_obj.twitter_authorize()

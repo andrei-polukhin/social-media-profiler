@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
-from app.backend.visualization._visualization_class import Visualization
 from datetime import datetime
+from app.backend.visualization._visualization_class import Visualization
 
 
 def main_visualization(analysis_response, user_input, pdf_output_location):

@@ -1,10 +1,21 @@
 # -*- coding: utf-8 -*-
+"""The main Google Search scraping module."""
+
 from app.backend.scraping.google_search._google_mining import mining
 from app.backend.scraping.google_search._google_filter import filtering
 from app.backend.scraping.scraper.scraping import scraping
 
 
 def caller_google_search(user_input):
+    """
+    Call all Google scraping function to get information about a person \
+    and scrape it on selectors.
+
+    Args:
+        user_input: user input represented as a dictionary.
+    Returns:
+        dict: the dictionary with links and with elements on them with values.
+    """
     results_to_filter = {}
     results_to_filter["google_search"] = scraped_webpages = {}
     full_name = " ".join([user_input["first_name"], user_input["last_name"]])

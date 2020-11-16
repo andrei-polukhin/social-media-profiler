@@ -1,9 +1,14 @@
 # -*- coding: utf-8 -*-
+"""The LinkedIn subjects' subjects' searching module."""
+
 import os
 from linkedin_api import Linkedin as LinkedinAPI
 
 
 class LinkedinSearch:
+    """
+    The class to search for subjects and put them into `found` and `potential` categories.
+    """
     def __init__(self, user_input):
         self.first_name = user_input["first_name"]
         self.last_name = user_input["last_name"]
@@ -15,18 +20,28 @@ class LinkedinSearch:
         self._potential_subjects = []
 
     def linkedin_search(self):
+        """
+        Call other methods to search for subjects and put them into appropriate categories.
+        """
         self._linkedin_authenticate()
         self._linkedin_search_for_subjects()
 
     def _linkedin_authenticate(self):
+        """Authenticate using LinkedIn login and password."""
         self._api = LinkedinAPI(os.getenv("LINKEDIN_LOGIN"), os.getenv("LINKEDIN_PASSWORD"))
 
     def _linkedin_search_for_subjects(self):
+        """
+        Search for a subject in an ideal case or, if not found, find potential candidates.
+        """
         self._linkedin_search_in_ideal_case()
         if not self._found_subjects:
             self._linkedin_search_for_potential_candidate()
 
     def _linkedin_search_in_ideal_case(self):
+        """
+        Search for a subject in an ideal case if provided all necessary information.
+        """
         if self.keyword_company and self.keyword_school and self.keyword_title:
             self._found_subjects = self._api.search_people(
                 keyword_first_name=self.first_name,
@@ -37,6 +52,9 @@ class LinkedinSearch:
             )
 
     def _linkedin_search_for_potential_candidate(self):
+        """
+        Search for potential candidates with any provided information.
+        """
         for i in range(3):
             try:
                 results = self._api.search_people(

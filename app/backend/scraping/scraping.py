@@ -1,4 +1,6 @@
 # -*- coding: utf-8 -*-
+"""The main scraping module."""
+
 from concurrent.futures import ProcessPoolExecutor
 from dotenv import load_dotenv
 
@@ -9,7 +11,17 @@ from app.backend.scraping.linkedin.linkedin import caller_linkedin
 from app.backend.scraping.twitter.twitter import caller_twitter
 
 
-def main_scraping(user_input):
+def main_scraping(user_input: dict) -> dict:
+    """
+    Take user input and scrape all possible information on Facebook, \
+    Google Search, Instagram, LinkedIn, Twitter.
+
+    Args:
+        user_input: user input represented as a dictionary.
+    Returns:
+        dict: all scraped information from Facebook, \
+        Google Search, Instagram, LinkedIn, Twitter.
+    """
     load_dotenv("scraping/.env")
     full_name = " ".join([user_input["first_name"], user_input["last_name"]])
     with ProcessPoolExecutor(max_workers=5) as pool:
