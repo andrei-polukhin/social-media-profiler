@@ -1,4 +1,6 @@
 # -*- coding: utf-8 -*-
+"""The LinkedIn main scraping module."""
+
 from app.backend.scraping.linkedin._linkedin_search_info import (
     LinkedinSearchSubjects,
 )

@@ -19,10 +19,11 @@ class LinkedinSearchSubjects(LinkedinFindIds):
 
     def _linkedin_search_for_all_subjects(self):
         """Organize API calls for all types of subjects: found and potential."""
-        searching_instructions = [{
-            0: self._found_subjects_public_ids,
-            1: self.found_subjects_info
-        },
+        searching_instructions = [
+            {
+                0: self._found_subjects_public_ids,
+                1: self.found_subjects_info
+            },
             {
                 0: self._potential_subjects_ids_after_filtering,
                 1: self.potential_subjects_info_after_filtering,
@@ -48,8 +49,7 @@ class LinkedinSearchSubjects(LinkedinFindIds):
                 standardized_properties = {
                     k: v
                     for k, v in returned_obj.items()
-                    if k
-                       in [
+                    if k in [
                            "industryName",
                            "lastName",
                            "locationName",
