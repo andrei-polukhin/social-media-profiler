@@ -11,10 +11,10 @@ def main_backend(user_input: dict, pdf_output_location: str):
     Commit scraping, analysis and visualization.
 
     Args:
-         user_input: the app's user input represented as a dict.
-         pdf_output_location: the location on the PC where to output the PDF file.
+         `user_input`: the app's user input represented as a dict.\n
+         `pdf_output_location`: the location on the PC where to output the PDF file.
     Returns:
-        None: visualized PDF file.
+        `None`: visualized PDF file.
     """
     scraping_results = main_scraping(user_input)
     analysis_results = main_analyzing(

@@ -12,10 +12,10 @@ def find_similarity_ratio(f_string: str, s_string: str) -> float:
     Rabin fingerprint and winnowing by Stanford.
 
     Args:
-         f_string: first string.
-         s_string: second string.
+         `f_string`: first string.\n
+         `s_string`: second string.
     Returns:
-        float: the similarity ratio between two strings.
+        `float`: the similarity ratio between two strings.
     """
     f_string_fingerprint = FINGERPRINT.generate(str=f_string)
     s_string_fingerprint = FINGERPRINT.generate(str=s_string)

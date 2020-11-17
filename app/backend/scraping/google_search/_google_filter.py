@@ -10,9 +10,9 @@ def filtering(items: list) -> list:
     Take the list of dictionaries of links and filter them to only needed information.
 
     Args:
-        items: the list of dictionaries of links that has to be filtered.
+        `items`: the list of dictionaries of links that has to be filtered.
     Returns:
-        list: the list of filtered dictionaries of elements according to the params file.
+        `list`: the list of filtered dictionaries of elements according to the params file.
     """
     only_title_link_snippet = _google_filter(items)
     file_contents = _read_json_file()
@@ -27,9 +27,9 @@ def _google_filter(items: list) -> list:
     only ``title``, ``link``, ``snippet`` keys from them.
 
     Args:
-        items: the list of dictionaries of links that has to be filtered.
+        `items`: the list of dictionaries of links that has to be filtered.
     Returns:
-         list: the list of dictionaries of links with \
+         `list`: the list of dictionaries of links with \
          only ``title``, ``link``, ``snippet`` keys.
     """
     end_list = []
@@ -46,7 +46,7 @@ def _read_json_file():
     Read the params JSON file.
 
     Returns:
-        dict: JSON-loaded contents represented as a Python dict.
+        `dict`: JSON-loaded contents represented as a Python dict.
     """
     try:
         with open("google_params.json") as file:
@@ -63,11 +63,11 @@ def _regex_matching_items(file_contents: dict, items: list) -> iter:
     and filter to those meeting regex requirements.
 
     Args:
-        file_contents: JSON-loaded contents represented as a Python dict.
-        items: the list of dictionaries of links with \
+        `file_contents`: JSON-loaded contents represented as a Python dict.\n
+        `items`: the list of dictionaries of links with \
         only ``title``, ``link``, ``snippet`` keys.
     Returns:
-        iter: iterable that can be transformed to the list of regex matching links \
+        `iter`: iterable that can be transformed to the list of regex matching links \
         with the XPATH of elements that should be found.
     """
     keys = file_contents.keys()

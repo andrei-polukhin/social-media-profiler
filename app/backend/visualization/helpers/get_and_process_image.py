@@ -13,9 +13,9 @@ def get_and_process_image(url: str) -> io.BytesIO:
     and return cropped version of the image.
 
     Args:
-         url: the URL to the image we need to get and process.
+         `url`: the URL to the image we need to get and process.
     Returns:
-        io.BytesIO: the io.BytesIO object that contains processed image.
+        `io.BytesIO`: the io.BytesIO object that contains processed image.
     """
     img = io.BytesIO(urlopen(url).read())
     pillow_img = Image.open(img).convert("RGB")

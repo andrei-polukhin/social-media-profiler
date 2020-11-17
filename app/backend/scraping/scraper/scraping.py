@@ -14,9 +14,10 @@ def scraping(list_of_links_and_configs: list) -> list:
     and return scraped elements from webpages.
 
     Args:
-         list_of_links_and_configs: the list of links to webpages with XPATH selectors from params files.
+         `list_of_links_and_configs`: the list of links to webpages \
+         with XPATH selectors from params files.
     Returns:
-         list: the list of links with elements that are scraped using XPATH selectors.
+         `list`: the list of links with elements that are scraped using XPATH selectors.
     """
     results = []
     loop = asyncio.get_event_loop()
@@ -35,12 +36,12 @@ async def _organize_tasks(loop, *tuples_of_links_and_configs) -> list:
     and organise asyncio.gather asynchronous activity.
 
     Args:
-        loop: asyncio event loop.
-        *tuples_of_links_and_configs: tuples of links to webpages with XPATH selectors \
+        `loop`: asyncio event loop.\n
+        `*tuples_of_links_and_configs`: tuples of links to webpages with XPATH selectors \
         from params files.
 
     Returns:
-        list: asyncio-controlled tasks using Future.
+        `list`: asyncio-controlled tasks using Future.
     """
     tasks = []
     async with aiohttp.ClientSession(loop=loop) as session:
@@ -54,10 +55,11 @@ async def _scraper(session, tuple_of_link_and_config: tuple) -> dict:
     Using aiohttp session and tuple of links to webpages with XPATH selectors, scrape the webpage.
 
     Args:
-        session: aiohttp session.
-        tuple_of_link_and_config: link to the desired webpage with XPATH selectors to elements on it.
+        `session`: aiohttp session.\n
+        `tuple_of_link_and_config`: the link to the desired webpage \
+        with XPATH selectors to elements on it.
     Returns:
-        dict: the dictionary with link to the webpage and XPATH-scraped values.
+        `dict`: the dictionary with link to the webpage and XPATH-scraped values.
     """
     link, config = tuple_of_link_and_config
     html_string = await _get_html_string(session, link)
@@ -71,8 +73,8 @@ async def _get_html_string(session, link):
     Get HTML string from the URL using aiohttp session.
 
     Args:
-        session: aiohttp session.
-        link: link to the desired webpage.
+        `session`: aiohttp session.\n
+        `link`: the link to the desired webpage.
     """
     async with session.get(link) as response:
         return await response.text()
@@ -83,9 +85,9 @@ async def _get_html_tree(html_string: str):
     Get a HTML tree from a HTML string.
 
     Args:
-        html_string: HTML contents of the webpage represented as a string.
+        `html_string`: HTML contents of the webpage represented as a string.
     Returns:
-        html_tree: HTML tree of the webpage.
+        `html_tree`: HTML tree of the webpage.
     """
     return html.fromstring(html_string)
 
@@ -95,11 +97,11 @@ async def _find_elements(link: str, html_tree, conf: dict) -> dict:
     Find elements with XPATH selectors on the webpage.
 
     Args:
-        link: the link to the desired webpage.
-        html_tree: HTML tree of the webpage.
-        conf: keys and XPATH selectors to run scraping against.
+        `link`: the link to the desired webpage.\n
+        `html_tree`: HTML tree of the webpage.\n
+        `conf`: keys and XPATH selectors to run scraping against.
     Returns:
-        dict: the dictionary of links with values that are scraped using XPATH selectors.
+        `dict`: the dictionary of links with values that are scraped using XPATH selectors.
     """
     result = {"service_name": conf["service_name"], "link": link}
     service_name = conf.pop("service_name", None)

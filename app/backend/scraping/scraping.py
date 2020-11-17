@@ -17,9 +17,9 @@ def main_scraping(user_input: dict) -> dict:
     Google Search, Instagram, LinkedIn, Twitter.
 
     Args:
-        user_input: user input represented as a dictionary.
+        `user_input`: user input represented as a dictionary.
     Returns:
-        dict: all scraped information from Facebook, \
+        `dict`: all scraped information from Facebook, \
         Google Search, Instagram, LinkedIn, Twitter.
     """
     load_dotenv("scraping/.env")

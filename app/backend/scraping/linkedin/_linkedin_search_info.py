@@ -50,20 +50,20 @@ class LinkedinSearchSubjects(LinkedinFindIds):
                     k: v
                     for k, v in returned_obj.items()
                     if k in [
-                           "industryName",
-                           "lastName",
-                           "locationName",
-                           "student",
-                           "geoCountryName",
-                           "firstName",
-                           "headline",
-                           "experience",
-                           "skills",
-                           "education",
-                           "languages",
-                           "publications",
-                           "certifications",
-                           "honors",
-                       ]
+                        "industryName",
+                        "lastName",
+                        "locationName",
+                        "student",
+                        "geoCountryName",
+                        "firstName",
+                        "headline",
+                        "experience",
+                        "skills",
+                        "education",
+                        "languages",
+                        "publications",
+                        "certifications",
+                        "honors",
+                    ]
                 }
                 list_to_filter[i] = standardized_properties

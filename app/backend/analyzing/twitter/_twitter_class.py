@@ -73,7 +73,8 @@ class TwitterAnalyze:
 
     def _analyze_twitter_description(self):
         """
-        Run filtering against description (if no screen name was required and location filter succeeded).
+        Run filtering against description (if no screen name was required \
+        and location filter succeeded).
         """
         required_additional_text = self.user_input["additional_text"]
         for info_and_posts in self.tuples_after_location_filter:
@@ -91,9 +92,9 @@ class TwitterAnalyze:
         Sanitize the string from punctuation and put all words into a set.
 
         Args:
-             input_str: the initial string to sanitize.
+             `input_str`: the initial string to sanitize.
         Returns:
-            set: the set from sanitized strings (no punctuation and lowercase).
+            `set`: the set from sanitized strings (no punctuation and lowercase).
         """
         string_sanitized = input_str.lower().translate(
             str.maketrans("", "", string.punctuation)

@@ -10,11 +10,11 @@ def dump_to_json(python_object: object) -> dict:
     Dump to JSON using custom schema (see code).
 
     Args:
-        python_object: the python object to serialize.
+        `python_object`: the python object to serialize.
     Returns:
-        dict: serialized JSON object as a Python dict.
+        `dict`: serialized JSON object as a Python dict.
     Raises:
-        TypeError: if `python_object` is not JSON-serializable.
+        ``TypeError``: if `python_object` is not JSON-serializable.
     """
     if isinstance(python_object, bytes):
         return {
@@ -29,9 +29,9 @@ def load_from_json(json_object: dict) -> object:
     Load from JSON using custom schema (see code).
 
     Args:
-        json_object: serialized JSON object as a Python dict.
+        `json_object`: serialized JSON object as a Python dict.
     Returns:
-        python_object: object hook for `json.load` function.
+        `python_object`: object hook for `json.load` function.
     """
     if "__class__" in json_object and json_object["__class__"] == "bytes":
         return codecs.decode(json_object["__value__"].encode(), "base64")
@@ -43,8 +43,8 @@ def on_login_callback(api_response, new_settings_file):
     Save callback after successful login to re-use it.
 
     Args:
-        api_response: response from Instagram API.
-        new_settings_file: the name of file to create in a current directory.
+        `api_response`: response from Instagram API.\n
+        `new_settings_file`: the name of file to create in a current directory.
     """
     cache_settings = api_response.settings
     with open(new_settings_file, "w") as outfile:

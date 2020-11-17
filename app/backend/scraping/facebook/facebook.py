@@ -11,9 +11,9 @@ def caller_facebook(full_name: str) -> dict:
     and scrape on selectors.
 
     Args:
-        full_name: the full name of the person links about whom we want to find.
+        `full_name`: the full name of the person links about whom we want to find.
     Returns:
-        dict: the dictionary with links and with elements on them with values.
+        `dict`: the dictionary with links and with elements on them with values.
     """
     results_to_filter = {}
     facebook_obj = FacebookFilterLinks(full_name)

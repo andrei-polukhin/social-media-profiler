@@ -14,10 +14,10 @@ def main_analyzing(scraping_response: dict, user_input: dict) -> dict:
     Take scraping response and run filters according to the user input.
 
     Args:
-        scraping_response: the dict that has been received after scraping.
-        user_input: user input represented as a dict.
+        `scraping_response`: the dict that has been received after scraping.\n
+        `user_input`: user input represented as a dict.
     Returns:
-        dict: the dictionary with filtered profiles from all social media.
+        `dict`: the dictionary with filtered profiles from all social media.
     """
     with ProcessPoolExecutor(max_workers=4) as pool:
         facebook_process = pool.submit(

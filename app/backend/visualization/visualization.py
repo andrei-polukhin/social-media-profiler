@@ -12,11 +12,11 @@ def main_visualization(analysis_response: dict, user_input: dict, pdf_output_loc
     in the name.
 
     Args:
-        analysis_response: the dictionary received after an analysis of the scraped information.
-        user_input: the app's user input represented as a dict.
-        pdf_output_location: the location on the PC where to output the PDF file.
+        `analysis_response`: the dictionary received after an analysis of the scraped information.\n
+        `user_input`: the app's user input represented as a dict.\n
+        `pdf_output_location`: the location on the PC where to output the PDF file.
     Returns:
-        None: outputs a PDF file with all the information into a specific location.
+        `None`: outputs a PDF file with all the information into a specific location.
     """
     pdf = Visualization(analysis_response)
     pdf.add_page()
@@ -35,8 +35,8 @@ def _display_name_and_location(pdf_object, user_input: dict):
     Display the desired subject full name and location on the PDF.
 
     Args:
-         pdf_object: the FPDF object to visualize full name and location.
-         user_input: the app's user input represented as a dict.
+         `pdf_object`: the FPDF object to visualize full name and location.\n
+         `user_input`: the app's user input represented as a dict.
     """
     pdf_object.set_font("Times", "B", size=18)
     full_name = " ".join([user_input["first_name"], user_input["last_name"]])
@@ -52,9 +52,9 @@ def _choose_name_of_file(user_input: dict) -> str:
     return the name of the PDF file.
 
     Args:
-         user_input: the app's user input represented as a dict.
+         `user_input`: the app's user input represented as a dict.
     Returns:
-        str: the name of the PDF file which will be saved in the user-specified directory.
+        `str`: the name of the PDF file which will be saved in the user-specified directory.
     """
     full_name = "".join([user_input["first_name"], user_input["last_name"]])
     time_str_to_output = datetime.now().replace(microsecond=0).isoformat()

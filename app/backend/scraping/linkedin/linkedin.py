@@ -11,9 +11,9 @@ def caller_linkedin(user_input: dict) -> dict:
     Call LinkedIn scraping methods to get info about found and potential subjects.
 
     Args:
-        user_input: user input represented as a dictionary.
+        `user_input`: user input represented as a dictionary.
     Returns:
-        dict: the dictionary with information about found or potential subjects.
+        `dict`: the dictionary with information about found or potential subjects.
     """
     results_to_filter = {}
     linkedin_obj = LinkedinSearchSubjects(user_input)

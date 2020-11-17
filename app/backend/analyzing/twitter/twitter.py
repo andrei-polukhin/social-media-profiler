@@ -9,10 +9,10 @@ def caller_analyze_twitter(scraping_response: dict, user_input: dict) -> dict:
     Take scraping response and run Twitter methods to filter it according to the user input.
 
     Args:
-        scraping_response: the dict that has been received after scraping.
-        user_input: user input represented as a dict.
+        `scraping_response`: the dict that has been received after scraping.\n
+        `user_input`: user input represented as a dict.
     Returns:
-        dict: the dictionary with filtered Twitter profiles.
+        `dict`: the dictionary with filtered Twitter profiles.
     """
     results_to_visualize = {}
     twitter_obj = TwitterAnalyze(scraping_response, user_input)

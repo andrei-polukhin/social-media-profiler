@@ -8,10 +8,11 @@ def split_string_in_words_with_len_limit(string: str, limit=45) -> str:
     put ellipsis after reaching the quota.
 
     Args:
-        string: the string that should be limited to a specific length.
-        limit: the int value showing to which number of symbols the string should be limited.
+        `string`: the string that should be limited to a specific length.\n
+        `limit`: the int value showing to which number of symbols the string should be limited.
     Returns:
-        str: the limited string with an ellipsis at the end (if initial length has exceeded the quota.)
+        `str`: the limited string with an ellipsis at the end \
+        (if initial length has exceeded the quota.)
     """
     accumulated_words = []
     list_of_words_in_string = string.split()

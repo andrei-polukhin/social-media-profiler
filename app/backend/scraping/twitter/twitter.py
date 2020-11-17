@@ -9,9 +9,9 @@ def caller_twitter(query: str) -> dict:
     Call Twitter scraping methods and write information about found subjects to the dict.
 
     Args:
-        query: the query to run API calls against.
+        `query`: the query to run API calls against.
     Returns:
-        dict: the dictionary with information about subjects found on Twitter.
+        `dict`: the dictionary with information about subjects found on Twitter.
     """
     results_to_filter = {}
     twitter_obj = TwitterSearch(query)

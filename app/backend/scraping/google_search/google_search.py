@@ -12,9 +12,9 @@ def caller_google_search(user_input):
     and scrape it on selectors.
 
     Args:
-        user_input: user input represented as a dictionary.
+        `user_input`: user input represented as a dictionary.
     Returns:
-        dict: the dictionary with links and with elements on them with values.
+        `dict`: the dictionary with links and with elements on them with values.
     """
     results_to_filter = {}
     results_to_filter["google_search"] = scraped_webpages = {}
