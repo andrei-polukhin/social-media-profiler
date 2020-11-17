@@ -1,10 +1,13 @@
 # -*- coding: utf-8 -*-
+"""The Instagram visualization module."""
+
 from fpdf import FPDF
-from app.backend.visualization.helpers.split_string import split_string_in_words_with_len_limit
+from app.backend.visualization.helpers.limit_string import split_string_in_words_with_len_limit
 from app.backend.visualization.helpers.get_and_process_image import get_and_process_image
 
 
 class InstagramVisualize(FPDF):
+    """The class to visualize Instagram information on the PDF."""
     def __init__(self, analysis_response=None):
         super().__init__()
         self.analysis_response = analysis_response
@@ -12,16 +15,23 @@ class InstagramVisualize(FPDF):
         self.set_doc_option("core_fonts_encoding", "windows-1252")
 
     def instagram_visualize(self):
+        """
+        Call other methods to visualize Instagram information if there is any.
+        """
         self.list_of_instagram_subjects = self.analysis_response["instagram"]
         if any(self.list_of_instagram_subjects.values()):
             self._instagram_visualize_write_title()
             self._instagram_visualize_write_info_about_each_subject()
 
     def _instagram_visualize_write_title(self):
+        """Write the title of Instagram on the PDF."""
         self.set_font("Times", "BI", size=16)
         self.cell(w=0, h=5, txt="Instagram", ln=2)
 
     def _instagram_visualize_write_info_about_each_subject(self):
+        """
+        Visualize information about each subject on Instagram.
+        """
         self.set_font("Times", "I", size=14)
         if len(self.list_of_instagram_subjects) > 1:
             self.cell(w=0, h=5, txt="Potential users", ln=2)
@@ -39,12 +49,19 @@ class InstagramVisualize(FPDF):
         )
         # """For TEST:""" self.cell(w=0, txt="HIII!!!")
 
-    def _instagram_visualize_process_and_visualize_image(self, subject):
+    def _instagram_visualize_process_and_visualize_image(self, subject: dict):
+        """
+        Get, process and visualize the Instagram profile image.
+        """
         subject_image_url = subject["profile_pic_url"]
         processed_image = get_and_process_image(subject_image_url)
         self.image(name=processed_image, w=45, h=45)
 
-    def _instagram_visualize_put_info_in_bullet_list(self, subject):
+    def _instagram_visualize_put_info_in_bullet_list(self, subject: dict):
+        """
+        Visualize information about a subject on Instagram \
+        as items in a bullet list.
+        """
         current_ordinate = self.get_y()
         self.set_xy(65, current_ordinate - 40)
         username = subject["username"]

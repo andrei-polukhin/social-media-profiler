@@ -1,11 +1,22 @@
 # -*- coding: utf-8 -*-
+"""The module to obtain an image by the URL and process it."""
+
 import io
 from urllib.request import urlopen
 from PIL import Image, ImageDraw
 import numpy as np
 
 
-def get_and_process_image(url):
+def get_and_process_image(url: str) -> io.BytesIO:
+    """
+    Get the image by the URL, then crop it into a circle using numpy and Pillow, \
+    and return cropped version of the image.
+
+    Args:
+         url: the URL to the image we need to get and process.
+    Returns:
+        io.BytesIO: the io.BytesIO object that contains processed image.
+    """
     img = io.BytesIO(urlopen(url).read())
     pillow_img = Image.open(img).convert("RGB")
     pillow_img = pillow_img.resize(size=(400, 400))
@@ -30,6 +41,6 @@ def get_and_process_image(url):
     cropped_image_in_bytes.seek(0)
     cropped_image = cropped_image_in_bytes.read()
 
-    # Non test code
+    # Return io.BytesIO image with all done manipulations
     data_bytes_io = io.BytesIO(cropped_image)
     return data_bytes_io

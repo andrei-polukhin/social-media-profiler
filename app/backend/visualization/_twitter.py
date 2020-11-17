@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 from fpdf import FPDF
-from app.backend.visualization.helpers.split_string import split_string_in_words_with_len_limit
+from app.backend.visualization.helpers.limit_string import split_string_in_words_with_len_limit
 from app.backend.visualization.helpers.get_and_process_image import get_and_process_image
 
 

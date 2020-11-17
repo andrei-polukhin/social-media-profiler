@@ -1,8 +1,11 @@
 # -*- coding: utf-8 -*-
+"""The LinkedIn visualization module."""
+
 from fpdf import FPDF
 
 
 class LinkedinVisualize(FPDF):
+    """The class to visualize LinkedIn information on the PDF."""
     def __init__(self, analysis_response=None):
         super().__init__()
         self.analysis_response = analysis_response
@@ -11,6 +14,9 @@ class LinkedinVisualize(FPDF):
         self.set_doc_option("core_fonts_encoding", "windows-1252")
 
     def linkedin_visualize(self):
+        """
+        Call other methods to visualize LinkedIn information if there is any.
+        """
         dict_to_linkedin_subjects = self.analysis_response["linkedin"]
         (self.character_of_subjects, self.lists_of_info), = dict_to_linkedin_subjects.items()
         if self.lists_of_info:
@@ -18,10 +24,14 @@ class LinkedinVisualize(FPDF):
             self._linkedin_visualize_write_info_about_each_subject()
 
     def _linkedin_visualize_write_title(self):
+        """Write the title of LinkedIn on the PDF."""
         self.set_font("Times", "BI", size=16)
         self.cell(w=0, h=6, txt="LinkedIn", ln=2)
 
     def _linkedin_visualize_write_info_about_each_subject(self):
+        """
+        Visualize information about each found subject on LinkedIn.
+        """
         self.set_font("Times", "I", size=14)
         if self.character_of_subjects == "potential_subjects_after_filtering":
             self.cell(w=0, h=6, txt="Potential user(s)", ln=2)
@@ -30,14 +40,16 @@ class LinkedinVisualize(FPDF):
             self._linkedin_visualize_write_name_of_subject(subject)
             self._linkedin_visualize_write_other_info(subject)
 
-    def _linkedin_visualize_write_name_of_subject(self, subject_as_dict):
+    def _linkedin_visualize_write_name_of_subject(self, subject_as_dict: dict):
+        """Write the full name of the found subject on LinkedIn."""
         self.set_font("Times", "B", size=14)
         first_name = subject_as_dict["firstName"]
         last_name = subject_as_dict["lastName"]
         full_name = " ".join([first_name, last_name])
         self.cell(w=0, h=6, txt=full_name, ln=2)
 
-    def _linkedin_visualize_write_other_info(self, subject_as_dict):
+    def _linkedin_visualize_write_other_info(self, subject_as_dict: dict):
+        """Write other analyzed information about a subject."""
         self.set_font("Times", size=14)
         headline = subject_as_dict["headline"]
         self.cell(w=0, h=6, txt=f"Headline: {headline}.", ln=2)
@@ -49,7 +61,8 @@ class LinkedinVisualize(FPDF):
         self._linkedin_visualize_write_education(subject_as_dict)
         self._linkedin_visualize_write_skills(subject_as_dict)
 
-    def _linkedin_visualize_write_experience(self, subject_as_dict):
+    def _linkedin_visualize_write_experience(self, subject_as_dict: dict):
+        """Write the work experience of the found subject."""
         self.cell(w=0, h=6, txt="Work experience:", ln=2)
         list_of_experiences = subject_as_dict["experience"]
         self.set_x(20)
@@ -67,7 +80,10 @@ class LinkedinVisualize(FPDF):
             self._linkedin_visualize_write_time_period_for_experience(time_period)
         self.ln()
 
-    def _linkedin_visualize_write_time_period_for_experience(self, time_period):
+    def _linkedin_visualize_write_time_period_for_experience(self, time_period: dict):
+        """
+        Write time period (start date and end date, if any) for a particular work experience.
+        """
         start_date = time_period["startDate"]
         end_date = time_period.get("endDate")
         if end_date is None:
@@ -86,7 +102,8 @@ class LinkedinVisualize(FPDF):
         date_period_str_to_output = " - ".join([start_date_str, end_date_str])
         self.cell(w=0, h=6, txt=f"Time period: {date_period_str_to_output}.", ln=2)
 
-    def _linkedin_visualize_write_education(self, subject_as_dict):
+    def _linkedin_visualize_write_education(self, subject_as_dict: dict):
+        """Write the education of the found subject."""
         self.cell(w=0, h=6, txt="Education:", ln=2)
         list_of_educations = subject_as_dict["education"]
         self.set_x(20)
@@ -101,7 +118,10 @@ class LinkedinVisualize(FPDF):
             self._linkedin_visualize_write_time_period_for_education(time_period)
         self.ln()
 
-    def _linkedin_visualize_write_time_period_for_education(self, time_period):
+    def _linkedin_visualize_write_time_period_for_education(self, time_period: dict):
+        """
+        Write time period (start date and end date, if any) for a particular education.
+        """
         start_date = time_period["startDate"]
         end_date = time_period.get("endDate")
         if end_date is None:
@@ -112,7 +132,8 @@ class LinkedinVisualize(FPDF):
             date_period_str_to_output = f"{start_date_str_to_output}-{end_date_str_to_output}"
         self.cell(w=0, h=6, txt=f"Time period: {date_period_str_to_output}.", ln=2)
 
-    def _linkedin_visualize_write_skills(self, subject_as_dict):
+    def _linkedin_visualize_write_skills(self, subject_as_dict: dict):
+        """Visualize all skills from the LinkedIn profile of the found subject."""
         list_of_skills_to_output = []
         skills = subject_as_dict["skills"]
         for skill_as_dict in skills:
