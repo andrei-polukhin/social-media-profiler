@@ -21,6 +21,7 @@ python-dotenv = "*"
 fingerprint = "*"
 numpy = "*"
 fpdf2 = "*"
+pyqt5 = "*"
 
 [dev-packages]
 
