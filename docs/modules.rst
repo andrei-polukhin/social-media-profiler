@@ -5,3 +5,4 @@ dossier-builder
    :maxdepth: 4
 
    app
+   run

@@ -1,5 +1,5 @@
-app package
-===========
+app.design package
+==================
 
 Subpackages
 -----------
@@ -7,16 +7,15 @@ Subpackages
 .. toctree::
    :maxdepth: 4
 
-   app.backend
-   app.design
+   app.design.ui
 
 Submodules
 ----------
 
-app.app module
---------------
+app.design.design module
+------------------------
 
-.. automodule:: app.app
+.. automodule:: app.design.design
    :members:
    :undoc-members:
    :show-inheritance:
@@ -24,7 +23,7 @@ app.app module
 Module contents
 ---------------
 
-.. automodule:: app
+.. automodule:: app.design
    :members:
    :undoc-members:
    :show-inheritance:

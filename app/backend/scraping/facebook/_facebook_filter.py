@@ -30,7 +30,7 @@ class FacebookFilterLinks(FacebookSearchLinks):
         Read the params file to get regex expressions sought links have to match.
         """
         try:
-            with open("facebook_params.json") as file:
+            with open("app/backend/scraping/facebook/facebook_params.json") as file:
                 self.file_contents = json.load(file)
         except FileNotFoundError:
             with open("scraping/facebook/facebook_params.json") as file:

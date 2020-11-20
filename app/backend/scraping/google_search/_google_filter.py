@@ -49,7 +49,7 @@ def _read_json_file():
         `dict`: JSON-loaded contents represented as a Python dict.
     """
     try:
-        with open("google_params.json") as file:
+        with open("app/backend/scraping/google_search/google_params.json") as file:
             file_contents = json.load(file)
     except FileNotFoundError:
         with open("scraping/google_search/google_params.json") as file:

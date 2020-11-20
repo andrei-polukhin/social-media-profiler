@@ -18,7 +18,7 @@ from app.backend.scraping.instagram._instagram_cookies import (
 
 class Instagram:
     """The class on scrape Instagram information from its official API."""
-    SETTINGS_FILE = "cookie_settings.json"
+    SETTINGS_FILE = "app/backend/scraping/instagram/cookie_settings.json"
 
     def __init__(self, query):
         self.query = query

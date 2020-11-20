@@ -22,7 +22,7 @@ def main_scraping(user_input: dict) -> dict:
         `dict`: all scraped information from Facebook, \
         Google Search, Instagram, LinkedIn, Twitter.
     """
-    load_dotenv("scraping/.env")
+    load_dotenv("app/backend/scraping/.env")
     full_name = " ".join([user_input["first_name"], user_input["last_name"]])
     with ProcessPoolExecutor(max_workers=5) as pool:
         facebook_process = pool.submit(caller_facebook, full_name=full_name)
