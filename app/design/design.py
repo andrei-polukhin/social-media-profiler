@@ -2,7 +2,7 @@
 """The main GUI window design of the project."""
 
 from PyQt5 import QtWidgets, uic
-from PyQt5.QtWidgets import QMainWindow
+from PyQt5.QtWidgets import QMainWindow, QMessageBox
 from app.backend.backend import main_backend
 
 
@@ -14,6 +14,7 @@ class Window(QMainWindow):
     def __init__(self):
         super().__init__()
         uic.loadUi("app/design/ui/main.ui", self)
+        self.setWindowTitle("SocialMediaProfiler")
         # Finding input fields
         self.first_name_input = self.findChild(QtWidgets.QLineEdit, "first_name_field")
         self.last_name_input = self.findChild(QtWidgets.QLineEdit, "last_name_field")
@@ -28,9 +29,13 @@ class Window(QMainWindow):
         # Finding buttons
         self.select_button = self.findChild(QtWidgets.QPushButton, "select_directory")
         self.submit_button = self.findChild(QtWidgets.QPushButton, "submit_button")
+        self.credits_from_menu = self.findChild(QtWidgets.QAction, "actionCredits")
+        # Finding the progress bar
+        self.progress_bar = self.findChild(QtWidgets.QProgressBar, "app_progress_bar")
         # Connecting buttons to methods
         self.select_button.clicked.connect(self.choose_directory_as_dialog)
         self.submit_button.clicked.connect(self.send_input_to_backend)
+        self.credits_from_menu.triggered.connect(self.open_credits_message)
 
     def choose_directory_as_dialog(self):
         """Choose the directory on the PC where file will be saved."""
@@ -41,6 +46,7 @@ class Window(QMainWindow):
 
     def send_input_to_backend(self):
         """Collect app user's input and send it to the backend of the project."""
+        self.progress_bar.setValue(0)
         first_name = self.first_name_input.text()
         last_name = self.last_name_input.text()
         location = self.location_input.text()
@@ -61,5 +67,23 @@ class Window(QMainWindow):
             "instagram_nickname": instagram,
             "additional_text": additional_text
         }
+        input_fields = [
+            self.first_name_input, self.last_name_input, self.location_input,
+            self.company_input, self.job_title_input, self.school_input,
+            self.twitter_input, self.instagram_input, self.additional_text
+        ]
+        for input_field in input_fields:
+            input_field.clear()
         output_directory = self.directory_text.text()
         main_backend(config_dict, output_directory)
+        self.progress_bar.setValue(100)
+
+    @staticmethod
+    def open_credits_message():
+        """Open the about message of this project."""
+        msg = QMessageBox()
+        msg.setWindowTitle("About")
+        msg.setText("This app has been built by Andrew Polukhin.")
+        msg.setIcon(QMessageBox.Information)
+        msg.setStandardButtons(QMessageBox.Ok)
+        msg.exec_()

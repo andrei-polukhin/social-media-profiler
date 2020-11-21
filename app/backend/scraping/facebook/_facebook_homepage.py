@@ -22,7 +22,7 @@ class FacebookHomepage:
         """Add browser options to disable notification and open headlessly."""
         options = webdriver.ChromeOptions()
         options.add_argument("--disable-notifications")
-        # options.add_argument("headless")
+        options.add_argument("headless")
         return options
 
 
