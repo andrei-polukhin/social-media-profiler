@@ -23,13 +23,13 @@ class TwitterAnalyze:
         otherwise run filters against first and last names, user location and description.
         """
         if self.user_input.get("twitter_profile"):
-            self._twitter_analyze_screen_name()
+            self.__twitter_analyze_screen_name()
         else:
-            self._twitter_analyze_first_and_last_names()
-            self._twitter_analyze_location()
-            self._analyze_twitter_description()
+            self.__twitter_analyze_first_and_last_names()
+            self.__twitter_analyze_location()
+            self.__analyze_twitter_description()
 
-    def _twitter_analyze_screen_name(self):
+    def __twitter_analyze_screen_name(self):
         """
         Run filtering against screen names (if user input has a screen name).
         """
@@ -41,7 +41,7 @@ class TwitterAnalyze:
                 self.tuples_after_all_filters.append(info_and_posts)
                 break
 
-    def _twitter_analyze_first_and_last_names(self):
+    def __twitter_analyze_first_and_last_names(self):
         """
         Run filtering against first and last names (if no screen name was required).
         """
@@ -54,7 +54,7 @@ class TwitterAnalyze:
             if required_full_name == twitter_full_name:
                 self._tuples_after_name_filter.append(info_and_posts)
 
-    def _twitter_analyze_location(self):
+    def __twitter_analyze_location(self):
         """
         Run filtering against location (if no screen name was required and name filter succeeded).
         """
@@ -71,7 +71,7 @@ class TwitterAnalyze:
             if required_location_sanitized_set.intersection(twitter_location_sanitized_set):
                 self.tuples_after_location_filter.append(info_and_posts)
 
-    def _analyze_twitter_description(self):
+    def __analyze_twitter_description(self):
         """
         Run filtering against description (if no screen name was required \
         and location filter succeeded).

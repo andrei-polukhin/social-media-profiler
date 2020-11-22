@@ -2,8 +2,8 @@
 """The Twitter visualization module."""
 
 from fpdf import FPDF
-from app.backend.visualization.helpers.limit_string import split_string_in_words_with_len_limit
-from app.backend.visualization.helpers.get_and_process_image import get_and_process_image
+from app.backend.visualization.helpers.limit_string import _split_string_in_words_with_len_limit
+from app.backend.visualization.helpers.get_and_process_image import _get_and_process_image
 
 
 class TwitterVisualize(FPDF):
@@ -23,15 +23,15 @@ class TwitterVisualize(FPDF):
         (self.character_of_subjects, self.tuples_with_info_and_posts), \
             = dict_to_twitter_subjects.items()
         if self.tuples_with_info_and_posts:
-            self._twitter_visualize_write_title()
-            self._twitter_visualize_write_info_about_each_subject()
+            self.__twitter_visualize_write_title()
+            self.__twitter_visualize_write_info_about_each_subject()
 
-    def _twitter_visualize_write_title(self):
+    def __twitter_visualize_write_title(self):
         """Write the title of Twitter on the PDF."""
         self.set_font("Times", "BI", size=16)
         self.cell(w=0, h=5, txt="Twitter", ln=2)
 
-    def _twitter_visualize_write_info_about_each_subject(self):
+    def __twitter_visualize_write_info_about_each_subject(self):
         """
         Visualize information about each found subject on Twitter.
         """
@@ -43,9 +43,9 @@ class TwitterVisualize(FPDF):
         for tuple_of_info_and_posts in self.tuples_with_info_and_posts:
             info_about_subject = tuple_of_info_and_posts[0]
             posts_of_subject = tuple_of_info_and_posts[1]
-            self._twitter_visualize_get_and_visualize_image(info_about_subject)
-            self._twitter_visualize_put_info_in_bullet_list(info_about_subject)
-            self._twitter_visualize_output_two_last_posts(posts_of_subject)
+            self.__twitter_visualize_get_and_visualize_image(info_about_subject)
+            self.__twitter_visualize_put_info_in_bullet_list(info_about_subject)
+            self.__twitter_visualize_output_two_last_posts(posts_of_subject)
             self.ln(15)
         self.ln()
         current_abscissa = self.get_x()
@@ -56,15 +56,15 @@ class TwitterVisualize(FPDF):
         self.set_font(family="Times", style="", size=14)
         # """For TEST:""" self.cell(w=0, txt="HIII!!!")
 
-    def _twitter_visualize_get_and_visualize_image(self, info: dict):
+    def __twitter_visualize_get_and_visualize_image(self, info: dict):
         """
         Get, process and visualize the Twitter profile image.
         """
         subject_image_url = info["profile_image_url_https"]
-        processed_image = get_and_process_image(subject_image_url)
+        processed_image = _get_and_process_image(subject_image_url)
         self.image(name=processed_image, w=20, h=20)
 
-    def _twitter_visualize_put_info_in_bullet_list(self, info: dict):
+    def __twitter_visualize_put_info_in_bullet_list(self, info: dict):
         """
         Visualize information about a subject on Twitter \
         as items in a bullet list.
@@ -77,7 +77,7 @@ class TwitterVisualize(FPDF):
             link=f"https://www.twitter.com/{screen_name}/"
         )
         description = info["description"]
-        description_processed = split_string_in_words_with_len_limit(description, limit=60)
+        description_processed = _split_string_in_words_with_len_limit(description, limit=60)
         self.cell(
             w=0, h=6, txt=u"\u2022 Description: {}".format(description_processed),
             ln=2
@@ -96,13 +96,13 @@ class TwitterVisualize(FPDF):
             link=info["url"] if info["url"] else ""
         )
 
-    def _twitter_visualize_output_two_last_posts(self, posts: list):
+    def __twitter_visualize_output_two_last_posts(self, posts: list):
         """Visualize two last posts from the Twitter profile."""
         selected_posts = posts[0:2]
         self.cell(w=0, h=6, txt=u"\u2022 Two last posts:", ln=2)
         self.set_font("Times", style="I", size=14)
         for post in selected_posts:
-            processed_post = split_string_in_words_with_len_limit(post, limit=75)
+            processed_post = _split_string_in_words_with_len_limit(post, limit=75)
             self.cell(w=0, h=6, txt=f"- {processed_post}", ln=2)
 
 

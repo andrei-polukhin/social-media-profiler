@@ -28,11 +28,11 @@ class FacebookAuthenticate(FacebookHomepage):
         """
         Call other methods to commit authentication.
         """
-        self._facebook_find_login_and_password_fields()
-        self._facebook_send_credentials()
-        self._facebook_find_and_click_on_submit_button()
+        self.__facebook_find_login_and_password_fields()
+        self.__facebook_send_credentials()
+        self.__facebook_find_and_click_on_submit_button()
 
-    def _facebook_find_login_and_password_fields(self):
+    def __facebook_find_login_and_password_fields(self):
         """
         Find login and password fields on the homepage.
         """
@@ -47,14 +47,14 @@ class FacebookAuthenticate(FacebookHomepage):
             pass_selector, pass_value
         )
 
-    def _facebook_send_credentials(self):
+    def __facebook_send_credentials(self):
         """
         Send credentials to Facebook login and password fields.
         """
         self._login_field.send_keys(os.getenv("FACEBOOK_LOGIN"))
         self._pass_field.send_keys(os.getenv("FACEBOOK_PASSWORD"))
 
-    def _facebook_find_and_click_on_submit_button(self):
+    def __facebook_find_and_click_on_submit_button(self):
         """
         Press on the submit button after sending Facebook credentials.
         """

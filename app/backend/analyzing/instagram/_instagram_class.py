@@ -19,10 +19,10 @@ class InstagramAnalyze:
 
     def instagram_analyze(self):
         """Call other methods to filter profiles by their nickname and biography."""
-        self._instagram_filter_by_nick_or_name()
-        self._instagram_filter_by_biography()
+        self.__instagram_filter_by_nick_or_name()
+        self.__instagram_filter_by_biography()
 
-    def _instagram_filter_by_nick_or_name(self):
+    def __instagram_filter_by_nick_or_name(self):
         """Filter scraped Instagram profiles by their nickname."""
         for user_info in self.user_info_as_dicts:
             received_instagram_nickname = user_info["username"]
@@ -32,7 +32,7 @@ class InstagramAnalyze:
                     and self.required_full_name == received_full_name:
                 self.user_info_after_name_filter.append(user_info)
 
-    def _instagram_filter_by_biography(self):
+    def __instagram_filter_by_biography(self):
         """Filter Instagram subjects after the nickname filter by their biography."""
         for user_info in self.user_info_after_name_filter:
             received_description = user_info["biography"]

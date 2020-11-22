@@ -19,26 +19,26 @@ class LinkedinFindIds(LinkedinSearch):
     def linkedin_find_ids(self):
         """Get IDs for appropriate subjects."""
         if self._found_subjects:
-            self._linkedin_get_found_subjects_ids()
+            self.__linkedin_get_found_subjects_ids()
         else:
-            self._linkedin_get_potential_subjects_ids()
-            self._linkedin_sort_potential_subjects_ids_by_frequency()
+            self.__linkedin_get_potential_subjects_ids()
+            self.__linkedin_sort_potential_subjects_ids_by_frequency()
 
-    def _linkedin_get_found_subjects_ids(self):
+    def __linkedin_get_found_subjects_ids(self):
         """Get IDs of the found subjects only."""
         for subject_as_dict in self._found_subjects:
             self._found_subjects_public_ids.append(
                 subject_as_dict["public_id"]
             )
 
-    def _linkedin_get_potential_subjects_ids(self):
+    def __linkedin_get_potential_subjects_ids(self):
         """Get IDs of potential candidates only."""
         for subject_as_dict in self._potential_subjects:
             self._potential_subjects_public_ids.append(
                 subject_as_dict["public_id"]
             )
 
-    def _linkedin_sort_potential_subjects_ids_by_frequency(self):
+    def __linkedin_sort_potential_subjects_ids_by_frequency(self):
         """
         Sort potential candidates IDs by frequency \
         (if they are present twice - they remain potential ones after filtering, \

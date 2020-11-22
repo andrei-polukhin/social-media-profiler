@@ -20,22 +20,22 @@ class TwitterSearch(TwitterAuthorize):
 
     def twitter_search(self):
         """Search for subjects using Twitter API, then filter subjects' info and posts."""
-        self._twitter_search_subjects_with_api()
-        self._twitter_transform_subjects_to_dicts()
-        self._twitter_filter_subjects_info()
-        self._twitter_get_and_filter_subjects_posts()
+        self.__twitter_search_subjects_with_api()
+        self.__twitter_transform_subjects_to_dicts()
+        self.__twitter_filter_subjects_info()
+        self.__twitter_get_and_filter_subjects_posts()
 
-    def _twitter_search_subjects_with_api(self):
+    def __twitter_search_subjects_with_api(self):
         """Organize API calls to find information about the subject"""
         self._found_subjects = self._api.search_users(self.query)
 
-    def _twitter_transform_subjects_to_dicts(self):
+    def __twitter_transform_subjects_to_dicts(self):
         """Transform USER objects to according dictionaries."""
         for user_object in self._found_subjects:
             user_as_dict = vars(user_object)
             self._found_subjects_info.append(user_as_dict)
 
-    def _twitter_filter_subjects_info(self):
+    def __twitter_filter_subjects_info(self):
         """
         Filter subjects' info (represented as dicts) and confine it to a few keys (see code).
         """
@@ -58,7 +58,7 @@ class TwitterSearch(TwitterAuthorize):
             self.filtered_subjects_info.append(filtered_subject_info)
             self._subject_screen_name.append(filtered_subject_info["screen_name"])
 
-    def _twitter_get_and_filter_subjects_posts(self):
+    def __twitter_get_and_filter_subjects_posts(self):
         """
         Get subject's posts using his/her screen name, then run posts against the regex filters.
         """

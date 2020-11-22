@@ -2,8 +2,8 @@
 """The Instagram visualization module."""
 
 from fpdf import FPDF
-from app.backend.visualization.helpers.limit_string import split_string_in_words_with_len_limit
-from app.backend.visualization.helpers.get_and_process_image import get_and_process_image
+from app.backend.visualization.helpers.limit_string import _split_string_in_words_with_len_limit
+from app.backend.visualization.helpers.get_and_process_image import _get_and_process_image
 
 
 class InstagramVisualize(FPDF):
@@ -20,15 +20,15 @@ class InstagramVisualize(FPDF):
         """
         self.list_of_instagram_subjects = self.analysis_response["instagram"]
         if any(self.list_of_instagram_subjects.values()):
-            self._instagram_visualize_write_title()
-            self._instagram_visualize_write_info_about_each_subject()
+            self.__instagram_visualize_write_title()
+            self.__instagram_visualize_write_info_about_each_subject()
 
-    def _instagram_visualize_write_title(self):
+    def __instagram_visualize_write_title(self):
         """Write the title of Instagram on the PDF."""
         self.set_font("Times", "BI", size=16)
         self.cell(w=0, h=5, txt="Instagram", ln=2)
 
-    def _instagram_visualize_write_info_about_each_subject(self):
+    def __instagram_visualize_write_info_about_each_subject(self):
         """
         Visualize information about each subject on Instagram.
         """
@@ -38,8 +38,8 @@ class InstagramVisualize(FPDF):
         self.ln(5)
         self.set_font("Times", size=14)
         for subject in self.list_of_instagram_subjects:
-            self._instagram_visualize_process_and_visualize_image(subject)
-            self._instagram_visualize_put_info_in_bullet_list(subject)
+            self.__instagram_visualize_process_and_visualize_image(subject)
+            self.__instagram_visualize_put_info_in_bullet_list(subject)
             self.ln(15)
         self.ln()
         current_abscissa = self.get_x()
@@ -49,15 +49,15 @@ class InstagramVisualize(FPDF):
         )
         # """For TEST:""" self.cell(w=0, txt="HIII!!!")
 
-    def _instagram_visualize_process_and_visualize_image(self, subject: dict):
+    def __instagram_visualize_process_and_visualize_image(self, subject: dict):
         """
         Get, process and visualize the Instagram profile image.
         """
         subject_image_url = subject["profile_pic_url"]
-        processed_image = get_and_process_image(subject_image_url)
+        processed_image = _get_and_process_image(subject_image_url)
         self.image(name=processed_image, w=45, h=45)
 
-    def _instagram_visualize_put_info_in_bullet_list(self, subject: dict):
+    def __instagram_visualize_put_info_in_bullet_list(self, subject: dict):
         """
         Visualize information about a subject on Instagram \
         as items in a bullet list.
@@ -70,7 +70,7 @@ class InstagramVisualize(FPDF):
             link=f"https://www.instagram.com/{username}/"
         )
         biography = subject["biography"]
-        biography_processed = split_string_in_words_with_len_limit(biography)
+        biography_processed = _split_string_in_words_with_len_limit(biography)
         self.cell(
             w=0, h=6, txt=u"\u2022 Biography: {}".format(biography_processed),
             ln=2

@@ -5,7 +5,7 @@ import json
 import codecs
 
 
-def dump_to_json(python_object: object) -> dict:
+def _dump_to_json(python_object: object) -> dict:
     """
     Dump to JSON using custom schema (see code).
 
@@ -24,7 +24,7 @@ def dump_to_json(python_object: object) -> dict:
     raise TypeError(repr(python_object) + " is not JSON-serializable.")
 
 
-def load_from_json(json_object: dict) -> object:
+def _load_from_json(json_object: dict) -> object:
     """
     Load from JSON using custom schema (see code).
 
@@ -38,7 +38,7 @@ def load_from_json(json_object: dict) -> object:
     return json_object
 
 
-def on_login_callback(api_response, new_settings_file):
+def _on_login_callback(api_response, new_settings_file):
     """
     Save callback after successful login to re-use it.
 
@@ -48,4 +48,4 @@ def on_login_callback(api_response, new_settings_file):
     """
     cache_settings = api_response.settings
     with open(new_settings_file, "w") as outfile:
-        json.dump(cache_settings, outfile, default=dump_to_json)
+        json.dump(cache_settings, outfile, default=_dump_to_json)

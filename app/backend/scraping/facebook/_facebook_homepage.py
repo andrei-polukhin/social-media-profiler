@@ -8,7 +8,7 @@ from webdriver_manager.chrome import ChromeDriverManager
 class FacebookHomepage:
     """The class to open Facebook homepage with a binary chromebrowser."""
     def __init__(self):
-        options = self.add_chrome_options()
+        options = self.__add_chrome_options()
         self._driver = webdriver.Chrome(
             ChromeDriverManager().install(), options=options
         )
@@ -18,7 +18,7 @@ class FacebookHomepage:
         self._driver.get("https://www.facebook.com")
 
     @staticmethod
-    def add_chrome_options():
+    def __add_chrome_options():
         """Add browser options to disable notification and open headlessly."""
         options = webdriver.ChromeOptions()
         options.add_argument("--disable-notifications")

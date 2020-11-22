@@ -14,10 +14,10 @@ class LinkedinSearchSubjects(LinkedinFindIds):
 
     def linkedin_search_for_info(self):
         """Search for info by filtered subjects' ids."""
-        self._linkedin_search_for_all_subjects()
-        self._linkedin_filter_all_subjects()
+        self.__linkedin_search_for_all_subjects()
+        self.__linkedin_filter_all_subjects()
 
-    def _linkedin_search_for_all_subjects(self):
+    def __linkedin_search_for_all_subjects(self):
         """Organize API calls for all types of subjects: found and potential."""
         searching_instructions = [
             {
@@ -36,7 +36,7 @@ class LinkedinSearchSubjects(LinkedinFindIds):
                 subject_info = self._api.get_profile(subject_id)
                 list_to_append_subjects.append(subject_info)
 
-    def _linkedin_filter_all_subjects(self):
+    def __linkedin_filter_all_subjects(self):
         """
         Filter the information from API and leave only information from specific keys (see code).
         """

@@ -11,9 +11,9 @@ class FacebookAnalyze:
 
     def facebook_analyze(self):
         """Call other method to analyze full name in profiles."""
-        self._facebook_analyze_name_in_profiles()
+        self.__facebook_analyze_name_in_profiles()
 
-    def _facebook_analyze_name_in_profiles(self):
+    def __facebook_analyze_name_in_profiles(self):
         """
         Leave only profiles whose full name is the same as defined in user input.
         """

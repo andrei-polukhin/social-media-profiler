@@ -52,7 +52,8 @@ async def _organize_tasks(loop, *tuples_of_links_and_configs) -> list:
 
 async def _scraper(session, tuple_of_link_and_config: tuple) -> dict:
     """
-    Using aiohttp session and tuple of links to webpages with XPATH selectors, scrape the webpage.
+    Using aiohttp session and tuple of links to webpages with XPATH selectors, \
+    scrape the webpage.
 
     Args:
         `session`: aiohttp session.\n

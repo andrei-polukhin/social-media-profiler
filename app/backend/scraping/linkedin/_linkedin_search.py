@@ -23,22 +23,22 @@ class LinkedinSearch:
         """
         Call other methods to search for subjects and put them into appropriate categories.
         """
-        self._linkedin_authenticate()
-        self._linkedin_search_for_subjects()
+        self.__linkedin_authenticate()
+        self.__linkedin_search_for_subjects()
 
-    def _linkedin_authenticate(self):
+    def __linkedin_authenticate(self):
         """Authenticate using LinkedIn login and password."""
         self._api = LinkedinAPI(os.getenv("LINKEDIN_LOGIN"), os.getenv("LINKEDIN_PASSWORD"))
 
-    def _linkedin_search_for_subjects(self):
+    def __linkedin_search_for_subjects(self):
         """
         Search for a subject in an ideal case or, if not found, find potential candidates.
         """
-        self._linkedin_search_in_ideal_case()
+        self.__linkedin_search_in_ideal_case()
         if not self._found_subjects:
-            self._linkedin_search_for_potential_candidate()
+            self.__linkedin_search_for_potential_candidate()
 
-    def _linkedin_search_in_ideal_case(self):
+    def __linkedin_search_in_ideal_case(self):
         """
         Search for a subject in an ideal case if provided all necessary information.
         """
@@ -51,7 +51,7 @@ class LinkedinSearch:
                 keyword_title=self.keyword_title,
             )
 
-    def _linkedin_search_for_potential_candidate(self):
+    def __linkedin_search_for_potential_candidate(self):
         """
         Search for potential candidates with any provided information.
         """

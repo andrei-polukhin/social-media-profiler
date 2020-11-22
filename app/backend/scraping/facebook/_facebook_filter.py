@@ -21,11 +21,11 @@ class FacebookFilterLinks(FacebookSearchLinks):
         """
         Call other methods to filter received links to those satisfying regex syntax.
         """
-        self.facebook_read_facebook_params()
-        generator = self.facebook_get_regex_matching_keys()
+        self.__facebook_read_facebook_params()
+        generator = self.__facebook_get_regex_matching_keys()
         self.regex_matching_items = list(generator)
 
-    def facebook_read_facebook_params(self):
+    def __facebook_read_facebook_params(self):
         """
         Read the params file to get regex expressions sought links have to match.
         """
@@ -37,7 +37,7 @@ class FacebookFilterLinks(FacebookSearchLinks):
                 self.file_contents = json.load(file)
         self.params_keys = self.file_contents.keys()
 
-    def facebook_get_regex_matching_keys(self) -> iter:
+    def __facebook_get_regex_matching_keys(self) -> iter:
         """
         Generate iterable that can transformed to tuples of regex matching links \
         with the XPATH of elements that should be found.

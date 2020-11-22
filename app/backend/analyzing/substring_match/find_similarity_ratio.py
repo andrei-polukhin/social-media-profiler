@@ -35,7 +35,7 @@ def find_similarity_ratio(f_string: str, s_string: str) -> float:
     minimal_length_of_string_hashes = len(
         min(f_string_only_hashes, s_string_only_hashes, key=len)
     )
-    return 2 * len(common_hashes) / minimal_length_of_string_hashes
+    return len(common_hashes) / minimal_length_of_string_hashes
 
 
 if __name__ == "__main__":

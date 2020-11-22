@@ -15,15 +15,15 @@ class FacebookVisualize(FPDF):
         """Call other methods to visualize Facebook information if there is any."""
         self.list_of_facebook_subjects = self.analysis_response["facebook"]
         if self.list_of_facebook_subjects:
-            self._facebook_visualize_write_title_of_facebook()
-            self._facebook_visualize_write_info_about_each_subject()
+            self.__facebook_visualize_write_title_of_facebook()
+            self.__facebook_visualize_write_info_about_each_subject()
 
-    def _facebook_visualize_write_title_of_facebook(self):
+    def __facebook_visualize_write_title_of_facebook(self):
         """Write the title of Facebook on the PDF."""
         self.set_font("Times", "BI", size=16)
         self.cell(w=0, h=6, txt="Facebook", ln=2)
 
-    def _facebook_visualize_write_info_about_each_subject(self):
+    def __facebook_visualize_write_info_about_each_subject(self):
         """
         Visualize information about found subjects on Facebook \
         as items in a bullet list.
@@ -33,7 +33,7 @@ class FacebookVisualize(FPDF):
             self.cell(w=0, h=6, txt="Potential users", ln=2)
         self.ln(5)
         for subject in self.list_of_facebook_subjects:
-            self._facebook_visualize_write_name_of_service(subject)
+            self.__facebook_visualize_write_name_of_service(subject)
             subject.pop("service_name", None)
             self.set_font("Times", size=14)
             self.set_x(20)
@@ -41,14 +41,17 @@ class FacebookVisualize(FPDF):
                 if description == "link":
                     continue
                 if " name" in description:
-                    self.cell(w=0, h=6, txt=f"{description}{value}", ln=2, link=subject["link"])
+                    self.cell(
+                        w=0, h=6, txt=f"{description}{value}", ln=2, link=subject["link"]
+                    )
                     continue
                 self.cell(w=0, h=6, txt=f"{description}{value}", ln=2)
             self.ln()
 
-    def _facebook_visualize_write_name_of_service(self, subject: dict):
+    def __facebook_visualize_write_name_of_service(self, subject: dict):
         """
-        Write service name inside Facebook, i.e. `Facebook profile`, `Facebook group` and so on.
+        Write service name inside Facebook, i.e. `Facebook profile`, `Facebook group` \
+        and so on.
         """
         self.set_font("Times", "B", size=14)
         service_name = subject["service_name"]

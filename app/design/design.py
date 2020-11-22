@@ -33,18 +33,18 @@ class Window(QMainWindow):
         # Finding the progress bar
         self.progress_bar = self.findChild(QtWidgets.QProgressBar, "app_progress_bar")
         # Connecting buttons to methods
-        self.select_button.clicked.connect(self.choose_directory_as_dialog)
-        self.submit_button.clicked.connect(self.send_input_to_backend)
-        self.credits_from_menu.triggered.connect(self.open_credits_message)
+        self.select_button.clicked.connect(self.__choose_directory_as_dialog)
+        self.submit_button.clicked.connect(self.__send_input_to_backend)
+        self.credits_from_menu.triggered.connect(self.__open_credits_message)
 
-    def choose_directory_as_dialog(self):
+    def __choose_directory_as_dialog(self):
         """Choose the directory on the PC where file will be saved."""
         file = str(
             QtWidgets.QFileDialog.getExistingDirectory(self, "Select the output directory")
         )
         self.directory_text.setText(file)
 
-    def send_input_to_backend(self):
+    def __send_input_to_backend(self):
         """Collect app user's input and send it to the backend of the project."""
         self.progress_bar.setValue(0)
         first_name = self.first_name_input.text()
@@ -79,7 +79,7 @@ class Window(QMainWindow):
         self.progress_bar.setValue(100)
 
     @staticmethod
-    def open_credits_message():
+    def __open_credits_message():
         """Open the about message of this project."""
         msg = QMessageBox()
         msg.setWindowTitle("About")
