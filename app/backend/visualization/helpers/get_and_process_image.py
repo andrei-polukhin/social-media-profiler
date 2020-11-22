@@ -7,7 +7,7 @@ from PIL import Image, ImageDraw
 import numpy as np
 
 
-def _get_and_process_image(url: str) -> io.BytesIO:
+def get_and_process_image(url: str) -> io.BytesIO:
     """
     Get the image by the URL, then crop it into a circle using numpy and Pillow, \
     and return cropped version of the image.

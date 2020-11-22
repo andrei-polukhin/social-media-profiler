@@ -33,6 +33,7 @@ class FacebookSearchLinks(FacebookAuthenticate):
         self.__facebook_open_search_link()
         self.__facebook_check_presence_of_elements_links()
         self.__facebook_get_hrefs_of_elements()
+        self.__facebook_quit_the_browser()
 
     def __facebook_open_search_link(self):
         """Open the search link to scrape from thence desired links."""
@@ -60,6 +61,10 @@ class FacebookSearchLinks(FacebookAuthenticate):
                 href = href + "/"
             self._hrefs_of_elements.add(href)
         self._hrefs_of_elements = list(self._hrefs_of_elements)
+
+    def __facebook_quit_the_browser(self):
+        """Quit the binary browser."""
+        self._driver.quit()
 
 
 if __name__ == "__main__":

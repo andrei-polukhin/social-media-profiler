@@ -2,8 +2,8 @@
 """The Twitter visualization module."""
 
 from fpdf import FPDF
-from app.backend.visualization.helpers.limit_string import _split_string_in_words_with_len_limit
-from app.backend.visualization.helpers.get_and_process_image import _get_and_process_image
+from app.backend.visualization.helpers.limit_string import split_string_in_words_with_len_limit
+from app.backend.visualization.helpers.get_and_process_image import get_and_process_image
 
 
 class TwitterVisualize(FPDF):
@@ -61,7 +61,7 @@ class TwitterVisualize(FPDF):
         Get, process and visualize the Twitter profile image.
         """
         subject_image_url = info["profile_image_url_https"]
-        processed_image = _get_and_process_image(subject_image_url)
+        processed_image = get_and_process_image(subject_image_url)
         self.image(name=processed_image, w=20, h=20)
 
     def __twitter_visualize_put_info_in_bullet_list(self, info: dict):
@@ -77,7 +77,7 @@ class TwitterVisualize(FPDF):
             link=f"https://www.twitter.com/{screen_name}/"
         )
         description = info["description"]
-        description_processed = _split_string_in_words_with_len_limit(description, limit=60)
+        description_processed = split_string_in_words_with_len_limit(description, limit=60)
         self.cell(
             w=0, h=6, txt=u"\u2022 Description: {}".format(description_processed),
             ln=2
@@ -102,7 +102,7 @@ class TwitterVisualize(FPDF):
         self.cell(w=0, h=6, txt=u"\u2022 Two last posts:", ln=2)
         self.set_font("Times", style="I", size=14)
         for post in selected_posts:
-            processed_post = _split_string_in_words_with_len_limit(post, limit=75)
+            processed_post = split_string_in_words_with_len_limit(post, limit=75)
             self.cell(w=0, h=6, txt=f"- {processed_post}", ln=2)
 
 

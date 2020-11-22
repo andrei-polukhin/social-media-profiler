@@ -2,8 +2,8 @@
 """The Google Search visualization module."""
 
 from fpdf import FPDF
-from app.backend.visualization.helpers.limit_string import _split_string_in_words_with_len_limit
-from app.backend.visualization.helpers.get_and_process_image import _get_and_process_image
+from app.backend.visualization.helpers.limit_string import split_string_in_words_with_len_limit
+from app.backend.visualization.helpers.get_and_process_image import get_and_process_image
 
 
 class GoogleSearchVisualize(FPDF):
@@ -71,7 +71,7 @@ class GoogleSearchVisualize(FPDF):
         Visualize information about a particular subject if an image should be shown.
         """
         subject_img_url = subject_info["img_url"]
-        processed_image = _get_and_process_image(subject_img_url)
+        processed_image = get_and_process_image(subject_img_url)
         self.image(name=processed_image, w=40, h=40)
         current_ordinate = self.get_y()
         self.set_xy(55, current_ordinate - 40)
@@ -95,7 +95,7 @@ class GoogleSearchVisualize(FPDF):
                 continue
             if isinstance(value, list):
                 value = ", ".join(value)
-            value_processed = _split_string_in_words_with_len_limit(value, limit=60)
+            value_processed = split_string_in_words_with_len_limit(value, limit=60)
             if " name" in description:
                 self.cell(
                     w=0, h=6, txt=f"\u2022 {description}{value_processed}.", ln=2,

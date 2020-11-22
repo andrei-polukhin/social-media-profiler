@@ -2,7 +2,7 @@
 """The module to limit a string to a specific length and put ellipsis after reaching the quota."""
 
 
-def _split_string_in_words_with_len_limit(string: str, limit=45) -> str:
+def split_string_in_words_with_len_limit(string: str, limit=45) -> str:
     """
     Get string and limit it to the length specified as `limit`, \
     put ellipsis after reaching the quota.
