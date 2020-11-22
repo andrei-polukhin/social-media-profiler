@@ -39,5 +39,5 @@ class InstagramAnalyze:
             similarity = find_similarity_ratio(
                 self.required_description, received_description
             )
-            if similarity >= 0.4:
+            if similarity >= 0.6:
                 self.user_info_after_desc_filter.append(user_info)

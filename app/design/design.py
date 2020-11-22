@@ -75,6 +75,7 @@ class Window(QMainWindow):
         for input_field in input_fields:
             input_field.clear()
         output_directory = self.directory_text.text()
+        self.progress_bar.setValue(2)
         main_backend(config_dict, output_directory, self.progress_bar)
         self.progress_bar.setValue(100)
 

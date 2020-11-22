@@ -18,7 +18,7 @@ def main_backend(user_input: dict, pdf_output_location: str, progress_bar):
         `None`: visualized PDF file.
     """
     scraping_results = main_scraping(user_input)
-    progress_bar.setValue(progress_bar.value() + 60)
+    progress_bar.setValue(progress_bar.value() + 58)
     analysis_results = main_analyzing(
         scraping_response=scraping_results, user_input=user_input
     )

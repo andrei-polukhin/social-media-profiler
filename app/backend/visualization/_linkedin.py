@@ -39,6 +39,14 @@ class LinkedinVisualize(FPDF):
         for subject in self.lists_of_info:
             self.__linkedin_visualize_write_name_of_subject(subject)
             self.__linkedin_visualize_write_other_info(subject)
+            self.ln(15)
+        self.ln()
+        current_abscissa = self.get_x()
+        current_ordinate = self.get_y()
+        self.line(
+            current_abscissa, current_ordinate - 10, 210 - current_abscissa, current_ordinate - 10
+        )
+        # """For TEST:""" self.cell(w=0, txt="HIII!!!")
 
     def __linkedin_visualize_write_name_of_subject(self, subject_as_dict: dict):
         """Write the full name of the found subject on LinkedIn."""
@@ -109,13 +117,15 @@ class LinkedinVisualize(FPDF):
         self.set_x(20)
         for education in list_of_educations:
             self.set_font("Times", "I", size=14)
-            degree_name = education["degreeName"]
-            self.cell(w=0, h=6, txt=f"\u2022 {degree_name}", ln=2)
+            degree_name = education.get("degreeName")
+            if degree_name is not None:
+                self.cell(w=0, h=6, txt=f"\u2022 {degree_name}", ln=2)
             self.set_font("Times", size=14)
             school_name = education["schoolName"]
             self.cell(w=0, h=6, txt=f"School name: {school_name}.", ln=2)
-            time_period = education["timePeriod"]
-            self.__linkedin_visualize_write_time_period_for_education(time_period)
+            time_period = education.get("timePeriod")
+            if time_period is not None:
+                self.__linkedin_visualize_write_time_period_for_education(time_period)
         self.ln()
 
     def __linkedin_visualize_write_time_period_for_education(self, time_period: dict):
@@ -134,13 +144,14 @@ class LinkedinVisualize(FPDF):
 
     def __linkedin_visualize_write_skills(self, subject_as_dict: dict):
         """Visualize all skills from the LinkedIn profile of the found subject."""
-        list_of_skills_to_output = []
-        skills = subject_as_dict["skills"]
-        for skill_as_dict in skills:
-            name_of_skill = skill_as_dict["name"]
-            list_of_skills_to_output.append(name_of_skill)
-        skills_output_str = ", ".join(list_of_skills_to_output)
-        self.multi_cell(w=0, h=6, txt=f"Skills: {skills_output_str}.", ln=2)
+        if subject_as_dict["skills"]:
+            list_of_skills_to_output = []
+            skills = subject_as_dict["skills"]
+            for skill_as_dict in skills:
+                name_of_skill = skill_as_dict["name"]
+                list_of_skills_to_output.append(name_of_skill)
+            skills_output_str = ", ".join(list_of_skills_to_output)
+            self.multi_cell(w=0, h=6, txt=f"Skills: {skills_output_str}.", ln=2)
 
 
 if __name__ == "__main__":

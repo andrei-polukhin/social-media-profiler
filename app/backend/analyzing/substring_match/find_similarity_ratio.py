@@ -21,7 +21,7 @@ def find_similarity_ratio(f_string: str, s_string: str) -> float:
     try:
         f_string_fingerprint = FINGERPRINT.generate(str=f_string)
         s_string_fingerprint = FINGERPRINT.generate(str=s_string)
-    except FingerprintException:
+    except (FingerprintException, IndexError):
         return 0
     f_string_only_hashes = [
         element[0]

@@ -72,10 +72,13 @@ class InstagramVisualize(FPDF):
         )
         biography = subject["biography"]
         biography_processed = split_string_in_words_with_len_limit(biography)
-        self.cell(
-            w=0, h=6, txt=u"\u2022 Biography: {}".format(biography_processed),
-            ln=2
-        )
+        try:
+            self.cell(
+                    w=0, h=6, txt=f"\u2022 Biography: {biography_processed}",
+                    ln=2
+                )
+        except UnicodeEncodeError:
+            pass
         full_name = subject["full_name"]
         self.cell(w=0, h=6, txt=f"\u2022 Full name: {full_name}", ln=2)
         media_count = subject["media_count"]

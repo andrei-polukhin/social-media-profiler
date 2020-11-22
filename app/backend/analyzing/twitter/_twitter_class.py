@@ -83,7 +83,7 @@ class TwitterAnalyze:
             similarity = find_similarity_ratio(
                 required_additional_text, twitter_description
             )
-            if similarity >= 0.4:
+            if similarity >= 0.6:
                 self.tuples_after_all_filters.append(info_and_posts)
 
     @staticmethod
