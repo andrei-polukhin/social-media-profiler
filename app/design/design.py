@@ -81,7 +81,7 @@ class Window(QMainWindow):
         output_directory = self.directory_text.text()
         self.progress_bar.setValue(2)
         main_backend(config_dict, output_directory, self.progress_bar)
-        self.progress_bar.setValue(100)
+        # The backend module sets self.progress_bar.value() to 100%
 
     @staticmethod
     def __open_credits_message():

@@ -4,7 +4,7 @@ import unittest
 from app.backend.analyzing.substring_match.find_similarity_ratio import find_similarity_ratio
 
 
-class TestSimilarityRatio(unittest.TestCase):
+class TestAnalyzingSimilarityRatio(unittest.TestCase):
     def test_assure_similarity(self):
         real_similarity = find_similarity_ratio(
             "Institute of Mathematics trains highly skilled mathematicians.",
