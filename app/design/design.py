@@ -13,7 +13,11 @@ class Window(QMainWindow):
     """
     def __init__(self):
         super().__init__()
-        uic.loadUi("app/design/ui/main.ui", self)
+        try:
+            uic.loadUi("app/design/ui/main.ui", self)
+        except FileNotFoundError:
+            # For tests
+            uic.loadUi("../app/design/ui/main.ui", self)
         self.setWindowTitle("SocialMediaProfiler")
         # Finding input fields
         self.first_name_input = self.findChild(QtWidgets.QLineEdit, "first_name_field")
