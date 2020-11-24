@@ -26,7 +26,7 @@ class TestAnalyzingTwitter(unittest.TestCase):
         subjects_dictionary = analyzing_response["twitter"]
         (self.character_of_return, self.returned_subjects), = subjects_dictionary.items()
 
-    def test_commit_initial_check(self):
+    def test_commit_preliminary_check(self):
         self.assertEqual(self.character_of_return, "potential_subjects")
         self.assertEqual(len(self.returned_subjects), 1)
         self.assertIsInstance(self.returned_subjects[0], tuple)

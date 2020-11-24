@@ -52,7 +52,8 @@ def _read_json_file():
         with open("app/backend/scraping/google_search/google_params.json") as file:
             file_contents = json.load(file)
     except FileNotFoundError:
-        with open("scraping/google_search/google_params.json") as file:
+        # For tests
+        with open("../app/backend/scraping/google_search/google_params.json") as file:
             file_contents = json.load(file)
     return file_contents
 

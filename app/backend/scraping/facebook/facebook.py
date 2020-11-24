@@ -25,7 +25,3 @@ def caller_facebook(full_name: str) -> dict:
     scraped_webpages = scraping(filtered_items)
     results_to_filter["facebook"] = scraped_webpages
     return results_to_filter
-
-
-if __name__ == "__main__":
-    print(caller_facebook("Evan McCauley"))

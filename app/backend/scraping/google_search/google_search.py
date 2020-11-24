@@ -45,19 +45,3 @@ def caller_google_search(user_input):
         scraped_webpages_for_this_selector = scraping(filtered_items)
         scraped_webpages[selector] = scraped_webpages_for_this_selector
     return results_to_filter
-
-
-if __name__ == "__main__":
-    sample_input = {
-        "first_name": "Evan",
-        "last_name": "McCauley",
-        "company": "LSE",
-        "job_title": "Director of Studies",
-        "school": "MIT University",
-        "twitter_profile": "abumetsov",
-        "instagram_nickname": "Wayfarersbook",
-        "location": "Ukraine",
-        "additional_text": "CELTA/Delta teacher",
-        "github": "pythad"
-    }
-    print(caller_google_search(sample_input))

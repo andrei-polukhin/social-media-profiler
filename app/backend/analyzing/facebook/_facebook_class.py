@@ -26,7 +26,6 @@ class FacebookAnalyze:
                 user_info.get("Profile name: "),
                 user_info.get("Channel name: "),
                 user_info.get("Group name: ")
-
             ]
             if required_full_name in possible_profile_names:
                 self.user_info_after_profile_name_filter.append(user_info)
