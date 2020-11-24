@@ -18,7 +18,7 @@ class FacebookAuthenticate(FacebookHomepage):
     The class authenticating user on Facebook.
     """
     def __init__(self):
-        super(FacebookAuthenticate, self).__init__()
+        super().__init__()
         self._wait = WebDriverWait(self._driver, 5)
         self._login_field = None
         self._pass_field = None

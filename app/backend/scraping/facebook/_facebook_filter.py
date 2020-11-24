@@ -13,7 +13,7 @@ class FacebookFilterLinks(FacebookSearchLinks):
     in the params file.
     """
     def __init__(self, full_name):
-        super(FacebookFilterLinks, self).__init__(full_name)
+        super().__init__(full_name)
         self.file_contents = {}
         self.params_keys = []
 
