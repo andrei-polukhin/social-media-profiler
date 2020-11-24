@@ -30,18 +30,3 @@ def caller_linkedin(user_input: dict) -> dict:
                     linkedin_obj.potential_subjects_info_after_filtering
             }
     return results_to_filter
-
-
-if __name__ == "__main__":
-    sample_user_input = {
-        "first_name": "Amy",
-        "last_name": "Butler",
-        "company": "LSE",
-        "job_title": "Director of Studies",
-        "school": "Cambridge University",
-        "twitter_profile": "abumetsov",
-        "instagram_nickname": "Wayfarersbook",
-        "location": "Ukraine",
-        "additional_text": "CELTA/Delta teacher",
-    }
-    print(caller_linkedin(sample_user_input))

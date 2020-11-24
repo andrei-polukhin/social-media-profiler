@@ -36,11 +36,3 @@ def find_similarity_ratio(f_string: str, s_string: str) -> float:
         min(f_string_only_hashes, s_string_only_hashes, key=len)
     )
     return len(common_hashes) / minimal_length_of_string_hashes
-
-
-if __name__ == "__main__":
-    print(find_similarity_ratio(
-        "Institute of Mathematics trains highly skilled mathematicians.",
-        "Institute of Mathematics is the only institution"
-        "that trains highly skilled mathematicians."
-    ))

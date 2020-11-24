@@ -43,10 +43,8 @@ class InstagramVisualize(FPDF):
             self.__instagram_visualize_put_info_in_bullet_list(subject)
             self.ln(15)
         self.ln()
-        current_abscissa = self.get_x()
-        current_ordinate = self.get_y()
         self.line(
-            current_abscissa, current_ordinate - 10, 210 - current_abscissa, current_ordinate - 10
+            self.get_x(), self.get_y() - 10, 210 - self.get_x(), self.get_y() - 10
         )
         # """For TEST:""" self.cell(w=0, txt="HIII!!!")
 
@@ -74,9 +72,9 @@ class InstagramVisualize(FPDF):
         biography_processed = split_string_in_words_with_len_limit(biography)
         try:
             self.cell(
-                    w=0, h=6, txt=f"\u2022 Biography: {biography_processed}",
-                    ln=2
-                )
+                w=0, h=6, txt=f"\u2022 Biography: {biography_processed}",
+                ln=2
+            )
         except UnicodeEncodeError:
             pass
         full_name = subject["full_name"]
@@ -87,11 +85,3 @@ class InstagramVisualize(FPDF):
         self.cell(w=0, h=6, txt=f"\u2022 Number of followers: {number_of_followers}", ln=2)
         number_of_following = subject["following_count"]
         self.cell(w=0, h=6, txt=f"\u2022 Number of following: {number_of_following}", ln=2)
-
-
-if __name__ == "__main__":
-    instagram_dict = {'instagram': {'potential_subjects': [{'username': 'fuck.em.idc', 'full_name': 'Denis Voitsekovsky', 'profile_pic_url': 'https://instagram.fiev25-2.fna.fbcdn.net/v/t51.2885-19/s150x150/121415543_4529988857071822_3830538197733517469_n.jpg?_nc_ht=instagram.fiev25-2.fna.fbcdn.net&_nc_ohc=oZTxW93A4L0AX902WQu&tp=1&oh=2e34b7f33346aa5738bcfaed92244fba&oe=5FE3B690', 'media_count': 1, 'follower_count': 414, 'following_count': 582, 'biography': 'hate being sober', 'public_email': '', 'public_phone_number': '', 'whatsapp_number': ''}, {'username': 'fuck.em.idc', 'full_name': 'Denis Voitsekovsky', 'profile_pic_url': 'https://instagram.fiev25-2.fna.fbcdn.net/v/t51.2885-19/s150x150/121415543_4529988857071822_3830538197733517469_n.jpg?_nc_ht=instagram.fiev25-2.fna.fbcdn.net&_nc_ohc=oZTxW93A4L0AX902WQu&tp=1&oh=2e34b7f33346aa5738bcfaed92244fba&oe=5FE3B690', 'media_count': 1, 'follower_count': 414, 'following_count': 582, 'biography': 'hate being sober', 'public_email': '', 'public_phone_number': '', 'whatsapp_number': ''}]}}
-    pdf = InstagramVisualize(instagram_dict)
-    pdf.add_page()
-    pdf.instagram_visualize()
-    pdf.output("class.pdf")

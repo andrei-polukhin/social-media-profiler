@@ -11,7 +11,9 @@ class TestAnalyzingLinkedin(unittest.TestCase):
             scraping_response = json.load(file)
         analyzing_response = caller_analyze_linkedin(scraping_response)
         dict_after_analysis = analyzing_response["linkedin"]
-        (self.character_of_return, self.list_of_subjects), = dict_after_analysis.items()
+        (
+            (self.character_of_return, self.list_of_subjects),
+        ) = dict_after_analysis.items()
 
     def test_for_no_additions(self):
         self.assertEqual(self.character_of_return, "found_subjects")
@@ -56,5 +58,5 @@ class TestAnalyzingLinkedin(unittest.TestCase):
                 self.assertFalse(subject_education)
 
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     unittest.main()

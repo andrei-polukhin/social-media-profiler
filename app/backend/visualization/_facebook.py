@@ -56,16 +56,3 @@ class FacebookVisualize(FPDF):
         self.set_font("Times", "B", size=14)
         service_name = subject["service_name"]
         self.cell(w=0, h=6, txt=service_name, ln=2)
-
-
-if __name__ == "__main__":
-    facebook_dict = {'facebook': [{'Profile name: ': 'Amy Butler',
-                                   'link': 'https://www.facebook.com/amy.butler.7186/',
-                                   'service_name': 'Facebook Profile'},
-                                  {'Profile name: ': 'Amy Butler',
-                                   'link': 'https://www.facebook.com/amy.butler.5686322/',
-                                   'service_name': 'Facebook Profile'}]}
-    pdf = FacebookVisualize(facebook_dict)
-    pdf.add_page()
-    pdf.facebook_visualize()
-    pdf.output("class.pdf")

@@ -17,7 +17,7 @@ class TestScrapingGoogleSearch(unittest.TestCase):
         "instagram_nickname": "",
         "location": "Ukraine",
         "additional_text": "",
-        "github": "pythad"
+        "github": "pythad",
     }
 
     def setUp(self):

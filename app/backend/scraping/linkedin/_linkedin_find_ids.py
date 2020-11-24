@@ -8,7 +8,8 @@ from app.backend.scraping.linkedin._linkedin_search import LinkedinSearch
 
 class LinkedinFindIds(LinkedinSearch):
     """
-    The class to get IDS of found subjects (if they are), otherwise find IDs of potential candidates.
+    The class to get IDS of found subjects (if they are), \
+    otherwise find IDs of potential candidates.
     """
     def __init__(self, user_input):
         super().__init__(user_input)

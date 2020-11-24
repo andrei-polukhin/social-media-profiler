@@ -32,8 +32,3 @@ class TwitterAuthorize:
     def __twitter_get_api(self):
         """Get API access using OAuth2.0."""
         self._api = tweepy.API(self.__auth)
-
-
-if __name__ == "__main__":
-    twitter_obj = TwitterAuthorize()
-    twitter_obj.twitter_authorize()

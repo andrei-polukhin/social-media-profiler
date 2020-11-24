@@ -23,9 +23,3 @@ class FacebookHomepage:
         options = webdriver.ChromeOptions()
         options.add_argument("--disable-notifications")
         options.add_argument("headless")
-        return options
-
-
-if __name__ == "__main__":
-    o = FacebookHomepage()
-    o.facebook_open_home_page()

@@ -17,7 +17,7 @@ from app.backend.scraping.instagram._instagram_cookies import (
 
 
 class Instagram:
-    """The class on scrape Instagram information from its official API."""
+    """The class to scrape Instagram information from its official API."""
     SETTINGS_FILE = "app/backend/scraping/instagram/cookie_settings.json"
 
     def __init__(self, query):
@@ -115,9 +115,3 @@ class Instagram:
                 ]
             }
             self.filtered_info_about_subjects.append(sorted_dictionary)
-
-
-if __name__ == "__main__":
-    instagram_object = Instagram("cocacola")
-    instagram_object.instagram()
-    print(instagram_object.filtered_info_about_subjects)

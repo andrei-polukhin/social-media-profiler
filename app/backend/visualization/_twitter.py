@@ -48,10 +48,8 @@ class TwitterVisualize(FPDF):
             self.__twitter_visualize_output_two_last_posts(posts_of_subject)
             self.ln(15)
         self.ln()
-        current_abscissa = self.get_x()
-        current_ordinate = self.get_y()
         self.line(
-            current_abscissa, current_ordinate - 10, 210 - current_abscissa, current_ordinate - 10
+            self.get_x(), self.get_y() - 10, 210 - self.get_x(), self.get_y() - 10
         )
         self.set_font(family="Times", style="", size=14)
         # """For TEST:""" self.cell(w=0, txt="HIII!!!")
@@ -104,11 +102,3 @@ class TwitterVisualize(FPDF):
         for post in selected_posts:
             processed_post = split_string_in_words_with_len_limit(post, limit=75)
             self.cell(w=0, h=6, txt=f"- {processed_post}", ln=2)
-
-
-if __name__ == "__main__":
-    twitter_response = {'twitter': {'potential_subjects': [({'description': 'Long-term expat, CELTA/Delta qualified English teacher, freelance writer. Insta: wayfarersbook', 'followers_count': 699, 'friends_count': 680, 'location': 'Kyiv, Ukraine', 'name': 'Amy Butler', 'profile_image_url_https': 'https://pbs.twimg.com/profile_images/1018140475222523904/ADqhB2yj_normal.jpg', 'screen_name': 'WayfarersBook', 'url': 'https://t.co/7fIVtM8Ne0'}, ['@CailinONeil @VickyFlipFlop @instagram Mine is basically cake, donuts, pasta, and the odd glamour fashion photo. ', "@RoamingRequired Lucky. We've got all sorts of rules because everyone's really paranoid about voter fraud.", "@quickdarshan Embarrassingly, I've never tried before. (Me of little faith in my one vote.) My bf managed to vote i… ", '@RoamingRequired Can you vote by mail? We need to get there. Or online, like Estonia, country of the freaking future.', "@quickdarshan I know it's rigged, it still makes me really mad. Also seeing the clips of governors not being concer… ", 'These lines to vote are insane. We need to start rethinking our voting procedures now. ', "@thethoughtcard I live in Kyiv -- it's a crazy affordable European destination. I've traveled a lot around Ukraine… ", 'RT @inclpablo: me after guessing the password of my own email ', "Man, it's really a shame the cops can't do anything about all those looters. Definitely seems like they're trying.… ", "How do you just walk by an old man bleeding on the ground?!\nDon't turn on the sound unless you want to be ill. ", 'RT @JordanUhl: Who does this protect? ', 'RT @joshfoxfilm: People stuck in traffic are witnessing NYPD beat up folks on their way home. ', "I don't know whether or not this was actually before curfew, but why would you escalate with this tiny group of pea… ", '@gaelemorag Thanks for reading. While the title is provocative, the content itself is more geared towards getting p… ', 'Looking for links to legit places to donate to looted/vandalized #NYC businesses. This article is a good starting p… ', "@RoamingRequired @sunriseon7 Yes, it's embarrassing how we're treating international press. We even got publicly called out by Russia...", 'Your daily reminder that police are abusing and arresting cooperative reporters and journalists. Maybe if they did… ', '@travchats A lot of people are hating on listicles, but if it comes from someone who has done the research, they ca… ', 'This is a super resource for people who are looking to get informed but are also a bit overwhelmed with information… ', 'In case anyone is wondering who is inciting violence, this FBI thread has devastating examples of #PoliceBrutality. '])]}}
-    pdf = TwitterVisualize(twitter_response)
-    pdf.add_page()
-    pdf.twitter_visualize()
-    pdf.output("class.pdf")

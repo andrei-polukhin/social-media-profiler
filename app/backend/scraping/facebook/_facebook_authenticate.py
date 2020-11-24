@@ -62,9 +62,3 @@ class FacebookAuthenticate(FacebookHomepage):
             EC.element_to_be_clickable(SUBMIT_BUTTON)
         )
         self._submit_button.click()
-
-
-if __name__ == "__main__":
-    o = FacebookAuthenticate()
-    o.facebook_open_home_page()
-    o.facebook_authenticate()

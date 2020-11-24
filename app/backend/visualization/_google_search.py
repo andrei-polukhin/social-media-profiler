@@ -103,11 +103,3 @@ class GoogleSearchVisualize(FPDF):
                 )
                 continue
             self.cell(w=0, h=6, txt=f"\u2022 {description}{value_processed}.", ln=2)
-
-
-if __name__ == "__main__":
-    google_search_response = {'google_search': {'github': [{'service_name': 'GitHub Profile', 'link': 'https://github.com/pythad', 'Full name: ': 'Vladyslav Ovchynnykov', 'Nickname: ': 'pythad', 'Popular repos: ': ['nider', 'selenium_extensions', 'parliament-scaper', 'pythad.github.io'], 'URLs of popular repos: ': ['https://github.com/pythad/nider', 'https://github.com/pythad/selenium_extensions', 'https://github.com/pythad/parliament-scaper', 'https://github.com/pythad/pythad.github.io'], 'img_url': 'https://avatars1.githubusercontent.com/u/10961029?s=460&u=3e6d98f79223f26c0478221863f85c906f27a3c0&v=4', 'Number of followers: ': '33', 'Number of following: ': '15', 'Location: ': 'Kyiv, Ukraine'}], 'name': [{'service_name': 'GitHub Profile', 'link': 'https://github.com/pythad', 'Full name: ': 'Vladyslav Ovchynnykov', 'Nickname: ': 'pythad', 'Popular repos: ': ['nider', 'selenium_extensions', 'parliament-scaper', 'pythad.github.io'], 'URLs of popular repos: ': ['https://github.com/pythad/nider', 'https://github.com/pythad/selenium_extensions', 'https://github.com/pythad/parliament-scaper', 'https://github.com/pythad/pythad.github.io'], 'img_url': 'https://avatars1.githubusercontent.com/u/10961029?s=460&u=3e6d98f79223f26c0478221863f85c906f27a3c0&v=4', 'Number of followers: ': '33', 'Number of following: ': '15', 'Location: ': 'Kyiv, Ukraine'}]}}
-    pdf = GoogleSearchVisualize(google_search_response)
-    pdf.add_page()
-    pdf.google_search_visualize()
-    pdf.output("class.pdf")

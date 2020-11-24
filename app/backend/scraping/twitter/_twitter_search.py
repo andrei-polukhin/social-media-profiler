@@ -71,10 +71,3 @@ class TwitterSearch(TwitterAuthorize):
                 cleaned_tweet = re.sub(r"http\S+", "", post_text)
                 list_for_subject_posts_text.append(cleaned_tweet)
             self.subjects_posts_text.append(list_for_subject_posts_text)
-
-
-if __name__ == "__main__":
-    twitter_obj = TwitterSearch("bumetsov")
-    twitter_obj.twitter_authorize()
-    twitter_obj.twitter_search()
-    print(twitter_obj.filtered_subjects_info)

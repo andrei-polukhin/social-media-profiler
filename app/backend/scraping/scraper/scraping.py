@@ -127,12 +127,3 @@ async def _find_elements(link: str, html_tree, conf: dict) -> dict:
         result[field] = scraped
     conf["service_name"] = service_name
     return result
-
-
-if __name__ == "__main__":
-    from app.backend.scraping.google_search._google_mining import mining
-    from app.backend.scraping.google_search._google_filter import filtering
-
-    findings = mining("pythad")
-    filtered = filtering(findings)
-    print(scraping(filtered))

@@ -50,19 +50,3 @@ def main_scraping(user_input: dict) -> dict:
         **twitter_process.result(),
     }
     return scraping_results
-
-
-if __name__ == "__main__":
-    sample_input = {
-        "first_name": "Amy",
-        "last_name": "Butler",
-        "company": "LSE",
-        "job_title": "Director of Studies",
-        "school": "Cambridge University",
-        "twitter_profile": "WayfarersBook",
-        "instagram_nickname": "Wayfarersbook",
-        "location": "Ukraine",
-        "additional_text": "CELTA/Delta qualified teacher",
-    }
-    response = main_scraping(sample_input)
-    print(response)

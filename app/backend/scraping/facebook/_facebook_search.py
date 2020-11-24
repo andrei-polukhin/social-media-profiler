@@ -65,11 +65,3 @@ class FacebookSearchLinks(FacebookAuthenticate):
     def __facebook_quit_the_browser(self):
         """Quit the binary browser."""
         self._driver.quit()
-
-
-if __name__ == "__main__":
-    o = FacebookSearchLinks("ongradient")
-    o.facebook_open_home_page()
-    o.facebook_authenticate()
-    o.facebook_find_scraping_links()
-    print(o.regex_matching_items)

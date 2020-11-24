@@ -23,6 +23,6 @@ class TestScrapingFacebook(unittest.TestCase):
             possible_profile_names = [
                 subject_as_dict.get("Profile name: "),
                 subject_as_dict.get("Channel name: "),
-                subject_as_dict.get("Group name: ")
+                subject_as_dict.get("Group name: "),
             ]
             self.assertTrue(any(possible_profile_names))

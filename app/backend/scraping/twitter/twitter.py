@@ -21,7 +21,3 @@ def caller_twitter(query: str) -> dict:
     found_subjects_posts = twitter_obj.subjects_posts_text
     results_to_filter["twitter"] = list(zip(found_subjects_info, found_subjects_posts))
     return results_to_filter
-
-
-if __name__ == "__main__":
-    print(caller_twitter("wayfarersbook"))

@@ -1,7 +1,9 @@
 # -*- coding: utf-8 -*-
 
 import unittest
-from app.backend.analyzing.substring_match.find_similarity_ratio import find_similarity_ratio
+from app.backend.analyzing.substring_match.find_similarity_ratio import (
+    find_similarity_ratio,
+)
 
 
 class TestAnalyzingSimilarityRatio(unittest.TestCase):
@@ -9,7 +11,7 @@ class TestAnalyzingSimilarityRatio(unittest.TestCase):
         real_similarity = find_similarity_ratio(
             "Institute of Mathematics trains highly skilled mathematicians.",
             "Institute of Mathematics is the only institution"
-            "that trains highly skilled mathematicians."
+            "that trains highly skilled mathematicians.",
         )
         self.assertGreater(real_similarity, 0.8)
 
@@ -26,5 +28,5 @@ class TestAnalyzingSimilarityRatio(unittest.TestCase):
         self.assertEqual(similarity_in_exception, 0)
 
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     unittest.main()

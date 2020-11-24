@@ -41,10 +41,8 @@ class LinkedinVisualize(FPDF):
             self.__linkedin_visualize_write_other_info(subject)
             self.ln(15)
         self.ln()
-        current_abscissa = self.get_x()
-        current_ordinate = self.get_y()
         self.line(
-            current_abscissa, current_ordinate - 10, 210 - current_abscissa, current_ordinate - 10
+            self.get_x(), self.get_y() - 10, 210 - self.get_x(), self.get_y() - 10
         )
         # """For TEST:""" self.cell(w=0, txt="HIII!!!")
 
@@ -152,11 +150,3 @@ class LinkedinVisualize(FPDF):
                 list_of_skills_to_output.append(name_of_skill)
             skills_output_str = ", ".join(list_of_skills_to_output)
             self.multi_cell(w=0, h=6, txt=f"Skills: {skills_output_str}.", ln=2)
-
-
-if __name__ == "__main__":
-    linkedin_dict = {'linkedin': {'potential_subjects_after_filtering': [{'certifications': [], 'education': [{'degreeName': 'Delta Module 2', 'schoolName': 'University of Cambridge', 'timePeriod': {'startDate': {'year': 2018}}}, {'degreeName': 'Cambridge CELTA', 'schoolName': 'University of Cambridge', 'timePeriod': {'startDate': {'year': 2013}}}, {'degreeName': 'B.A.', 'fieldOfStudy': 'Film, Screenwriting', 'schoolName': 'University of Michigan', 'timePeriod': {'endDate': {'year': 2009}, 'startDate': {'year': 2007}}}], 'experience': [{'company': {'employeeCountRange': {'end': 50, 'start': 11}, 'industries': ['Education Management']}, 'companyName': 'The London School of English', 'locationName': 'Kyiv, Kyiv City, Ukraine', 'timePeriod': {'startDate': {'month': 8, 'year': 2020}}, 'title': 'Director Of Studies'}, {'companyName': 'Freelance', 'timePeriod': {'startDate': {'month': 1, 'year': 2015}}, 'title': 'Writer'}, {'company': {'employeeCountRange': {'end': 50, 'start': 11}, 'industries': ['Education Management']}, 'companyName': 'The London School of English', 'locationName': 'Kiev Region, Ukraine', 'timePeriod': {'endDate': {'month': 8, 'year': 2020}, 'startDate': {'month': 8, 'year': 2019}}, 'title': 'Senior Teacher'}, {'companyName': 'English Playschool Moscow', 'locationName': 'Moscow, Russian Federation', 'timePeriod': {'endDate': {'month': 7, 'year': 2019}, 'startDate': {'month': 9, 'year': 2018}}, 'title': 'English Teacher for Very Young Learners'}, {'companyName': 'American Councils', 'locationName': 'Tbilisi, Georgia', 'timePeriod': {'endDate': {'month': 5, 'year': 2018}, 'startDate': {'month': 1, 'year': 2018}}, 'title': 'English Teacher'}], 'firstName': 'Amy', 'geoCountryName': 'Ukraine', 'headline': 'Director Of Studies at The London School of English', 'honors': [], 'industryName': 'Professional Training', 'languages': [], 'lastName': 'Butler', 'locationName': 'Ukraine', 'publications': [], 'skills': [{'name': 'Social Media'}, {'name': 'Editing'}, {'name': 'Microsoft Office'}, {'name': 'Microsoft Excel'}, {'name': 'PowerPoint'}, {'name': 'Social Networking'}, {'name': 'Microsoft Word'}, {'name': 'Copy Editing'}, {'name': 'Outlook'}, {'name': 'Creative Writing'}, {'name': 'CELTA'}, {'name': 'Marketing Communications'}, {'name': 'Research'}, {'name': 'Marketing'}, {'name': 'Teaching'}, {'name': 'Social Media Marketing'}, {'name': 'Blogging'}, {'name': 'Public Speaking'}, {'name': 'Writing'}], 'student': False}]}}
-    pdf = LinkedinVisualize(linkedin_dict)
-    pdf.add_page()
-    pdf.linkedin_visualize()
-    pdf.output("class.pdf")
