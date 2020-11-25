@@ -46,7 +46,11 @@ class FacebookVisualize(FPDF):
                     )
                     continue
                 self.cell(w=0, h=6, txt=f"{description}{value}", ln=2)
-            self.ln()
+            self.ln(15)
+        self.ln()
+        self.line(
+            self.get_x(), self.get_y() - 10, 210 - self.get_x(), self.get_y() - 10
+        )
 
     def __facebook_visualize_write_name_of_service(self, subject: dict):
         """

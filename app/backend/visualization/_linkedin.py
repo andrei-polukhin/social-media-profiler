@@ -44,7 +44,6 @@ class LinkedinVisualize(FPDF):
         self.line(
             self.get_x(), self.get_y() - 10, 210 - self.get_x(), self.get_y() - 10
         )
-        # """For TEST:""" self.cell(w=0, txt="HIII!!!")
 
     def __linkedin_visualize_write_name_of_subject(self, subject_as_dict: dict):
         """Write the full name of the found subject on LinkedIn."""
