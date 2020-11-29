@@ -23,8 +23,6 @@ Usage
    GOOGLE_DEVELOPER_KEY=
    GOOGLE_CSE_ID=
    IPSTACK_API_KEY=
-   FACEBOOK_LOGIN=
-   FACEBOOK_PASSWORD=
    LINKEDIN_LOGIN=
    LINKEDIN_PASSWORD=
    INSTAGRAM_LOGIN=
@@ -34,7 +32,7 @@ Usage
    TWITTER_ACCESS_TOKEN=
    TWITTER_ACCESS_SECRET=
 
-Where ``GOOGLE_DEVELOPER_KEY`` is the API key from the Google Developers platform, ``GOOGLE_CSE_ID`` is your Google Custom Search Engine ID (you have to set it up to search the info all around the web), ``IPSTACK_API_KEY`` is your API key from `ipstack <https://ipstack.com/>`_, ``FACEBOOK_LOGIN`` and ``FACEBOOK_PASSWORD`` are the login and the password to your Facebook profile (the same with LinkedIn and Instagram). In addition, you have to create an app on the Twitter developers portal and get the API key, the API secret, the access token and the access token secret from there.
+Where ``GOOGLE_DEVELOPER_KEY`` is the API key from the Google Developers platform, ``GOOGLE_CSE_ID`` is your Google Custom Search Engine ID (you have to set it up to search the info all around the web), ``IPSTACK_API_KEY`` is your API key from `ipstack <https://ipstack.com/>`_. LinkedIn and Instagram API access is authorized using your profile credentials. In addition, you have to create an app on the Twitter developers portal and get the API key, the API secret, the access token and the access token secret from there.
 
 2. Run the ``run.py`` file to get the visual interface.
 

@@ -24,7 +24,6 @@ def main_visualization(analysis_response: dict, user_input: dict, pdf_output_loc
     pdf.instagram_visualize()
     pdf.twitter_visualize()
     pdf.linkedin_visualize()
-    pdf.facebook_visualize()
     pdf.google_search_visualize()
     str_of_output = _choose_name_of_file(user_input)
     pdf.output(f"{pdf_output_location}/{str_of_output}")

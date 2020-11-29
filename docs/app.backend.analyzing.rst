@@ -7,7 +7,6 @@ Subpackages
 .. toctree::
    :maxdepth: 4
 
-   app.backend.analyzing.facebook
    app.backend.analyzing.instagram
    app.backend.analyzing.linkedin
    app.backend.analyzing.substring_match
