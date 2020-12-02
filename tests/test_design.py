@@ -37,6 +37,12 @@ class TestDesign(unittest.TestCase):
             TestDesign.design_object.findChild(QtWidgets.QLineEdit, "instagram_field")
         )
         self.assertIsNotNone(
+            TestDesign.design_object.findChild(QtWidgets.QLineEdit, "extra_field_name")
+        )
+        self.assertIsNotNone(
+            TestDesign.design_object.findChild(QtWidgets.QLineEdit, "extra_field_input")
+        )
+        self.assertIsNotNone(
             TestDesign.design_object.findChild(
                 QtWidgets.QTextEdit, "additional_info_field"
             )

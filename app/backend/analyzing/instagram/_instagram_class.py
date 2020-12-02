@@ -8,7 +8,7 @@ class InstagramAnalyze:
     """The class to analyze scraped Instagram profiles by their nickname and biography."""
     def __init__(self, scraping_response, user_input):
         self.user_info_as_dicts = scraping_response["instagram"]
-        self.required_instagram_nickname = user_input.get("instagram_nickname")
+        self.required_instagram_nickname = user_input["instagram_nickname"]
         self.required_full_name = " ".join([
             user_input.get("first_name"),
             user_input.get("last_name")

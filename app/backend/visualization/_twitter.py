@@ -101,4 +101,7 @@ class TwitterVisualize(FPDF):
         self.set_font("Times", style="I", size=14)
         for post in selected_posts:
             processed_post = split_string_in_words_with_len_limit(post, limit=75)
-            self.cell(w=0, h=6, txt=f"- {processed_post}", ln=2)
+            try:
+                self.cell(w=0, h=6, txt=f"- {processed_post}", ln=2)
+            except UnicodeEncodeError:
+                pass

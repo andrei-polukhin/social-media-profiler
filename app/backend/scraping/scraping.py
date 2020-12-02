@@ -30,15 +30,15 @@ def main_scraping(user_input: dict) -> dict:
         )
         instagram_process = pool.submit(
             caller_instagram,
-            query=user_input.get("instagram_profile")
-            if user_input.get("instagram_profile") else full_name
+            query=user_input["instagram_nickname"]
+            if user_input["instagram_nickname"] else full_name
         )
         google_search_process = pool.submit(
             caller_google_search, user_input=user_input
         )
         twitter_process = pool.submit(
-            caller_twitter, query=user_input.get("twitter_profile")
-            if user_input.get("twitter_profile") else full_name
+            caller_twitter, query=user_input["twitter_profile"]
+            if user_input["twitter_profile"] else full_name
         )
     scraping_results = {
         **google_search_process.result(),

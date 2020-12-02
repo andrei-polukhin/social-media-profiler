@@ -29,6 +29,8 @@ class Window(QMainWindow):
         self.twitter_input = self.findChild(QtWidgets.QLineEdit, "twitter_field")
         self.instagram_input = self.findChild(QtWidgets.QLineEdit, "instagram_field")
         self.additional_text = self.findChild(QtWidgets.QTextEdit, "additional_info_field")
+        self.extra_field_name = self.findChild(QtWidgets.QLineEdit, "extra_field_name")
+        self.extra_field_input = self.findChild(QtWidgets.QLineEdit, "extra_field_input")
         self.directory_text = self.findChild(QtWidgets.QLineEdit, "directory_text")
         # Finding buttons
         self.select_button = self.findChild(QtWidgets.QPushButton, "select_directory")
@@ -59,22 +61,39 @@ class Window(QMainWindow):
         school = self.school_input.text()
         twitter = self.twitter_input.text()
         instagram = self.instagram_input.text()
+        extra_field_name = self.extra_field_name.text()
+        extra_field_input = self.extra_field_input.text()
         additional_text = self.additional_text.toPlainText()
-        config_dict = {
-            "first_name": first_name,
-            "last_name": last_name,
-            "location": location,
-            "company": company,
-            "job_title": job_title,
-            "school": school,
-            "twitter_profile": twitter,
-            "instagram_nickname": instagram,
-            "additional_text": additional_text
-        }
+        if extra_field_name and extra_field_input:
+            config_dict = {
+                "first_name": first_name,
+                "last_name": last_name,
+                "location": location,
+                "company": company,
+                "job_title": job_title,
+                "school": school,
+                "twitter_profile": twitter,
+                "instagram_nickname": instagram,
+                "additional_text": additional_text,
+                extra_field_name: extra_field_input
+            }
+        else:
+            config_dict = {
+                "first_name": first_name,
+                "last_name": last_name,
+                "location": location,
+                "company": company,
+                "job_title": job_title,
+                "school": school,
+                "twitter_profile": twitter,
+                "instagram_nickname": instagram,
+                "additional_text": additional_text
+            }
         input_fields = [
             self.first_name_input, self.last_name_input, self.location_input,
             self.company_input, self.job_title_input, self.school_input,
-            self.twitter_input, self.instagram_input, self.additional_text
+            self.twitter_input, self.instagram_input, self.extra_field_name,
+            self.extra_field_input, self.additional_text
         ]
         for input_field in input_fields:
             input_field.clear()

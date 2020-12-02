@@ -33,7 +33,7 @@ class TwitterAnalyze:
         """
         Run filtering against screen names (if user input has a screen name).
         """
-        required_screen_name = self.user_input.get("twitter_profile")
+        required_screen_name = self.user_input["twitter_profile"]
         for info_and_posts in self.tuples_of_info_and_posts:
             only_user_info = info_and_posts[0]
             twitter_screen_name = only_user_info["screen_name"]

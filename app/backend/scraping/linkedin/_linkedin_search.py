@@ -12,9 +12,9 @@ class LinkedinSearch:
     def __init__(self, user_input):
         self.first_name = user_input["first_name"]
         self.last_name = user_input["last_name"]
-        self.keyword_company = user_input.get("company")
-        self.keyword_school = user_input.get("school")
-        self.keyword_title = user_input.get("job_title")
+        self.keyword_company = user_input["company"]
+        self.keyword_school = user_input["school"]
+        self.keyword_title = user_input["job_title"]
         self._api = None
         self._found_subjects = []
         self._potential_subjects = []
