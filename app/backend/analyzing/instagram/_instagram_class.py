@@ -10,8 +10,8 @@ class InstagramAnalyze:
         self.user_info_as_dicts = scraping_response["instagram"]
         self.required_instagram_nickname = user_input["instagram_nickname"]
         self.required_full_name = " ".join([
-            user_input.get("first_name"),
-            user_input.get("last_name")
+            user_input["first_name"],
+            user_input["last_name"]
         ])
         self.required_description = user_input.get("additional_text")
         self.user_info_after_name_filter = []

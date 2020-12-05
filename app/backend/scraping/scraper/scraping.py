@@ -1,11 +1,11 @@
 # -*- coding: utf-8 -*-
 """The main XPATH scraping module."""
 
+from typing import Tuple, Union, Any
 import asyncio
 import aiohttp
 import nest_asyncio
 
-from typing import Tuple, Union, Any
 from lxml import html
 
 
