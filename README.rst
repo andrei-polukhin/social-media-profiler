@@ -38,4 +38,4 @@ Where ``GOOGLE_DEVELOPER_KEY`` is the API key from the Google Developers platfor
 
 3. Enter as much fields about the desired person as possible, choose the PDF output directory.
 
-4. Click the submit button and observe the progress bar (normally takes 30-40 seconds to scrape, filter and visualize the data).
+4. Click the submit button and observe the progress bar (normally takes 20-40 seconds to scrape, filter and visualize the data).
