@@ -1,7 +1,7 @@
 SocialMediaProfiler
 ===================
-.. image:: https://www.codefactor.io/repository/github/pandrey2003/dossier-builder/badge?s=054c68d980a604ff0848d9243133497056c3f675
-   :target: https://www.codefactor.io/repository/github/pandrey2003/dossier-builder
+.. image:: https://www.codefactor.io/repository/github/pandrey2003/social-media-profiler/badge?s=d4a6bd1bc17bc72d9ebc1e5d24876078a5319752
+   :target: https://www.codefactor.io/repository/github/pandrey2003/social-media-profiler
    :alt: CodeFactor
 
 A GUI app to find social media information about any person on the world and put it into a neat PDF report.
