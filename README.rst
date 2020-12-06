@@ -35,8 +35,10 @@ Usage
 
 Where ``GOOGLE_DEVELOPER_KEY`` is the API key from the Google Developers platform, ``GOOGLE_CSE_ID`` is your Google Custom Search Engine ID (you have to set it up to search the info all around the web), ``IPSTACK_API_KEY`` is your API key from `ipstack <https://ipstack.com/>`_. LinkedIn and Instagram API access is authorized using your profile credentials. In addition, you have to create an app on the Twitter developers portal and get the API key, the API secret, the access token and the access token secret from there.
 
-2. Run the ``run.py`` file to get the visual interface.
+2. Install all the dependencies using ``pipenv``.
 
-3. Enter as much fields about the desired person as possible, choose the PDF output directory.
+3. Run the ``run.py`` file from the pipenv environment.
 
-4. Click the submit button and observe the progress bar (normally takes 20-40 seconds to scrape, filter and visualize the data).
+4. Enter as much fields about the desired person as possible, choose the PDF output directory.
+
+5. Click the submit button and observe the progress bar (normally takes 20-40 seconds to scrape, filter and visualize the data).
