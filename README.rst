@@ -1,3 +1,4 @@
+
 SocialMediaProfiler
 ===================
 .. image:: https://www.codefactor.io/repository/github/pandrey2003/social-media-profiler/badge?s=d4a6bd1bc17bc72d9ebc1e5d24876078a5319752
@@ -16,7 +17,7 @@ Clone this repository on your PC using git.
 
 Usage
 -----
-1. Create the .env file into the ``scraping`` directory with the following credentials:
+1. Create the .env file into the ``app/scraping`` directory with the following credentials:
 
 .. code-block:: python
 
