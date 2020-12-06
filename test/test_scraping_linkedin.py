@@ -6,7 +6,7 @@ from app.backend.scraping.linkedin.linkedin import caller_linkedin
 
 
 class TestScrapingLinkedin(unittest.TestCase):
-    load_dotenv("../app/backend/scraping/.env")
+    load_dotenv("app/backend/scraping/.env")
     user_input = {
         "first_name": "Bill",
         "last_name": "Gates",

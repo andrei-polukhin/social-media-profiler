@@ -5,10 +5,8 @@ name = "pypi"
 
 [packages]
 tweepy = "*"
-selenium = "*"
 google-api-python-client = "*"
 lxml = "*"
-webdriver-manager = "*"
 instagram-private-api = "==1.6.0"
 nest-asyncio = "*"
 requests = "*"
@@ -21,7 +19,8 @@ python-dotenv = "*"
 fingerprint = "*"
 numpy = "*"
 fpdf2 = "*"
-pyqt5 = "*"
+PyQt5 = "*"
+bs4 = "*"
 
 [dev-packages]
 

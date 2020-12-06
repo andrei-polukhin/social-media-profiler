@@ -40,20 +40,20 @@ def _linkedin_analyze_all(subject_after_return: dict) -> dict:
             "name",
             "timePeriod",
             "url"
-            ],
+        ],
         "education": [
             "degreeName",
             "fieldOfStudy",
             "schoolName",
             "timePeriod"
-            ],
+        ],
         "experience": [
             "company",
             "companyName",
             "locationName",
             "timePeriod",
             "title"
-            ],
+        ],
         "skills": ["name"]
     }
     filtered_dict = copy.deepcopy(subject_after_return)

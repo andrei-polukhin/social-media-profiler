@@ -22,7 +22,7 @@ class TestAnalyzingInstagram(unittest.TestCase):
     }
 
     def setUp(self):
-        with open("resources/instagram_analyzing_resource.json") as file:
+        with open("test/resources/instagram_analyzing_resource.json") as file:
             self.instagram_scraping_response = json.load(file)
 
     def test_assure_needed_subject_is_found(self):

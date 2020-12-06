@@ -28,5 +28,5 @@ def caller_linkedin(user_input: dict) -> dict:
             {
                 "potential_subjects_after_filtering":
                     linkedin_obj.potential_subjects_info_after_filtering
-            }
+        }
     return results_to_filter

@@ -32,6 +32,6 @@ def main_analyzing(scraping_response: dict, user_input: dict) -> dict:
         **instagram_process.result(),
         **linkedin_process.result(),
         **twitter_process.result(),
-        "google_search":  scraping_response["google_search"]
+        "google_search": scraping_response["google_search"]
     }
     return analysis_results

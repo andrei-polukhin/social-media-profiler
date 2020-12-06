@@ -23,7 +23,7 @@
    <widget class="QLabel" name="title">
     <property name="geometry">
      <rect>
-      <x>120</x>
+      <x>160</x>
       <y>10</y>
       <width>441</width>
       <height>20</height>
@@ -37,7 +37,7 @@
      </font>
     </property>
     <property name="text">
-     <string>Find information about any person on the world</string>
+     <string>Social media information about a person</string>
     </property>
    </widget>
    <widget class="QProgressBar" name="app_progress_bar">

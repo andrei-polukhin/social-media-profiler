@@ -6,7 +6,7 @@ from app.backend.scraping.google_search.google_search import caller_google_searc
 
 
 class TestScrapingGoogleSearch(unittest.TestCase):
-    load_dotenv("../app/backend/scraping/.env")
+    load_dotenv("app/backend/scraping/.env")
     user_input = {
         "first_name": "Vladyslav",
         "last_name": "Ovchynnykov",

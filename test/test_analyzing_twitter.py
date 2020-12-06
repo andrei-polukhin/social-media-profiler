@@ -22,7 +22,7 @@ class TestAnalyzingTwitter(unittest.TestCase):
     }
 
     def setUp(self):
-        with open("resources/twitter_analyzing_resource.pickle", "rb") as file:
+        with open("test/resources/twitter_analyzing_resource.pickle", "rb") as file:
             scraped_data = pickle.load(file)
         analyzing_response = caller_analyze_twitter(
             scraped_data, TestAnalyzingTwitter.user_input

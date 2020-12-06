@@ -7,7 +7,7 @@ from app.backend.scraping.twitter.twitter import caller_twitter
 
 
 class TestScrapingTwitter(unittest.TestCase):
-    load_dotenv("../app/backend/scraping/.env")
+    load_dotenv("app/backend/scraping/.env")
     query = "abumetsov"
 
     def setUp(self):

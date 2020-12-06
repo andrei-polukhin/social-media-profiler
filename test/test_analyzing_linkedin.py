@@ -7,7 +7,7 @@ from app.backend.analyzing.linkedin.linkedin import caller_analyze_linkedin
 
 class TestAnalyzingLinkedin(unittest.TestCase):
     def setUp(self):
-        with open("resources/linkedin_analyzing_resource.json") as file:
+        with open("test/resources/linkedin_analyzing_resource.json") as file:
             scraping_response = json.load(file)
         analyzing_response = caller_analyze_linkedin(scraping_response)
         dict_after_analysis = analyzing_response["linkedin"]
