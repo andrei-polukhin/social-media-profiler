@@ -4,6 +4,14 @@ app.backend.visualization.helpers package
 Submodules
 ----------
 
+app.backend.visualization.helpers.de\_emojify module
+----------------------------------------------------
+
+.. automodule:: app.backend.visualization.helpers.de_emojify
+   :members:
+   :undoc-members:
+   :show-inheritance:
+
 app.backend.visualization.helpers.get\_and\_process\_image module
 -----------------------------------------------------------------
 

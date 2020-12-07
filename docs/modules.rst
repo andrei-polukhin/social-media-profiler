@@ -1,5 +1,5 @@
-dossier-builder
-===============
+social-media-profiler
+=====================
 
 .. toctree::
    :maxdepth: 4

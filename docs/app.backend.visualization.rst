@@ -7,6 +7,7 @@ Subpackages
 .. toctree::
    :maxdepth: 4
 
+   app.backend.visualization.fonts
    app.backend.visualization.helpers
 
 Submodules
