@@ -26,7 +26,7 @@ def main_visualization(analysis_response: dict, user_input: dict, pdf_output_loc
     pdf.linkedin_visualize()
     pdf.google_search_visualize()
     str_of_output = _choose_name_of_file(user_input)
-    pdf.output(f"{pdf_output_location}/{str_of_output}")
+    pdf.output(f"{pdf_output_location}/{str_of_output}", "F")
 
 
 def _display_name_and_location(pdf_object, user_input: dict):
@@ -37,10 +37,10 @@ def _display_name_and_location(pdf_object, user_input: dict):
          `pdf_object`: the FPDF object to visualize full name and location.\n
          `user_input`: the app's user input represented as a dict.
     """
-    pdf_object.set_font("Times", "B", size=18)
+    pdf_object.set_font("OpenSans", "B", size=18)
     full_name = " ".join([user_input["first_name"], user_input["last_name"]])
     pdf_object.cell(w=0, h=6, txt=full_name, ln=2)
-    pdf_object.set_font("Times", "I", size=18)
+    pdf_object.set_font("OpenSans", "I", size=18)
     pdf_object.cell(w=0, h=6, txt=user_input["location"], ln=2)
     pdf_object.ln(10)
 

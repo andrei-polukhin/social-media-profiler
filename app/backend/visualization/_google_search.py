@@ -12,7 +12,11 @@ class GoogleSearchVisualize(FPDF):
         super().__init__()
         self.analysis_response = analysis_response
         self.dict_of_results = {}
-        self.set_doc_option("core_fonts_encoding", "windows-1252")
+        self.set_doc_option("core_fonts_encoding", "utf-8")
+        self.add_font("OpenSans", "", "app/backend/visualization/fonts/OpenSans-Regular.ttf", True)
+        self.add_font("OpenSans", "B", "app/backend/visualization/fonts/OpenSans-Bold.ttf", True)
+        self.add_font("OpenSans", "I", "app/backend/visualization/fonts/OpenSans-Italic.ttf", True)
+        self.add_font("OpenSans", "BI", "app/backend/visualization/fonts/OpenSans-BoldItalic.ttf", True)
 
     def google_search_visualize(self):
         """
@@ -25,7 +29,7 @@ class GoogleSearchVisualize(FPDF):
 
     def __google_search_visualize_write_title(self):
         """Write the title of Google Search on the PDF."""
-        self.set_font("Times", "BI", size=16)
+        self.set_font("OpenSans", "BI", size=16)
         self.cell(w=0, h=6, txt="Google Search", ln=2)
 
     def __google_search_visualize_write_info_about_each_subject(self):
@@ -34,11 +38,11 @@ class GoogleSearchVisualize(FPDF):
         """
         for service, service_info in self.dict_of_results.items():
             if service == "name" and service_info:
-                self.set_font("Times", "BI", size=14)
+                self.set_font("OpenSans", "BI", size=14)
                 self.cell(w=0, h=6, txt="Information based on the full name", ln=2)
                 self.__google_search_visualize_write_subject_info(service_info)
             elif service != "name" and service_info:
-                self.set_font("Times", "BI", size=14)
+                self.set_font("OpenSans", "BI", size=14)
                 self.cell(w=0, h=6, txt="Information based on extra input", ln=2)
                 self.__google_search_visualize_write_subject_info(service_info)
         self.line(
@@ -60,7 +64,7 @@ class GoogleSearchVisualize(FPDF):
 
     def __google_search_visualize_write_service_name(self, service_name: str):
         """Write service name from Google Search."""
-        self.set_font("Times", "I", size=14)
+        self.set_font("OpenSans", "I", size=14)
         self.cell(w=0, h=6, txt=service_name, ln=2)
 
     def __google_visualize_write_if_image(self, subject_info: dict):
@@ -86,7 +90,7 @@ class GoogleSearchVisualize(FPDF):
         Visualize information about a filtered subject from Google Search \
         as items in a bullet list.
         """
-        self.set_font("Times", "", size=14)
+        self.set_font("OpenSans", "", size=14)
         for description, value in subject_info_filtered.items():
             if description == "link":
                 continue

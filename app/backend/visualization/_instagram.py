@@ -4,6 +4,7 @@
 from fpdf import FPDF
 from app.backend.visualization.helpers.limit_string import split_string_in_words_with_len_limit
 from app.backend.visualization.helpers.get_and_process_image import get_and_process_image
+from app.backend.visualization.helpers.de_emojify import de_emojify
 
 
 class InstagramVisualize(FPDF):
@@ -12,7 +13,11 @@ class InstagramVisualize(FPDF):
         super().__init__()
         self.analysis_response = analysis_response
         self.dict_of_instagram_subjects = {}
-        self.set_doc_option("core_fonts_encoding", "windows-1252")
+        self.set_doc_option("core_fonts_encoding", "utf-8")
+        self.add_font("OpenSans", "", "app/backend/visualization/fonts/OpenSans-Regular.ttf", True)
+        self.add_font("OpenSans", "B", "app/backend/visualization/fonts/OpenSans-Bold.ttf", True)
+        self.add_font("OpenSans", "I", "app/backend/visualization/fonts/OpenSans-Italic.ttf", True)
+        self.add_font("OpenSans", "BI", "app/backend/visualization/fonts/OpenSans-BoldItalic.ttf", True)
 
     def instagram_visualize(self):
         """
@@ -25,18 +30,18 @@ class InstagramVisualize(FPDF):
 
     def __instagram_visualize_write_title(self):
         """Write the title of Instagram on the PDF."""
-        self.set_font("Times", "BI", size=16)
+        self.set_font("OpenSans", "BI", size=16)
         self.cell(w=0, h=5, txt="Instagram", ln=2)
 
     def __instagram_visualize_write_info_about_each_subject(self):
         """
         Visualize information about each subject on Instagram.
         """
-        self.set_font("Times", "I", size=14)
+        self.set_font("OpenSans", "I", size=14)
         if self.dict_of_instagram_subjects.get("potential_subjects") is not None:
             self.cell(w=0, h=5, txt="Potential users", ln=2)
         self.ln(5)
-        self.set_font("Times", size=14)
+        self.set_font("OpenSans", size=14)
         list_of_subjects = list(self.dict_of_instagram_subjects.values())[0]
         for subject in list_of_subjects:
             self.__instagram_visualize_process_and_visualize_image(subject)
@@ -69,16 +74,15 @@ class InstagramVisualize(FPDF):
             link=f"https://www.instagram.com/{username}/"
         )
         biography = subject["biography"]
-        biography_processed = split_string_in_words_with_len_limit(biography)
-        try:
-            self.cell(
-                w=0, h=6, txt=f"\u2022 Biography: {biography_processed}",
-                ln=2
-            )
-        except UnicodeEncodeError:
-            pass
+        biography_limited_in_len = split_string_in_words_with_len_limit(biography)
+        biography_de_emojified = de_emojify(biography_limited_in_len)
+        self.cell(
+            w=0, h=6, txt=f"\u2022 Biography: {biography_de_emojified}",
+            ln=2
+        )
         full_name = subject["full_name"]
-        self.cell(w=0, h=6, txt=f"\u2022 Full name: {full_name}", ln=2)
+        full_name_deemojified = de_emojify(full_name)
+        self.cell(w=0, h=6, txt=f"\u2022 Full name: {full_name_deemojified}", ln=2)
         media_count = subject["media_count"]
         self.cell(w=0, h=6, txt=f"\u2022 Media count: {media_count}", ln=2)
         number_of_followers = subject["follower_count"]

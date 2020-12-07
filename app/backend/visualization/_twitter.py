@@ -4,6 +4,7 @@
 from fpdf import FPDF
 from app.backend.visualization.helpers.limit_string import split_string_in_words_with_len_limit
 from app.backend.visualization.helpers.get_and_process_image import get_and_process_image
+from app.backend.visualization.helpers.de_emojify import de_emojify
 
 
 class TwitterVisualize(FPDF):
@@ -13,7 +14,11 @@ class TwitterVisualize(FPDF):
         self.analysis_response = analysis_response
         self.character_of_subjects = None
         self.tuples_with_info_and_posts = ()
-        self.set_doc_option("core_fonts_encoding", "windows-1252")
+        self.set_doc_option("core_fonts_encoding", "utf-8")
+        self.add_font("OpenSans", "", "app/backend/visualization/fonts/OpenSans-Regular.ttf", True)
+        self.add_font("OpenSans", "B", "app/backend/visualization/fonts/OpenSans-Bold.ttf", True)
+        self.add_font("OpenSans", "I", "app/backend/visualization/fonts/OpenSans-Italic.ttf", True)
+        self.add_font("OpenSans", "BI", "app/backend/visualization/fonts/OpenSans-BoldItalic.ttf", True)
 
     def twitter_visualize(self):
         """
@@ -28,18 +33,18 @@ class TwitterVisualize(FPDF):
 
     def __twitter_visualize_write_title(self):
         """Write the title of Twitter on the PDF."""
-        self.set_font("Times", "BI", size=16)
+        self.set_font("OpenSans", "BI", size=16)
         self.cell(w=0, h=5, txt="Twitter", ln=2)
 
     def __twitter_visualize_write_info_about_each_subject(self):
         """
         Visualize information about each found subject on Twitter.
         """
-        self.set_font("Times", "I", size=14)
+        self.set_font("OpenSans", "I", size=14)
         if len(self.tuples_with_info_and_posts) > 1:
             self.cell(w=0, h=5, txt="Potential users", ln=2)
         self.ln(5)
-        self.set_font("Times", size=14)
+        self.set_font("OpenSans", size=14)
         for tuple_of_info_and_posts in self.tuples_with_info_and_posts:
             info_about_subject = tuple_of_info_and_posts[0]
             posts_of_subject = tuple_of_info_and_posts[1]
@@ -51,7 +56,7 @@ class TwitterVisualize(FPDF):
         self.line(
             self.get_x(), self.get_y() - 10, 210 - self.get_x(), self.get_y() - 10
         )
-        self.set_font(family="Times", style="", size=14)
+        self.set_font(family="OpenSans", style="", size=14)
         # """For TEST:""" self.cell(w=0, txt="HIII!!!")
 
     def __twitter_visualize_get_and_visualize_image(self, info: dict):
@@ -75,9 +80,10 @@ class TwitterVisualize(FPDF):
             link=f"https://www.twitter.com/{screen_name}/"
         )
         description = info["description"]
-        description_processed = split_string_in_words_with_len_limit(description, limit=60)
+        description_limited_in_len = split_string_in_words_with_len_limit(description, limit=60)
+        de_emojified_description = de_emojify(description_limited_in_len)
         self.cell(
-            w=0, h=6, txt=u"\u2022 Description: {}".format(description_processed),
+            w=0, h=6, txt=f"\u2022 Description: {de_emojified_description}",
             ln=2
         )
         full_name = info["name"]
@@ -97,11 +103,9 @@ class TwitterVisualize(FPDF):
     def __twitter_visualize_output_two_last_posts(self, posts: list):
         """Visualize two last posts from the Twitter profile."""
         selected_posts = posts[0:2]
-        self.cell(w=0, h=6, txt=u"\u2022 Two last posts:", ln=2)
-        self.set_font("Times", style="I", size=14)
+        self.cell(w=0, h=6, txt="\u2022 Two last posts:", ln=2)
+        self.set_font("OpenSans", style="I", size=14)
         for post in selected_posts:
-            processed_post = split_string_in_words_with_len_limit(post, limit=75)
-            try:
-                self.cell(w=0, h=6, txt=f"- {processed_post}", ln=2)
-            except UnicodeEncodeError:
-                pass
+            post_limited_in_len = split_string_in_words_with_len_limit(post, limit=75)
+            de_emojified_post = de_emojify(post_limited_in_len)
+            self.cell(w=0, h=6, txt=f"- {de_emojified_post}", ln=2)

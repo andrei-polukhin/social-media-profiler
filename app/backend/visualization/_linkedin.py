@@ -11,7 +11,11 @@ class LinkedinVisualize(FPDF):
         self.analysis_response = analysis_response
         self.character_of_subjects = None
         self.lists_of_info = []
-        self.set_doc_option("core_fonts_encoding", "windows-1252")
+        self.set_doc_option("core_fonts_encoding", "utf-8")
+        self.add_font("OpenSans", "", "app/backend/visualization/fonts/OpenSans-Regular.ttf", True)
+        self.add_font("OpenSans", "B", "app/backend/visualization/fonts/OpenSans-Bold.ttf", True)
+        self.add_font("OpenSans", "I", "app/backend/visualization/fonts/OpenSans-Italic.ttf", True)
+        self.add_font("OpenSans", "BI", "app/backend/visualization/fonts/OpenSans-BoldItalic.ttf", True)
 
     def linkedin_visualize(self):
         """
@@ -25,14 +29,14 @@ class LinkedinVisualize(FPDF):
 
     def __linkedin_visualize_write_title(self):
         """Write the title of LinkedIn on the PDF."""
-        self.set_font("Times", "BI", size=16)
+        self.set_font("OpenSans", "BI", size=16)
         self.cell(w=0, h=6, txt="LinkedIn", ln=2)
 
     def __linkedin_visualize_write_info_about_each_subject(self):
         """
         Visualize information about each found subject on LinkedIn.
         """
-        self.set_font("Times", "I", size=14)
+        self.set_font("OpenSans", "I", size=14)
         if self.character_of_subjects == "potential_subjects_after_filtering":
             self.cell(w=0, h=6, txt="Potential user(s)", ln=2)
         self.ln(5)
@@ -47,7 +51,7 @@ class LinkedinVisualize(FPDF):
 
     def __linkedin_visualize_write_name_of_subject(self, subject_as_dict: dict):
         """Write the full name of the found subject on LinkedIn."""
-        self.set_font("Times", "B", size=14)
+        self.set_font("OpenSans", "B", size=14)
         first_name = subject_as_dict["firstName"]
         last_name = subject_as_dict["lastName"]
         full_name = " ".join([first_name, last_name])
@@ -55,7 +59,7 @@ class LinkedinVisualize(FPDF):
 
     def __linkedin_visualize_write_other_info(self, subject_as_dict: dict):
         """Write other analyzed information about a subject."""
-        self.set_font("Times", size=14)
+        self.set_font("OpenSans", size=14)
         headline = subject_as_dict["headline"]
         self.cell(w=0, h=6, txt=f"Headline: {headline}.", ln=2)
         industry = subject_as_dict["industryName"]
@@ -72,10 +76,10 @@ class LinkedinVisualize(FPDF):
         list_of_experiences = subject_as_dict["experience"]
         self.set_x(20)
         for experience in list_of_experiences:
-            self.set_font("Times", "I", size=14)
+            self.set_font("OpenSans", "I", size=14)
             company_name = experience["companyName"]
             self.cell(w=0, h=6, txt=f"\u2022 {company_name}", ln=2)
-            self.set_font("Times", size=14)
+            self.set_font("OpenSans", size=14)
             job_title = experience["title"]
             self.cell(w=0, h=6, txt=f"Job title: {job_title}.", ln=2)
             company_location = experience.get("locationName")
@@ -113,11 +117,11 @@ class LinkedinVisualize(FPDF):
         list_of_educations = subject_as_dict["education"]
         self.set_x(20)
         for education in list_of_educations:
-            self.set_font("Times", "I", size=14)
+            self.set_font("OpenSans", "I", size=14)
             degree_name = education.get("degreeName")
             if degree_name is not None:
                 self.cell(w=0, h=6, txt=f"\u2022 {degree_name}", ln=2)
-            self.set_font("Times", size=14)
+            self.set_font("OpenSans", size=14)
             school_name = education["schoolName"]
             self.cell(w=0, h=6, txt=f"School name: {school_name}.", ln=2)
             time_period = education.get("timePeriod")

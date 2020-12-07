@@ -4,3 +4,9 @@ __pycache__/
 .tox/
 **/cookie_settings.json
 app/backend/scraping/.env
+app/backend/visualization/fonts/OpenSans-Bold.cw127.pkl
+app/backend/visualization/fonts/OpenSans-Bold.pkl
+app/backend/visualization/fonts/OpenSans-BoldItalic.pkl
+app/backend/visualization/fonts/OpenSans-Italic.pkl
+app/backend/visualization/fonts/OpenSans-Regular.cw127.pkl
+app/backend/visualization/fonts/OpenSans-Regular.pkl
