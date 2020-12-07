@@ -26,7 +26,7 @@ def main_visualization(analysis_response: dict, user_input: dict, pdf_output_loc
     pdf.linkedin_visualize()
     pdf.google_search_visualize()
     str_of_output = _choose_name_of_file(user_input)
-    pdf.output(f"{pdf_output_location}/{str_of_output}", "F")
+    pdf.output(f"{pdf_output_location}/{str_of_output}.pdf", "F")
 
 
 def _display_name_and_location(pdf_object, user_input: dict):
