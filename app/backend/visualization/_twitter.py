@@ -80,7 +80,7 @@ class TwitterVisualize(FPDF):
             link=f"https://www.twitter.com/{screen_name}/"
         )
         description = info["description"]
-        description_limited_in_len = split_string_in_words_with_len_limit(description, limit=60)
+        description_limited_in_len = split_string_in_words_with_len_limit(description, limit=45)
         de_emojified_description = de_emojify(description_limited_in_len)
         self.cell(
             w=0, h=6, txt=f"\u2022 Description: {de_emojified_description}",
@@ -106,6 +106,6 @@ class TwitterVisualize(FPDF):
         self.cell(w=0, h=6, txt="\u2022 Two last posts:", ln=2)
         self.set_font("OpenSans", style="I", size=14)
         for post in selected_posts:
-            post_limited_in_len = split_string_in_words_with_len_limit(post, limit=75)
+            post_limited_in_len = split_string_in_words_with_len_limit(post, limit=60)
             de_emojified_post = de_emojify(post_limited_in_len)
             self.cell(w=0, h=6, txt=f"- {de_emojified_post}", ln=2)

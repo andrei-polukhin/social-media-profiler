@@ -2,6 +2,7 @@
 """The LinkedIn visualization module."""
 
 from fpdf import FPDF
+from app.backend.visualization.helpers.limit_string import split_string_in_words_with_len_limit
 
 
 class LinkedinVisualize(FPDF):
@@ -61,10 +62,12 @@ class LinkedinVisualize(FPDF):
         """Write other analyzed information about a subject."""
         self.set_font("OpenSans", size=14)
         headline = subject_as_dict["headline"]
-        self.cell(w=0, h=6, txt=f"Headline: {headline}.", ln=2)
+        headline_with_len_limit = split_string_in_words_with_len_limit(headline)
+        self.cell(w=0, h=6, txt=f"Headline: {headline_with_len_limit}.", ln=2)
         industry = subject_as_dict["industryName"]
         self.cell(w=0, h=6, txt=f"Industry: {industry}.", ln=2)
-        location = subject_as_dict["locationName"]
+        location = subject_as_dict.get("locationName") \
+            if subject_as_dict.get("locationName") is not None else ""
         self.cell(w=0, h=6, txt=f"Location: {location}.", ln=2)
         self.__linkedin_visualize_write_experience(subject_as_dict)
         self.__linkedin_visualize_write_education(subject_as_dict)

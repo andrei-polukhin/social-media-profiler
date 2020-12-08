@@ -22,7 +22,7 @@ class TwitterAnalyze:
         Call other methods to run filters against screen name (if user input has screen name), \
         otherwise run filters against first and last names, user location and description.
         """
-        if self.user_input.get("twitter_profile"):
+        if self.user_input["twitter_profile"]:
             self.__twitter_analyze_screen_name()
         else:
             self.__twitter_analyze_first_and_last_names()

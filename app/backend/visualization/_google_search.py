@@ -45,9 +45,6 @@ class GoogleSearchVisualize(FPDF):
                 self.set_font("OpenSans", "BI", size=14)
                 self.cell(w=0, h=6, txt="Information based on extra input", ln=2)
                 self.__google_search_visualize_write_subject_info(service_info)
-        self.line(
-            self.get_x(), self.get_y() - 5, 210 - self.get_x(), self.get_y() - 5
-        )
 
     def __google_search_visualize_write_subject_info(self, list_of_subject_info: list):
         """Visualize information about a particular subject from a list of subjects' info."""

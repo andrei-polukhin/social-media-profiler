@@ -2,6 +2,7 @@
 """The Twitter scraping module to search for subjects using Twitter official API."""
 
 import re
+from tweepy.error import TweepError
 from app.backend.scraping.twitter._twitter_authorize import TwitterAuthorize
 
 
@@ -63,7 +64,10 @@ class TwitterSearch(TwitterAuthorize):
         Get subject's posts using his/her screen name, then run posts against the regex filters.
         """
         for subject_screen_name in self._subject_screen_name:
-            subject_posts = self._api.user_timeline(screen_name=subject_screen_name)
+            try:
+                subject_posts = self._api.user_timeline(screen_name=subject_screen_name)
+            except TweepError:
+                continue
             list_for_subject_posts_text = []
             for subject_post in subject_posts:
                 post_text = subject_post.text
