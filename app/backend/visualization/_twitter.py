@@ -1,6 +1,7 @@
 # -*- coding: utf-8 -*-
 """The Twitter visualization module."""
 
+import re
 from fpdf import FPDF
 from app.backend.visualization.helpers.limit_string import split_string_in_words_with_len_limit
 from app.backend.visualization.helpers.get_and_process_image import get_and_process_image
@@ -82,12 +83,22 @@ class TwitterVisualize(FPDF):
         description = info["description"]
         description_limited_in_len = split_string_in_words_with_len_limit(description, limit=45)
         de_emojified_description = de_emojify(description_limited_in_len)
-        self.cell(
-            w=0, h=6, txt=f"\u2022 Description: {de_emojified_description}",
-            ln=2
-        )
+        if re.findall(r"[^\w\s,]", de_emojified_description):
+            self.cell(
+                w=0, h=6, txt=f"\u2022 Description:",
+                ln=2
+            )
+        else:
+            self.cell(
+                w=0, h=6, txt=f"\u2022 Description: {de_emojified_description}",
+                ln=2
+            )
         full_name = info["name"]
-        self.cell(w=0, h=6, txt=f"\u2022 Full name: {full_name}", ln=2)
+        de_emojified_full_name = de_emojify(full_name)
+        if re.findall(r"[^\w\s,]", de_emojified_full_name):
+            self.cell(w=0, h=6, txt=f"\u2022 Full name:", ln=2)
+        else:
+            self.cell(w=0, h=6, txt=f"\u2022 Full name: {de_emojified_full_name}", ln=2)
         location = info["location"]
         self.cell(w=0, h=6, txt=f"\u2022 Location: {location}", ln=2)
         number_of_followers = info["followers_count"]

@@ -51,8 +51,23 @@ class TwitterAnalyze:
         for info_and_posts in self.tuples_of_info_and_posts:
             only_user_info = info_and_posts[0]
             twitter_full_name = only_user_info["name"]
-            if required_full_name == twitter_full_name:
-                self._tuples_after_name_filter.append(info_and_posts)
+            try:
+                twitter_full_name.encode("ascii")
+            except UnicodeEncodeError:
+                required_full_name_in_set = set(required_full_name)
+                received_full_name_in_set = set(twitter_full_name)
+                set_intersection_len = len(
+                    required_full_name_in_set.intersection(received_full_name_in_set)
+                )
+                minimal_length_of_sets = len(
+                    min(required_full_name_in_set, received_full_name_in_set, key=len)
+                )
+                similarity = set_intersection_len / minimal_length_of_sets
+                if similarity >= 0.6:
+                    self._tuples_after_name_filter.append(info_and_posts)
+            else:
+                if required_full_name == twitter_full_name:
+                    self._tuples_after_name_filter.append(info_and_posts)
 
     def __twitter_analyze_location(self):
         """
