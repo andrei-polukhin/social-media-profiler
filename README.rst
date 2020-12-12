@@ -42,3 +42,19 @@ Where ``GOOGLE_DEVELOPER_KEY`` is the API key from the Google Developers platfor
 4. Enter as much fields about the desired person as possible, choose the PDF output directory.
 
 5. Click the submit button and observe the progress bar (normally takes 20-40 seconds to scrape, filter and visualize the data).
+
+How does it look like?
+----------------------
+1. How does GUI look like? Here is the answer:
+
+.. image:: https://user-images.githubusercontent.com/64363269/101991905-6620b280-3cb8-11eb-953a-f29e98bd2b38.png
+
+2. How does a final PDF report look like? Here you go:
+
+.. image:: https://user-images.githubusercontent.com/64363269/101992093-6c635e80-3cb9-11eb-9658-74677e10b019.png
+
+.. image:: https://user-images.githubusercontent.com/64363269/101992113-869d3c80-3cb9-11eb-8137-dd88cabef31d.png
+
+.. image:: https://user-images.githubusercontent.com/64363269/101992119-9452c200-3cb9-11eb-840c-259f8527aed8.png
+
+.. image:: https://user-images.githubusercontent.com/64363269/101992133-a6ccfb80-3cb9-11eb-87b2-61e2e7a0a213.png
