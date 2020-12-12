@@ -18,9 +18,10 @@ linkedin-api = "==2.0.0a3"
 python-dotenv = "*"
 fingerprint = "*"
 numpy = "*"
-fpdf2 = "*"
 PyQt5 = "*"
 bs4 = "*"
+emoji = "*"
+fpdf2 = "==2.0.6"
 
 [dev-packages]
 

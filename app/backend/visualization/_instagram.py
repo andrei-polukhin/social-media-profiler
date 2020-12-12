@@ -1,10 +1,11 @@
 # -*- coding: utf-8 -*-
 """The Instagram visualization module."""
 
+import re
 from fpdf import FPDF
+from emoji import demojize
 from app.backend.visualization.helpers.limit_string import split_string_in_words_with_len_limit
 from app.backend.visualization.helpers.get_and_process_image import get_and_process_image
-from app.backend.visualization.helpers.de_emojify import de_emojify
 
 
 class InstagramVisualize(FPDF):
@@ -75,14 +76,16 @@ class InstagramVisualize(FPDF):
         )
         biography = subject["biography"]
         biography_limited_in_len = split_string_in_words_with_len_limit(biography)
-        biography_de_emojified = de_emojify(biography_limited_in_len)
+        biography_de_emojified = demojize(biography_limited_in_len)
+        biography_without_emoji_signs = re.sub(r":[a-zA-Z-_.]+:", "", biography_de_emojified)
         self.cell(
-            w=0, h=6, txt=f"\u2022 Biography: {biography_de_emojified}",
+            w=0, h=6, txt=f"\u2022 Biography: {biography_without_emoji_signs}",
             ln=2
         )
         full_name = subject["full_name"]
-        full_name_deemojified = de_emojify(full_name)
-        self.cell(w=0, h=6, txt=f"\u2022 Full name: {full_name_deemojified}", ln=2)
+        full_name_deemojified = demojize(full_name)
+        full_name_without_emoji_signs = re.sub(r":[a-zA-Z-_.]+:", "", full_name_deemojified)
+        self.cell(w=0, h=6, txt=f"\u2022 Full name: {full_name_without_emoji_signs}", ln=2)
         media_count = subject["media_count"]
         self.cell(w=0, h=6, txt=f"\u2022 Media count: {media_count}", ln=2)
         number_of_followers = subject["follower_count"]

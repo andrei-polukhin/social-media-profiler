@@ -20,7 +20,7 @@ def main_visualization(analysis_response: dict, user_input: dict, pdf_output_loc
     """
     pdf = Visualization(analysis_response)
     pdf.add_page()
-    _display_name_and_location(pdf, user_input)
+    display_name_and_location(pdf, user_input)
     pdf.instagram_visualize()
     pdf.twitter_visualize()
     pdf.linkedin_visualize()
@@ -29,7 +29,7 @@ def main_visualization(analysis_response: dict, user_input: dict, pdf_output_loc
     pdf.output(f"{pdf_output_location}/{str_of_output}.pdf", "F")
 
 
-def _display_name_and_location(pdf_object, user_input: dict):
+def display_name_and_location(pdf_object, user_input: dict):
     """
     Display the desired subject full name and location on the PDF.
 

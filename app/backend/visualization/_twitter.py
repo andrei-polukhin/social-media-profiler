@@ -3,9 +3,9 @@
 
 import re
 from fpdf import FPDF
+from emoji import demojize
 from app.backend.visualization.helpers.limit_string import split_string_in_words_with_len_limit
 from app.backend.visualization.helpers.get_and_process_image import get_and_process_image
-from app.backend.visualization.helpers.de_emojify import de_emojify
 
 
 class TwitterVisualize(FPDF):
@@ -83,17 +83,16 @@ class TwitterVisualize(FPDF):
         )
         description = info["description"]
         description_limited_in_len = split_string_in_words_with_len_limit(description, limit=45)
-        de_emojified_description = de_emojify(description_limited_in_len)
+        de_emojified_description = demojize(description_limited_in_len)
+        description_without_emoji_signs = re.sub(r":[a-zA-Z-_.]+:", "", de_emojified_description)
         self.cell(
-            w=0, h=6, txt=f"\u2022 Description: {de_emojified_description}",
+            w=0, h=6, txt=f"\u2022 Description: {description_without_emoji_signs}",
             ln=2
         )
         full_name = info["name"]
-        de_emojified_full_name = de_emojify(full_name)
-        if re.findall(r"[^\w\s,]", de_emojified_full_name):
-            self.cell(w=0, h=6, txt=f"\u2022 Full name:", ln=2)
-        else:
-            self.cell(w=0, h=6, txt=f"\u2022 Full name: {de_emojified_full_name}", ln=2)
+        de_emojified_full_name = demojize(full_name)
+        full_name_without_emoji_signs = re.sub(r":[a-zA-Z-_.]+:", "", de_emojified_full_name)
+        self.cell(w=0, h=6, txt=f"\u2022 Full name: {full_name_without_emoji_signs}", ln=2)
         location = info["location"]
         self.cell(w=0, h=6, txt=f"\u2022 Location: {location}", ln=2)
         number_of_followers = info["followers_count"]
@@ -113,5 +112,6 @@ class TwitterVisualize(FPDF):
         self.set_font("OpenSans", style="I", size=14)
         for post in selected_posts:
             post_limited_in_len = split_string_in_words_with_len_limit(post, limit=60)
-            de_emojified_post = de_emojify(post_limited_in_len)
-            self.cell(w=0, h=6, txt=f"- {de_emojified_post}", ln=2)
+            de_emojified_post = demojize(post_limited_in_len)
+            post_without_emoji_signs = re.sub(r":[a-zA-Z-_.]+:", "", de_emojified_post)
+            self.cell(w=0, h=6, txt=f"- {post_without_emoji_signs}", ln=2)
