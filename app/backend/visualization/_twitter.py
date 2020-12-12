@@ -41,8 +41,8 @@ class TwitterVisualize(FPDF):
         """
         Visualize information about each found subject on Twitter.
         """
-        self.set_font("OpenSans", "I", size=14)
         if len(self.tuples_with_info_and_posts) > 1:
+            self.set_font("OpenSans", "I", size=14)
             self.cell(w=0, h=5, txt="Potential users", ln=2)
         self.ln(5)
         self.set_font("OpenSans", size=14)
@@ -73,6 +73,7 @@ class TwitterVisualize(FPDF):
         Visualize information about a subject on Twitter \
         as items in a bullet list.
         """
+        self.set_font("OpenSans", size=14)
         current_ordinate = self.get_y()
         self.set_xy(35, current_ordinate - 20)
         screen_name = info["screen_name"]
@@ -83,16 +84,10 @@ class TwitterVisualize(FPDF):
         description = info["description"]
         description_limited_in_len = split_string_in_words_with_len_limit(description, limit=45)
         de_emojified_description = de_emojify(description_limited_in_len)
-        if re.findall(r"[^\w\s,]", de_emojified_description):
-            self.cell(
-                w=0, h=6, txt=f"\u2022 Description:",
-                ln=2
-            )
-        else:
-            self.cell(
-                w=0, h=6, txt=f"\u2022 Description: {de_emojified_description}",
-                ln=2
-            )
+        self.cell(
+            w=0, h=6, txt=f"\u2022 Description: {de_emojified_description}",
+            ln=2
+        )
         full_name = info["name"]
         de_emojified_full_name = de_emojify(full_name)
         if re.findall(r"[^\w\s,]", de_emojified_full_name):

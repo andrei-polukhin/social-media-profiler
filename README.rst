@@ -37,7 +37,7 @@ Where ``GOOGLE_DEVELOPER_KEY`` is the API key from the Google Developers platfor
 
 2. Install all the dependencies using ``pipenv``.
 
-3. Run the ``run.py`` file from the pipenv environment.
+3. Run the ``run.py`` file from the pipenv environment (opens GUI).
 
 4. Enter as much fields about the desired person as possible, choose the PDF output directory.
 
