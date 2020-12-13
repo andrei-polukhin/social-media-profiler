@@ -13,12 +13,6 @@ class LinkedinVisualize(FPDF):
         self.character_of_subjects = None
         self.lists_of_info = []
         self.set_doc_option("core_fonts_encoding", "utf-8")
-        self.add_font("OpenSans", "", "app/backend/visualization/fonts/OpenSans-Regular.ttf", True)
-        self.add_font("OpenSans", "B", "app/backend/visualization/fonts/OpenSans-Bold.ttf", True)
-        self.add_font("OpenSans", "I", "app/backend/visualization/fonts/OpenSans-Italic.ttf", True)
-        self.add_font(
-            "OpenSans", "BI", "app/backend/visualization/fonts/OpenSans-BoldItalic.ttf", True
-        )
 
     def linkedin_visualize(self):
         """

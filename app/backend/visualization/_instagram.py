@@ -15,12 +15,6 @@ class InstagramVisualize(FPDF):
         self.analysis_response = analysis_response
         self.dict_of_instagram_subjects = {}
         self.set_doc_option("core_fonts_encoding", "utf-8")
-        self.add_font("OpenSans", "", "app/backend/visualization/fonts/OpenSans-Regular.ttf", True)
-        self.add_font("OpenSans", "B", "app/backend/visualization/fonts/OpenSans-Bold.ttf", True)
-        self.add_font("OpenSans", "I", "app/backend/visualization/fonts/OpenSans-Italic.ttf", True)
-        self.add_font(
-            "OpenSans", "BI", "app/backend/visualization/fonts/OpenSans-BoldItalic.ttf", True
-        )
 
     def instagram_visualize(self):
         """
