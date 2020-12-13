@@ -63,7 +63,7 @@ class TwitterAnalyze:
                     min(required_full_name_in_set, received_full_name_in_set, key=len)
                 )
                 similarity = set_intersection_len / minimal_length_of_sets
-                if similarity >= 0.6:
+                if similarity >= 0.7:
                     self._tuples_after_name_filter.append(info_and_posts)
             else:
                 if required_full_name == twitter_full_name:

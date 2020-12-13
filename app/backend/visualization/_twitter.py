@@ -85,14 +85,20 @@ class TwitterVisualize(FPDF):
         description_limited_in_len = split_string_in_words_with_len_limit(description, limit=45)
         de_emojified_description = demojize(description_limited_in_len)
         description_without_emoji_signs = re.sub(r":[a-zA-Z-_.]+:", "", de_emojified_description)
-        self.cell(
-            w=0, h=6, txt=f"\u2022 Description: {description_without_emoji_signs}",
-            ln=2
-        )
+        if b"\\U" in description_without_emoji_signs.encode("unicode-escape"):
+            self.cell(w=0, h=6, txt=f"\u2022 Description: ", ln=2)
+        else:
+            self.cell(
+                w=0, h=6, txt=f"\u2022 Description: {description_without_emoji_signs}",
+                ln=2
+            )
         full_name = info["name"]
         de_emojified_full_name = demojize(full_name)
         full_name_without_emoji_signs = re.sub(r":[a-zA-Z-_.]+:", "", de_emojified_full_name)
-        self.cell(w=0, h=6, txt=f"\u2022 Full name: {full_name_without_emoji_signs}", ln=2)
+        if b"\\U" in full_name_without_emoji_signs.encode("unicode-escape"):
+            self.cell(w=0, h=6, txt=f"\u2022 Full name: ", ln=2)
+        else:
+            self.cell(w=0, h=6, txt=f"\u2022 Full name: {full_name_without_emoji_signs}", ln=2)
         location = info["location"]
         self.cell(w=0, h=6, txt=f"\u2022 Location: {location}", ln=2)
         number_of_followers = info["followers_count"]
@@ -114,4 +120,7 @@ class TwitterVisualize(FPDF):
             post_limited_in_len = split_string_in_words_with_len_limit(post, limit=60)
             de_emojified_post = demojize(post_limited_in_len)
             post_without_emoji_signs = re.sub(r":[a-zA-Z-_.]+:", "", de_emojified_post)
+            if b"\\U" in post_without_emoji_signs.encode("unicode-escape"):
+                self.cell(w=0, h=6, txt=f"- ", ln=2)
+                continue
             self.cell(w=0, h=6, txt=f"- {post_without_emoji_signs}", ln=2)

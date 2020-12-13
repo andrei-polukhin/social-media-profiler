@@ -78,14 +78,20 @@ class InstagramVisualize(FPDF):
         biography_limited_in_len = split_string_in_words_with_len_limit(biography)
         biography_de_emojified = demojize(biography_limited_in_len)
         biography_without_emoji_signs = re.sub(r":[a-zA-Z-_.]+:", "", biography_de_emojified)
-        self.cell(
-            w=0, h=6, txt=f"\u2022 Biography: {biography_without_emoji_signs}",
-            ln=2
-        )
+        if b"\\U" in biography_without_emoji_signs.encode("unicode-escape"):
+            self.cell(w=0, h=6, txt=f"\u2022 Biography: ", ln=2)
+        else:
+            self.cell(
+                w=0, h=6, txt=f"\u2022 Biography: {biography_without_emoji_signs}",
+                ln=2
+            )
         full_name = subject["full_name"]
         full_name_deemojified = demojize(full_name)
         full_name_without_emoji_signs = re.sub(r":[a-zA-Z-_.]+:", "", full_name_deemojified)
-        self.cell(w=0, h=6, txt=f"\u2022 Full name: {full_name_without_emoji_signs}", ln=2)
+        if b"\\U" in full_name_without_emoji_signs.encode("unicode-escape"):
+            self.cell(w=0, h=6, txt=f"\u2022 Full name: ", ln=2)
+        else:
+            self.cell(w=0, h=6, txt=f"\u2022 Full name: {full_name_without_emoji_signs}", ln=2)
         media_count = subject["media_count"]
         self.cell(w=0, h=6, txt=f"\u2022 Media count: {media_count}", ln=2)
         number_of_followers = subject["follower_count"]
