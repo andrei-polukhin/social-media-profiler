@@ -5,6 +5,10 @@ SocialMediaProfiler
    :target: https://www.codefactor.io/repository/github/pandrey2003/social-media-profiler
    :alt: CodeFactor
 
+.. image:: https://readthedocs.org/projects/social-media-profiler/badge/?version=latest
+   :target: https://social-media-profiler.readthedocs.io/en/latest/?badge=latest
+   :alt: Documentation Status
+
 A GUI app to find social media information about any person on the world and put it into a neat PDF report.
 
 Installation
