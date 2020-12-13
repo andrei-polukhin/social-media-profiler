@@ -19,7 +19,9 @@ class TwitterVisualize(FPDF):
         self.add_font("OpenSans", "", "app/backend/visualization/fonts/OpenSans-Regular.ttf", True)
         self.add_font("OpenSans", "B", "app/backend/visualization/fonts/OpenSans-Bold.ttf", True)
         self.add_font("OpenSans", "I", "app/backend/visualization/fonts/OpenSans-Italic.ttf", True)
-        self.add_font("OpenSans", "BI", "app/backend/visualization/fonts/OpenSans-BoldItalic.ttf", True)
+        self.add_font(
+            "OpenSans", "BI", "app/backend/visualization/fonts/OpenSans-BoldItalic.ttf", True
+        )
 
     def twitter_visualize(self):
         """
@@ -86,7 +88,7 @@ class TwitterVisualize(FPDF):
         de_emojified_description = demojize(description_limited_in_len)
         description_without_emoji_signs = re.sub(r":[a-zA-Z-_.]+:", "", de_emojified_description)
         if b"\\U" in description_without_emoji_signs.encode("unicode-escape"):
-            self.cell(w=0, h=6, txt=f"\u2022 Description: ", ln=2)
+            self.cell(w=0, h=6, txt="\u2022 Description: ", ln=2)
         else:
             self.cell(
                 w=0, h=6, txt=f"\u2022 Description: {description_without_emoji_signs}",
@@ -96,7 +98,7 @@ class TwitterVisualize(FPDF):
         de_emojified_full_name = demojize(full_name)
         full_name_without_emoji_signs = re.sub(r":[a-zA-Z-_.]+:", "", de_emojified_full_name)
         if b"\\U" in full_name_without_emoji_signs.encode("unicode-escape"):
-            self.cell(w=0, h=6, txt=f"\u2022 Full name: ", ln=2)
+            self.cell(w=0, h=6, txt="\u2022 Full name: ", ln=2)
         else:
             self.cell(w=0, h=6, txt=f"\u2022 Full name: {full_name_without_emoji_signs}", ln=2)
         location = info["location"]
@@ -121,6 +123,6 @@ class TwitterVisualize(FPDF):
             de_emojified_post = demojize(post_limited_in_len)
             post_without_emoji_signs = re.sub(r":[a-zA-Z-_.]+:", "", de_emojified_post)
             if b"\\U" in post_without_emoji_signs.encode("unicode-escape"):
-                self.cell(w=0, h=6, txt=f"- ", ln=2)
+                self.cell(w=0, h=6, txt="- ", ln=2)
                 continue
             self.cell(w=0, h=6, txt=f"- {post_without_emoji_signs}", ln=2)

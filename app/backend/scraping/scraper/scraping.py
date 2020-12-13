@@ -32,8 +32,8 @@ def scraping(list_of_links_and_configs: list) -> list:
 
 
 async def _organize_tasks(loop, *tuples_of_links_and_configs) -> Tuple[
-    Union[BaseException, Any], Union[BaseException, Any], Union[BaseException, Any],
-    Union[BaseException, Any], Union[BaseException, Any]
+        Union[BaseException, Any], Union[BaseException, Any], Union[BaseException, Any],
+        Union[BaseException, Any], Union[BaseException, Any]
 ]:
     """
     Take asyncio event loop and tuples of links and configs, \

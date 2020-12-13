@@ -18,7 +18,9 @@ class InstagramVisualize(FPDF):
         self.add_font("OpenSans", "", "app/backend/visualization/fonts/OpenSans-Regular.ttf", True)
         self.add_font("OpenSans", "B", "app/backend/visualization/fonts/OpenSans-Bold.ttf", True)
         self.add_font("OpenSans", "I", "app/backend/visualization/fonts/OpenSans-Italic.ttf", True)
-        self.add_font("OpenSans", "BI", "app/backend/visualization/fonts/OpenSans-BoldItalic.ttf", True)
+        self.add_font(
+            "OpenSans", "BI", "app/backend/visualization/fonts/OpenSans-BoldItalic.ttf", True
+        )
 
     def instagram_visualize(self):
         """
@@ -79,7 +81,7 @@ class InstagramVisualize(FPDF):
         biography_de_emojified = demojize(biography_limited_in_len)
         biography_without_emoji_signs = re.sub(r":[a-zA-Z-_.]+:", "", biography_de_emojified)
         if b"\\U" in biography_without_emoji_signs.encode("unicode-escape"):
-            self.cell(w=0, h=6, txt=f"\u2022 Biography: ", ln=2)
+            self.cell(w=0, h=6, txt="\u2022 Biography: ", ln=2)
         else:
             self.cell(
                 w=0, h=6, txt=f"\u2022 Biography: {biography_without_emoji_signs}",
@@ -89,7 +91,7 @@ class InstagramVisualize(FPDF):
         full_name_deemojified = demojize(full_name)
         full_name_without_emoji_signs = re.sub(r":[a-zA-Z-_.]+:", "", full_name_deemojified)
         if b"\\U" in full_name_without_emoji_signs.encode("unicode-escape"):
-            self.cell(w=0, h=6, txt=f"\u2022 Full name: ", ln=2)
+            self.cell(w=0, h=6, txt="\u2022 Full name: ", ln=2)
         else:
             self.cell(w=0, h=6, txt=f"\u2022 Full name: {full_name_without_emoji_signs}", ln=2)
         media_count = subject["media_count"]
