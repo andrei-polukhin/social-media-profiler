@@ -6,4 +6,3 @@ social-media-profiler
 
    app
    run
-   test
