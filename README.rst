@@ -53,6 +53,19 @@ How does it look like?
 
 .. image:: https://user-images.githubusercontent.com/64363269/101991905-6620b280-3cb8-11eb-953a-f29e98bd2b38.png
 
+But what information should I fill in different fields?
+
+.. image:: https://user-images.githubusercontent.com/64363269/102231548-c2711580-3ef6-11eb-8e22-42fffd9402d0.png
+
+Explanations:
+
+- 1 - ordinary input field, look at the label on the left to know which information you should enter,
+- 2 - additional information selector (for searching on Google Search), 3 - additional information input. To put it simple for 2 and 3, let's say you want to find the profile "pandrey2003" on GitHub. In this case you write selector, "GitHub", into the field 2 and the profile name, "pandrey2003" to the field 3.
+- Button 4 is to choose the PDF output directory on your PC.
+- Button 5 sends all your input data to the logical part of the project: scraping, analyzing and visualization.
+- Progress bar 6 - reflects the progress of the logical part of the project.
+
+
 2. How does a final PDF report look like? Here you go:
 
 .. image:: https://user-images.githubusercontent.com/64363269/101992093-6c635e80-3cb9-11eb-9658-74677e10b019.png
@@ -61,6 +74,6 @@ How does it look like?
 
 .. image:: https://user-images.githubusercontent.com/64363269/101992119-9452c200-3cb9-11eb-840c-259f8527aed8.png
 
-.. image:: https://user-images.githubusercontent.com/64363269/101992133-a6ccfb80-3cb9-11eb-87b2-61e2e7a0a213.png
+.. image:: https://user-images.githubusercontent.com/64363269/102230902-14656b80-3ef6-11eb-86b4-5e4426075750.png
 
 P.S. Found profiles go with links, so jump to a needed profile straight from a PDF.
