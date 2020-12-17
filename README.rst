@@ -62,13 +62,13 @@ have implemented a caching algorithm to avoid logging in each time (cache settin
 
    pipenv shell
 
-3. Run the ``run.py`` file (opens GUI).
+4. Run the ``run.py`` file (opens GUI).
 
-4. Enter as much fields about the desired person as possible (below you can see more explanations, if needed).
+5. Enter as much fields about the desired person as possible (below you can see more explanations, if needed).
 
-5. Choose the PDF output directory by clicking the according button.
+6. Choose the PDF output directory by clicking the according button.
 
-6. Click the submit button and observe the progress bar (normally takes 20-40 seconds to scrape, filter and visualize
+7. Click the submit button and observe the progress bar (normally takes 20-40 seconds to scrape, filter and visualize
 the data about a desired person).
 
 How does GUI look like?
