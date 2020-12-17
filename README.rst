@@ -47,8 +47,8 @@ Explanations on the credentials:
 - For the following 4 credentials you have to create an app at `Twitter Developers Portal <https://developer.twitter.com/en>`_. After this you get ``TWITTER_API_KEY`` and ``TWITTER_API_SECRET`` from your app page. Your access token and access token secret can be received using the ``tweepy`` library. In case you do not know how to get it, watch this `tutorial <https://www.youtube.com/watch?v=dvAurfBB6Jk>`_ up to 12:45 minutes. The access token and the access token secret are *permanent*, so this set up happens only once.
 
 *Note*: Do not worry about entering your profile information for LinkedIn and Instagram: although we use their APIs
-a bit illegally, LinkedIn will catch you only after 900 consecutive API calls on **one** profile, and for Instagram I
-have implemented a caching algorithm to avoid logging in each time (cache settings have to be renewed every 2 months).
+a bit illegally, LinkedIn will catch you only after 900 consecutive API calls per hour on **one** profile, and for
+Instagram I have implemented a caching algorithm to avoid logging in each time (cache settings have to be renewed every 2 months).
 
 2. Install all the dependencies from ``Pipfile`` and ``Pipfile.lock`` using `pipenv <https://github.com/pypa/pipenv>`_:
 
@@ -102,4 +102,4 @@ How does a final PDF report look like?
 .. image:: https://user-images.githubusercontent.com/64363269/102230902-14656b80-3ef6-11eb-86b4-5e4426075750.png
 
 Note that, for your convenience, found profiles on Twitter, Instagram, LinkedIn and additional information from Google
-Search go with links, so you can go to the found profiles straight from your PDF.
+Search go with links, so you can visit their webpages by pressing the link in your PDF.
