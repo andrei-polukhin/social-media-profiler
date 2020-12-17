@@ -47,26 +47,27 @@ Where ``GOOGLE_DEVELOPER_KEY`` is the API key from the Google Developers platfor
 
 5. Click the submit button and observe the progress bar (normally takes 20-40 seconds to scrape, filter and visualize the data).
 
-How does it look like?
-----------------------
-1. How does GUI look like? Here is the answer:
+How does GUI look like?
+-----------------------
+The initial window looks like this:
 
 .. image:: https://user-images.githubusercontent.com/64363269/101991905-6620b280-3cb8-11eb-953a-f29e98bd2b38.png
 
-But what information should I fill in different fields?
+However, you may get confused about what you should write in each field, see below the explanations:
 
 .. image:: https://user-images.githubusercontent.com/64363269/102231548-c2711580-3ef6-11eb-8e22-42fffd9402d0.png
 
-Explanations:
+Explanations on the red numbers:
 
-- 1 - ordinary input field, look at the label on the left to know which information you should enter,
-- 2 - additional information selector (for searching on Google Search), 3 - additional information input. To put it simple for 2 and 3, let's say you want to find the profile "pandrey2003" on GitHub. In this case you write selector, "GitHub", into the field 2 and the profile name, "pandrey2003" to the field 3.
-- Button 4 is to choose the PDF output directory on your PC.
-- Button 5 sends all your input data to the logical part of the project: scraping, analyzing and visualization.
-- Progress bar 6 - reflects the progress of the logical part of the project.
+- 1 - an ordinary input field, look at the label on the left to know which information you should enter. Fields "First name", "Last name" and "Location" are very recommended to be filled.
+- 2 - the additional information selector (used for searching on Google Search), 3 - the additional information input. To put it simple for 2 and 3, let's say you want to find the profile *pandrey2003* on *GitHub*. In this case you write selector, "GitHub", into the field 2 and the profile name, "pandrey2003" to the field 3. *Note*: fields 2 and 3 are totally optional.
+- Button 4 is used to choose the PDF output directory on your PC. Mandatory as visualization is the essential logical part of the app.
+- Button 5 sends all your input data to the logical part of the project: scraping, analyzing and visualization. Press on it when you are sure you have entered all the information in the input fields and chose the PDF output directory.
+- Progress bar 6 - reflects the progress of the logical part of the project (no your participations, just for you to see the progress). 2% means scraping has already started, 60% means scraping is done and your data is being analyzed, 75% indicates analysis is done and the data is being visualized, 100% - you can see the PDF file in the requested directory.
 
 
-2. How does a final PDF report look like? Here you go:
+How does a final PDF report look like?
+--------------------------------------
 
 .. image:: https://user-images.githubusercontent.com/64363269/101992093-6c635e80-3cb9-11eb-9658-74677e10b019.png
 
@@ -76,4 +77,5 @@ Explanations:
 
 .. image:: https://user-images.githubusercontent.com/64363269/102230902-14656b80-3ef6-11eb-86b4-5e4426075750.png
 
-P.S. Found profiles go with links, so jump to a needed profile straight from a PDF.
+Note that, for your convenience, found profiles on Twitter, Instagram, LinkedIn and additional information from Google
+Search go with links, so you can go to the found profiles straight from your PDF.
