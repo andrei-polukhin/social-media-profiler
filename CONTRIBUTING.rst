@@ -57,15 +57,12 @@ If you are proposing a feature:
 Write more Google Search selectors
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-The Google Search scraping part thoroughly depends on the selectors located
-in the ``app/backend/scraping/google_search/google_params.json`` file. In
-case you want to scrape information from more websites, you should add a dictionary
-into the file.
+The Google Search scraping part thoroughly depends on the selectors located in the ``app/backend/scraping/google_search/google_params.json`` file. In case you want to scrape information from more websites, you should add a dictionary into the file.
 
 The key of the dictionary is the REGEX syntax, the website URL should meet.
 Dictionary values should contain the following keys and values:
 
-- the key "service_name" and its value will be displayed on the PDF.
+- the value of the key "service_name" will be displayed on your PDF.
 - other keys and according values work on this principle: the key is just some text that will be visualized and the value is the XPATH selector to find on the needed webpage.
 
 Get Started!
@@ -95,7 +92,7 @@ Ready to contribute? Here's how to set up ``social-media-profiler`` for local de
     $ flake8 app/
     $ python -m unittest
 
-   To get flake8, just pip install them into your virtualenv.
+   To get flake8, just pip install it into your pipenv.
 
 6. Commit your changes and push your branch to GitHub::
 
