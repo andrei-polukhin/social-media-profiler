@@ -21,7 +21,7 @@ Clone this repository on your PC using git.
 
 Usage
 -----
-1. Create the .env file into the ``app/scraping`` directory with the following credentials:
+1. Create the ``.env`` file into the ``app/scraping`` directory with the following credentials:
 
 .. code-block:: python
 
@@ -37,15 +37,39 @@ Usage
    TWITTER_ACCESS_TOKEN=
    TWITTER_ACCESS_SECRET=
 
-Where ``GOOGLE_DEVELOPER_KEY`` is the API key from the Google Developers platform, ``GOOGLE_CSE_ID`` is your Google Custom Search Engine ID (you have to set it up to search the info all around the web), ``IPSTACK_API_KEY`` is your API key from `ipstack <https://ipstack.com/>`_. LinkedIn and Instagram API access is authorized using your profile credentials. In addition, you have to create an app on the Twitter developers portal and get the API key, the API secret, the access token and the access token secret from there.
+Explanations on the credentials:
 
-2. Install all the dependencies using ``pipenv``.
+- ``GOOGLE_DEVELOPER_KEY`` is your API key from `the Google Developers platform <https://developers.google.com/>`_.
+- ``GOOGLE_CSE_ID`` is your `Google Custom Search Engine <https://cse.google.com/>`_ ID (you have to set it up to search the info all around the web).
+- ``IPSTACK_API_KEY`` is your API key from `ipstack <https://ipstack.com/>`_. If you do not have it, this is a 2-minute procedure.
+- ``LINKEDIN_LOGIN`` and ``LINKEDIN_PASSWORD`` are the login and the password to your LinkedIn profile (no API-related credentials needed).
+- ``INSTAGRAM_LOGIN`` and ``INSTAGRAM_PASSWORD`` are the login and the password to your Instagram profile (no API-related credentials needed).
+- For the following 4 credentials you have to create an app at `Twitter Developers Portal <https://developer.twitter.com/en>`_. After this you get ``TWITTER_API_KEY`` and ``TWITTER_API_SECRET`` from your app page. Your access token and access token secret can be received using the ``tweepy`` library. In case you do not know how to get it, watch this `tutorial <https://www.youtube.com/watch?v=dvAurfBB6Jk>`_ up to 12:45 minutes. The access token and the access token secret are *permanent*, so this set up happens only once.
 
-3. Run the ``run.py`` file from the pipenv environment (opens GUI).
+*Note*: Do not worry about entering your profile information for LinkedIn and Instagram: although we use their APIs
+a bit illegally, LinkedIn will catch you only after 900 consecutive API calls on **one** profile, and for Instagram I
+have implemented a caching algorithm to avoid logging in each time (cache settings have to be renewed every 2 months).
 
-4. Enter as much fields about the desired person as possible, choose the PDF output directory.
+2. Install all the dependencies from ``Pipfile`` and ``Pipfile.lock`` using `pipenv <https://github.com/pypa/pipenv>`_:
 
-5. Click the submit button and observe the progress bar (normally takes 20-40 seconds to scrape, filter and visualize the data).
+.. code-block:: bash
+
+   pipenv install
+
+3. Activate the ``pipenv`` environment:
+
+.. code-block:: bash
+
+   pipenv shell
+
+3. Run the ``run.py`` file (opens GUI).
+
+4. Enter as much fields about the desired person as possible (below you can see more explanations, if needed).
+
+5. Choose the PDF output directory by clicking the according button.
+
+6. Click the submit button and observe the progress bar (normally takes 20-40 seconds to scrape, filter and visualize
+the data about a desired person).
 
 How does GUI look like?
 -----------------------
@@ -59,11 +83,11 @@ However, you may get confused about what you should write in each field, see bel
 
 Explanations on the red numbers:
 
-- 1 - an ordinary input field, look at the label on the left to know which information you should enter. Fields "First name", "Last name" and "Location" are very recommended to be filled.
-- 2 - the additional information selector (used for searching on Google Search), 3 - the additional information input. To put it simple for 2 and 3, let's say you want to find the profile *pandrey2003* on *GitHub*. In this case you write selector, "GitHub", into the field 2 and the profile name, "pandrey2003" to the field 3. *Note*: fields 2 and 3 are totally optional.
-- Button 4 is used to choose the PDF output directory on your PC. Mandatory as visualization is the essential logical part of the app.
-- Button 5 sends all your input data to the logical part of the project: scraping, analyzing and visualization. Press on it when you are sure you have entered all the information in the input fields and chose the PDF output directory.
-- Progress bar 6 - reflects the progress of the logical part of the project (no your participations, just for you to see the progress). 2% means scraping has already started, 60% means scraping is done and your data is being analyzed, 75% indicates analysis is done and the data is being visualized, 100% - you can see the PDF file in the requested directory.
+- The field 1 - an ordinary input field, look at the label on the left to know which information you should enter. Fields "First name", "Last name" and "Location" are very recommended to be filled.
+- The field 2 - the additional information selector (used for searching on Google Search), the field 3 - the additional information input. To put it simple for 2 and 3, let's say you want to find the profile *pandrey2003* on *GitHub*. In this case you write selector, "GitHub", into the field 2 and the profile name, "pandrey2003" into the field 3. *Note*: fields 2 and 3 are totally optional.
+- The button 4 is used to choose the PDF output directory on your PC. Mandatory: visualization is the essential logical part of the app.
+- The button 5 sends all your input data and the output directory to the logical part of the project. Press on it when you are sure you have entered all the necessary information.
+- The progress bar 6 reflects the progress of the logical part of the project (no your participations, just for you to see the progress). 2% means scraping has already started, 60% means scraping is done and your data is being analyzed, 75% indicates analysis is done and the data is being visualized, 100% - you can see the PDF file in the requested directory.
 
 
 How does a final PDF report look like?
