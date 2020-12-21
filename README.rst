@@ -21,7 +21,7 @@ Clone this repository on your PC using git.
 
 Usage
 -----
-1. Create the ``.env`` file into the ``app/scraping`` directory with the following credentials:
+1. Create the ``.env`` file into the ``app/backend/scraping`` directory with the following credentials:
 
 .. code-block:: python
 
