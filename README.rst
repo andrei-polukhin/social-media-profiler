@@ -44,11 +44,11 @@ Explanations on the credentials:
 - ``IPSTACK_API_KEY`` is your API key from `ipstack <https://ipstack.com/>`_. If you do not have it, this is a 2-minute procedure.
 - ``LINKEDIN_LOGIN`` and ``LINKEDIN_PASSWORD`` are the login and the password to your LinkedIn profile (no API-related credentials needed).
 - ``INSTAGRAM_LOGIN`` and ``INSTAGRAM_PASSWORD`` are the login and the password to your Instagram profile (no API-related credentials needed).
-- For the following 4 credentials you have to create an app at `Twitter Developers Portal <https://developer.twitter.com/en>`_. After this you get ``TWITTER_API_KEY`` and ``TWITTER_API_SECRET`` from your app page. Your access token and access token secret can be received using the ``tweepy`` library. In case you do not know how to get it, watch this `tutorial <https://www.youtube.com/watch?v=dvAurfBB6Jk>`_ up to 12:45 minutes. The access token and the access token secret are *permanent*, so this set up happens only once.
+- For the following 4 credentials, you have to create an app at `Twitter Developers Portal <https://developer.twitter.com/en>`_. After this, you get ``TWITTER_API_KEY`` and ``TWITTER_API_SECRET`` from your app page. Your access token and access token secret can be received using the ``tweepy`` library. In case you do not know how to get it, watch this `tutorial <https://www.youtube.com/watch?v=dvAurfBB6Jk>`_ up to 12:45 minutes. The access token and the access token secret are *permanent*, so this set up happens only once.
 
 *Note*: Do not worry about entering your profile information for LinkedIn and Instagram: although we use their APIs
 a bit illegally, LinkedIn will catch you only after 900 consecutive API calls per hour on **one** profile, and for
-Instagram I have implemented a caching algorithm to avoid logging in each time (cache settings have to be renewed every 2 months).
+Instagram, I have implemented a caching algorithm to avoid logging in each time (cache settings have to be renewed every 2 months).
 
 2. Install all the dependencies from ``Pipfile`` and ``Pipfile.lock`` using `pipenv <https://github.com/pypa/pipenv>`_:
 
@@ -64,12 +64,12 @@ Instagram I have implemented a caching algorithm to avoid logging in each time (
 
 4. Run the ``run.py`` file (opens GUI).
 
-5. Enter as much fields about the desired person as possible (below you can see more explanations, if needed).
+5. Enter as many fields about the desired person as possible (below you can see more explanations if needed).
 
 6. Choose the PDF output directory by clicking the according button.
 
 7. Click the submit button and observe the progress bar (normally takes 20-40 seconds to scrape, filter and visualize
-the data about a desired person).
+the data about the desired person).
 
 How does GUI look like?
 -----------------------
@@ -84,8 +84,8 @@ However, you may get confused about what you should write in each field, see bel
 Explanations on the red numbers:
 
 - The field 1 - an ordinary input field, look at the label on the left to know which information you should enter. Fields "First name", "Last name" and "Location" are very recommended to be filled.
-- The field 2 - the additional information selector (used for searching on Google Search), the field 3 - the additional information input. To put it simple for 2 and 3, let's say you want to find the profile *pandrey2003* on *GitHub*. In this case you write selector, "GitHub", into the field 2 and the profile name, "pandrey2003" into the field 3. *Note*: fields 2 and 3 are totally optional.
-- The button 4 is used to choose the PDF output directory on your PC. Mandatory: visualization is the essential logical part of the app.
+- The field 2 - the additional information selector (used for searching on Google Search), the field 3 - the additional information input. To put it simple for 2 and 3, let's say you want to find the profile *pandrey2003* on *GitHub*. In this case, you write selector, "GitHub", into the field 2 and the profile name, "pandrey2003" into the field 3. *Note*: fields 2 and 3 are totally optional.
+- The button 4 is used to choose the PDF output directory on your PC. Mandatory: visualization is an essential logical part of the app.
 - The button 5 sends all your input data and the output directory to the logical part of the project. Press on it when you are sure you have entered all the necessary information.
 - The progress bar 6 reflects the progress of the logical part of the project (no your participations, just for you to see the progress). 2% means scraping has already started, 60% means scraping is done and your data is being analyzed, 75% indicates analysis is done and the data is being visualized, 100% - you can see the PDF file in the requested directory.
 
