@@ -1,6 +1,9 @@
 
 SocialMediaProfiler
 ===================
+.. image:: https://travis-ci.com/pandrey2003/social-media-profiler.svg?branch=master
+   :target: https://travis-ci.com/pandrey2003/social-media-profiler
+
 .. image:: https://www.codefactor.io/repository/github/pandrey2003/social-media-profiler/badge?s=d4a6bd1bc17bc72d9ebc1e5d24876078a5319752
    :target: https://www.codefactor.io/repository/github/pandrey2003/social-media-profiler
    :alt: CodeFactor
