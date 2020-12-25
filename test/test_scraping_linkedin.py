@@ -1,12 +1,12 @@
 # -*- coding: utf-8 -*-
 
 import unittest
-from dotenv import load_dotenv
 from app.backend.scraping.linkedin.linkedin import caller_linkedin
 
 
 class TestScrapingLinkedin(unittest.TestCase):
-    load_dotenv("app/backend/scraping/.env")
+    # In case you want to test on your PC, uncomment the line below
+    # load_dotenv("app/backend/scraping/.env")
     user_input = {
         "first_name": "Bill",
         "last_name": "Gates",

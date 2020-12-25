@@ -2,12 +2,12 @@
 
 import unittest
 import re
-from dotenv import load_dotenv
 from app.backend.scraping.twitter.twitter import caller_twitter
 
 
 class TestScrapingTwitter(unittest.TestCase):
-    load_dotenv("app/backend/scraping/.env")
+    # In case you want to test on your PC, uncomment the line below
+    # load_dotenv("app/backend/scraping/.env")
     query = "abumetsov"
 
     def setUp(self):

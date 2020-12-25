@@ -1,12 +1,12 @@
 # -*- coding: utf-8 -*-
 
 import unittest
-from dotenv import load_dotenv
 from app.backend.scraping.google_search.google_search import caller_google_search
 
 
 class TestScrapingGoogleSearch(unittest.TestCase):
-    load_dotenv("app/backend/scraping/.env")
+    # In case you want to test on your PC, uncomment the line below
+    # load_dotenv("app/backend/scraping/.env")
     user_input = {
         "first_name": "Vladyslav",
         "last_name": "Ovchynnykov",
