@@ -8,15 +8,15 @@ class TestScrapingLinkedin(unittest.TestCase):
     # In case you want to test on your PC, uncomment the line below
     # load_dotenv("app/backend/scraping/.env")
     user_input = {
-        "first_name": "Bill",
-        "last_name": "Gates",
-        "company": "Bill & Melinda Gates Foundation",
-        "job_title": "Co-chair",
-        "school": "Cambridge University",
+        "first_name": "Kevin",
+        "last_name": "Goldsmith",
+        "company": "Anaconda",
+        "job_title": "Chief Technology Officer at Anaconda, Inc.",
+        "school": "",
         "twitter_profile": "",
         "instagram_nickname": "",
-        "location": "California, USA",
-        "additional_text": "The founder of Microsoft.",
+        "location": "Seattle",
+        "additional_text": "CTO at Anaconda.",
     }
 
     def setUp(self):
