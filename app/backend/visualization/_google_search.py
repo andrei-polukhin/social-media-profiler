@@ -95,7 +95,7 @@ class GoogleSearchVisualize(FPDF):
                 continue
             if isinstance(value, list):
                 value = ", ".join(value)
-            value_processed = split_string_in_words_with_len_limit(value, limit=60)
+            value_processed = split_string_in_words_with_len_limit(value, limit=45)
             if " name" in description:
                 self.cell(
                     w=0, h=6, txt=f"\u2022 {description}{value_processed}.", ln=2,

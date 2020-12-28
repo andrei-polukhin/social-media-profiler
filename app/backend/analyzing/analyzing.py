@@ -28,10 +28,17 @@ def main_analyzing(scraping_response: dict, user_input: dict) -> dict:
         twitter_process = pool.submit(
             caller_analyze_twitter, scraping_response=scraping_response, user_input=user_input
         )
-    analysis_results = {
-        **instagram_process.result(),
-        **linkedin_process.result(),
-        **twitter_process.result(),
-        "google_search": scraping_response["google_search"]
-    }
+    try:
+        # For Python3.9+
+        analysis_results = instagram_process.result() | linkedin_process.result() | \
+                           twitter_process.result()
+        analysis_results["google_search"] = scraping_response["google_search"]
+    except TypeError:
+        # For Python <= 3.8
+        analysis_results = {
+            **instagram_process.result(),
+            **linkedin_process.result(),
+            **twitter_process.result(),
+            "google_search": scraping_response["google_search"]
+        }
     return analysis_results

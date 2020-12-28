@@ -21,6 +21,10 @@ def split_string_in_words_with_len_limit(string: str, limit=40) -> str:
         if len(string_from_current_list) + len(word) + 1 <= limit:
             accumulated_words.append(word)
             continue
-        accumulated_words[-1] += "..."
-        break
+        try:
+            accumulated_words[-1] += "..."
+        except IndexError:
+            accumulated_words[0] = ""
+        finally:
+            break
     return " ".join(accumulated_words)
