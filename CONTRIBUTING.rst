@@ -65,6 +65,30 @@ Dictionary values should contain the following keys and values:
 - the value of the key "service_name" will be displayed on your PDF.
 - other keys and according values work on this principle: the key is just some text that will be visualized and the value is the XPATH selector to find on the needed webpage.
 
+Let's see an exemplary object from the JSON file:
+
+.. code-block:: json
+
+   "https:\/\/github.com\/[a-zA-Z0-9`~!@#$^*()_+-.,|<>№]+": {
+    "service_name": "GitHub Profile",
+    "Full name: ": "//span[@class=\"p-name vcard-fullname d-block overflow-hidden\"]",
+    "Nickname: ": "//span[@class=\"p-nickname vcard-username d-block\"]",
+    "Popular repos: ": "//*[@id=\"js-pjax-container\"]/div[2]/div/div[2]/div[2]/div/div[1]/div/ol/li/div/div/div/a/span",
+    "URLs of popular repos: ": {
+      "https://github.com": "//*[@id=\"js-pjax-container\"]/div[2]/div/div[2]/div[2]/div/div[1]/div/ol/li/div/div/div/a/@href"
+    },
+    "img_url": "//*[@id=\"js-pjax-container\"]/div[2]/div/div[1]/div/div[2]/div[1]/a/img/@src",
+    "Number of followers: ": "//*[@id=\"js-pjax-container\"]/div[2]/div/div[1]/div/div[5]/div[2]/div/div/a[1]/span",
+    "Number of following: ": "//*[@id=\"js-pjax-container\"]/div[2]/div/div[1]/div/div[5]/div[2]/div/div/a[2]/span",
+    "Location: ": "//*[@id=\"js-pjax-container\"]/div[2]/div/div[1]/div/div[5]/div[2]/ul/li[1]/span"
+  }
+
+The key of the object is ``https:\/\/github.com\/[a-zA-Z0-9`~!@#$^*()_+-.,|<>№]+``. The desired URL **must** meet this
+REGEX syntax (in this case, any page on GitHub). After this, we create an other dictionary (as the value). There
+we **must** include the ``service_name`` key, which value will be displayed as a subtitle on a PDF (in this case, it is
+*"GitHub Profile"*). All other keys from that dictionary are XPATH selectors for the webpage. Keys are for a PDF, while
+values are XPATH selectors per se.
+
 Get Started!
 ------------
 
@@ -120,4 +144,4 @@ To run a subset of tests::
 
     $ python -m unittest
 
-Bear in mind that for tests you should set up your ``.env`` file (see README).
+Bear in mind that you should set up your ``.env`` file for tests (see README).

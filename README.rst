@@ -1,4 +1,3 @@
-
 SocialMediaProfiler
 ===================
 .. image:: https://travis-ci.com/pandrey2003/social-media-profiler.svg?branch=master
@@ -87,10 +86,10 @@ However, you may get confused about what you should write in each field, see bel
 Explanations on the red numbers:
 
 - The field 1 - an ordinary input field, look at the label on the left to know which information you should enter. Fields "First name", "Last name" and "Location" are very recommended to be filled.
-- The field 2 - the additional information selector (used for searching on Google Search), the field 3 - the additional information input. To put it simple for 2 and 3, let's say you want to find the profile *pandrey2003* on *GitHub*. In this case, you write selector, "GitHub", into the field 2 and the profile name, "pandrey2003" into the field 3. *Note*: fields 2 and 3 are totally optional.
+- The field 2 - the additional information selector (used for searching on Google Search), the field 3 - the additional information input. To put it simple for 2 and 3, let's say you want to find the profile *pandrey2003* on *GitHub*. In this case, you write selector, "GitHub", into the field 2 and the profile name, "pandrey2003", into the field 3. *Note*: fields 2 and 3 are totally optional.
 - The button 4 is used to choose the PDF output directory on your PC. Mandatory: visualization is an essential logical part of the app.
 - The button 5 sends all your input data and the output directory to the logical part of the project. Press on it when you are sure you have entered all the necessary information.
-- The progress bar 6 reflects the progress of the logical part of the project (no your participations, just for you to see the progress). 2% means scraping has already started, 60% means scraping is done and your data is being analyzed, 75% indicates analysis is done and the data is being visualized, 100% - you can see the PDF file in the requested directory.
+- The progress bar 6 reflects the progress of the logical part of the project (no your interaction, just to see the progress). 2% means scraping has already started, 60% means scraping has been done and your data is being analyzed, 75% indicates analysis has been done and the data is being visualized, 100% - you can see the PDF file in the requested directory.
 
 
 How does a final PDF report look like?
