@@ -43,7 +43,7 @@ def main_scraping(user_input: dict) -> dict:
     try:
         # For Python3.9+
         scraping_results = google_search_process.result() | instagram_process.result() | \
-                           linkedin_process.result() | twitter_process.result()
+            linkedin_process.result() | twitter_process.result()
     except TypeError:
         # For Python <= 3.8
         scraping_results = {

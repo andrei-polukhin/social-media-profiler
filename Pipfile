@@ -25,6 +25,9 @@ fpdf2 = "==2.0.6"
 certifi = "*"
 
 [dev-packages]
+pylint = "*"
+tox = "*"
+flake8 = "*"
 
 [requires]
 python_version = "3.9"

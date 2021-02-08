@@ -21,12 +21,10 @@ def caller_linkedin(user_input: dict) -> dict:
     linkedin_obj.linkedin_find_ids()
     linkedin_obj.linkedin_search_for_info()
     if linkedin_obj.found_subjects_info:
-        results_to_filter["linkedin"] = \
-            {"found_subjects": linkedin_obj.found_subjects_info}
+        results_to_filter["linkedin"] = {"found_subjects": linkedin_obj.found_subjects_info}
     else:
-        results_to_filter["linkedin"] = \
-            {
-                "potential_subjects_after_filtering":
-                    linkedin_obj.potential_subjects_info_after_filtering
-            }
+        results_to_filter["linkedin"] = {
+            "potential_subjects_after_filtering":
+                linkedin_obj.potential_subjects_info_after_filtering
+        }
     return results_to_filter

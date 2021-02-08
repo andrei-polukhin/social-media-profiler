@@ -54,7 +54,6 @@ class TwitterVisualize(FPDF):
             self.get_x(), self.get_y() - 10, 210 - self.get_x(), self.get_y() - 10
         )
         self.set_font(family="OpenSans", style="", size=14)
-        # """For TEST:""" self.cell(w=0, txt="HIII!!!")
 
     def __twitter_visualize_get_and_visualize_image(self, info: dict):
         """

@@ -31,7 +31,7 @@ def main_analyzing(scraping_response: dict, user_input: dict) -> dict:
     try:
         # For Python3.9+
         analysis_results = instagram_process.result() | linkedin_process.result() | \
-                           twitter_process.result()
+            twitter_process.result()
         analysis_results["google_search"] = scraping_response["google_search"]
     except TypeError:
         # For Python <= 3.8
