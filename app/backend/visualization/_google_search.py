@@ -1,8 +1,9 @@
 # -*- coding: utf-8 -*-
 """The Google Search visualization module."""
 
+import textwrap
+
 from fpdf import FPDF
-from app.backend.visualization.helpers.limit_string import split_string_in_words_with_len_limit
 from app.backend.visualization.helpers.get_and_process_image import get_and_process_image
 
 
@@ -95,7 +96,7 @@ class GoogleSearchVisualize(FPDF):
                 continue
             if isinstance(value, list):
                 value = ", ".join(value)
-            value_processed = split_string_in_words_with_len_limit(value, limit=45)
+            value_processed = textwrap.shorten(value, 45, placeholder="...")
             if " name" in description:
                 self.cell(
                     w=0, h=6, txt=f"\u2022 {description}{value_processed}.", ln=2,

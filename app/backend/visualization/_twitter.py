@@ -2,9 +2,9 @@
 """The Twitter visualization module."""
 
 import re
+import textwrap
 from fpdf import FPDF
 from emoji import demojize
-from app.backend.visualization.helpers.limit_string import split_string_in_words_with_len_limit
 from app.backend.visualization.helpers.get_and_process_image import get_and_process_image
 
 
@@ -78,7 +78,7 @@ class TwitterVisualize(FPDF):
             link=f"https://www.twitter.com/{screen_name}/"
         )
         description = info["description"]
-        description_limited_in_len = split_string_in_words_with_len_limit(description, limit=45)
+        description_limited_in_len = textwrap.shorten(description, 45, placeholder="...")
         de_emojified_description = demojize(description_limited_in_len)
         description_without_emoji_signs = re.sub(r":[a-zA-Z-_.]+:", "", de_emojified_description)
         if b"\\U" in description_without_emoji_signs.encode("unicode-escape"):
@@ -113,7 +113,7 @@ class TwitterVisualize(FPDF):
         self.cell(w=0, h=6, txt="\u2022 Two last posts:", ln=2)
         self.set_font("OpenSans", style="I", size=14)
         for post in selected_posts:
-            post_limited_in_len = split_string_in_words_with_len_limit(post, limit=60)
+            post_limited_in_len = textwrap.shorten(post, 60, placeholder="...")
             de_emojified_post = demojize(post_limited_in_len)
             post_without_emoji_signs = re.sub(r":[a-zA-Z-_.]+:", "", de_emojified_post)
             if b"\\U" in post_without_emoji_signs.encode("unicode-escape"):

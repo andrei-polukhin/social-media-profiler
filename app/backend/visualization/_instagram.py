@@ -2,9 +2,9 @@
 """The Instagram visualization module."""
 
 import re
+import textwrap
 from fpdf import FPDF
 from emoji import demojize
-from app.backend.visualization.helpers.limit_string import split_string_in_words_with_len_limit
 from app.backend.visualization.helpers.get_and_process_image import get_and_process_image
 
 
@@ -71,7 +71,7 @@ class InstagramVisualize(FPDF):
             link=f"https://www.instagram.com/{username}/"
         )
         biography = subject["biography"]
-        biography_limited_in_len = split_string_in_words_with_len_limit(biography)
+        biography_limited_in_len = textwrap.shorten(biography, 40, placeholder="...")
         biography_de_emojified = demojize(biography_limited_in_len)
         biography_without_emoji_signs = re.sub(r":[a-zA-Z-_.]+:", "", biography_de_emojified)
         if b"\\U" in biography_without_emoji_signs.encode("unicode-escape"):

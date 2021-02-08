@@ -1,8 +1,8 @@
 # -*- coding: utf-8 -*-
 """The LinkedIn visualization module."""
 
+import textwrap
 from fpdf import FPDF
-from app.backend.visualization.helpers.limit_string import split_string_in_words_with_len_limit
 
 
 class LinkedinVisualize(FPDF):
@@ -58,7 +58,7 @@ class LinkedinVisualize(FPDF):
         """Write other analyzed information about a subject."""
         self.set_font("OpenSans", size=14)
         headline = subject_as_dict["headline"]
-        headline_with_len_limit = split_string_in_words_with_len_limit(headline)
+        headline_with_len_limit = textwrap.shorten(headline, 40, placeholder="...")
         self.cell(w=0, h=6, txt=f"Headline: {headline_with_len_limit}.", ln=2)
         industry = subject_as_dict["industryName"]
         self.cell(w=0, h=6, txt=f"Industry: {industry}.", ln=2)
