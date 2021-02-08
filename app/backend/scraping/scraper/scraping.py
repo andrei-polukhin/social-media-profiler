@@ -31,7 +31,6 @@ def scraping(list_of_links_and_configs: list) -> list:
     return results
 
 
-# pylint: disable=unsubscriptable-object
 async def _organize_tasks(loop, *tuples_of_links_and_configs) -> Tuple[
         Union[BaseException, Any], Union[BaseException, Any], Union[BaseException, Any],
         Union[BaseException, Any], Union[BaseException, Any]
