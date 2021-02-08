@@ -28,6 +28,9 @@ class Window(QMainWindow):
         self.extra_field_name = self.findChild(QtWidgets.QLineEdit, "extra_field_name")
         self.extra_field_input = self.findChild(QtWidgets.QLineEdit, "extra_field_input")
         self.directory_text = self.findChild(QtWidgets.QLineEdit, "directory_text")
+        # Finding the title label
+        self.title_label = self.findChild(QtWidgets.QLabel, "title")
+        self.title_label.adjustSize()
         # Finding buttons
         self.select_button = self.findChild(QtWidgets.QPushButton, "select_directory")
         self.submit_button = self.findChild(QtWidgets.QPushButton, "submit_button")
