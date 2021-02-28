@@ -48,9 +48,7 @@ Explanations on the credentials:
 - ``INSTAGRAM_LOGIN`` and ``INSTAGRAM_PASSWORD`` are the login and the password to your Instagram profile (no API-related credentials needed).
 - For the following 4 credentials, you have to create an app at `Twitter Developers Portal <https://developer.twitter.com/en>`_. After this, you get ``TWITTER_API_KEY`` and ``TWITTER_API_SECRET`` from your app page. Your access token and access token secret can be received using the ``tweepy`` library. In case you do not know how to get it, watch this `tutorial <https://www.youtube.com/watch?v=dvAurfBB6Jk>`_ up to 12:45 minutes. The access token and the access token secret are *permanent*, so this set up happens only once.
 
-*Note*: Do not worry about entering your profile information for LinkedIn and Instagram: although we use their APIs
-a bit illegally, LinkedIn will catch you only after 900 consecutive API calls per hour on **one** profile, and for
-Instagram, I have implemented a caching algorithm to avoid logging in each time (cache settings have to be renewed every 2 months).
+*Note*: The caching algorithm has been enabled for Instagram interaction, which allows you to renew your cache settings only once per 2 months. LinkedIn throttling limit is 900 API calls/hour.
 
 2. Install all the dependencies from ``Pipfile`` and ``Pipfile.lock`` using `pipenv <https://github.com/pypa/pipenv>`_:
 
