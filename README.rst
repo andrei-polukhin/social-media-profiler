@@ -101,30 +101,8 @@ However, you may get confused about what you should write in each field, see bel
 
 .. raw:: html
 
-    <style>
-    .collapsible {
-      background-color: #eee;
-      color: #444;
-      cursor: pointer;
-      padding: 18px;
-      width: 100%;
-      border: none;
-      text-align: left;
-      outline: none;
-      font-size: 15px;
-    }
-    .active, .collapsible:hover {
-      background-color: #ccc;
-    }
-    .content {
-      padding: 0 18px;
-      display: none;
-      overflow: hidden;
-      background-color: #f1f1f1;
-    }
-    </style>
-    <button type="button" class="collapsible">Explanations on the red numbers</button>
-    <div class="content">
+    <button class="collapsible active" type="button" style="{background-color: #eee; color: #444; cursor: pointer; padding: 18px; width: 100%; border: none; text-align: left; outline: none; font-size: 15px;} :hover {background-color: #ccc;}">Explanations on the red numbers</button>
+    <div class="content" style="{padding: 0 18px; display: none; overflow: hidden; background-color: #f1f1f1;}">
     <ul>
     <li>The field 1 - an ordinary input field, look at the label on the left to know which information you should enter. Fields "First name", "Last name" and "Location" are very recommended to be filled.</li>
     <li>The field 2 - the additional information selector (used for searching on Google Search), the field 3 - the additional information input. To put it simple for 2 and 3, let's say you want to find the profile <i>pandrey2003</i> on <i>GitHub</i>. In this case, you write selector, "GitHub", into the field 2 and the profile name, "pandrey2003", into the field 3. <i>Note</i>: fields 2 and 3 are totally optional.</li>
