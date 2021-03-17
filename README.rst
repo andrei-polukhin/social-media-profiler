@@ -54,19 +54,9 @@ Usage
    TWITTER_ACCESS_TOKEN=
    TWITTER_ACCESS_SECRET=
 
-.. toggle-header::
-    :header: **Explanations on the credentials:**
+Explanation on the provided credentials can be read on the bottom of the README. Take into account the setup happens only once.
 
-    - ``GOOGLE_DEVELOPER_KEY`` is your API key from `the Google Developers platform <https://developers.google.com/>`_.
-    - ``GOOGLE_CSE_ID`` is your `Google Custom Search Engine <https://cse.google.com/>`_ ID (you have to set it up to search the info all around the web).
-    - ``IPSTACK_API_KEY`` is your API key from `ipstack <https://ipstack.com/>`_. If you do not have it, this is a 2-minute procedure.
-    - ``LINKEDIN_LOGIN`` and ``LINKEDIN_PASSWORD`` are the login and the password to your LinkedIn profile (no API-related credentials needed).
-    - ``INSTAGRAM_LOGIN`` and ``INSTAGRAM_PASSWORD`` are the login and the password to your Instagram profile (no API-related credentials needed).
-    - For the following 4 credentials, you have to create an app at `Twitter Developers Portal <https://developer.twitter.com/en>`_. After this, you get ``TWITTER_API_KEY`` and ``TWITTER_API_SECRET`` from your app page. Your access token and access token secret can be received using the ``tweepy`` library. In case you do not know how to get it, watch this `tutorial <https://www.youtube.com/watch?v=dvAurfBB6Jk>`_ up to 12:45 minutes. The access token and the access token secret are *permanent*, so this set up happens only once.
-
-
-.. note::
-   The caching algorithm has been enabled for Instagram interaction, which allows you to renew your cache settings only once per 2 months. LinkedIn throttling limit is 900 API calls/hour.
+*Note:* the caching algorithm has been enabled for Instagram interaction, which allows you to renew your cache settings only once per 2 months. LinkedIn throttling limit is 900 API calls/hour.
 
 2. Install all the dependencies from ``Pipfile`` and ``Pipfile.lock`` using `pipenv <https://github.com/pypa/pipenv>`_:
 
@@ -89,40 +79,38 @@ Usage
 7. Click the submit button and observe the progress bar (normally takes 20-40 seconds to scrape, filter and visualize
 the data about the desired person).
 
+How does it look interactively?
+-------------------------------
+
+Take a look at an example of finding information about Bill Gates:
+
+.. image:: https://user-images.githubusercontent.com/64363269/111445458-1a94ff00-8714-11eb-8282-74268ccb55f4.gif
+
 How does GUI look like?
 -----------------------
-The initial window looks like this:
+The initial GUI window looks like this:
 
 .. image:: https://user-images.githubusercontent.com/64363269/101991905-6620b280-3cb8-11eb-953a-f29e98bd2b38.png
 
-However, you may get confused about what you should write in each field, see below the explanations:
+However, you may get confused about what you should write in each field, see the explanation on the bottom of the README.
+
+Explanations on environmental variables
+---------------------------------------
+
+- ``GOOGLE_DEVELOPER_KEY`` is your API key from `the Google Developers platform <https://developers.google.com/>`_.
+- ``GOOGLE_CSE_ID`` is your `Google Custom Search Engine <https://cse.google.com/>`_ ID (you have to set it up to search the info all around the web).
+- ``IPSTACK_API_KEY`` is your API key from `ipstack <https://ipstack.com/>`_. If you do not have it, this is a 2-minute procedure.
+- ``LINKEDIN_LOGIN`` and ``LINKEDIN_PASSWORD`` are the login and the password to your LinkedIn profile (no API-related credentials needed).
+- ``INSTAGRAM_LOGIN`` and ``INSTAGRAM_PASSWORD`` are the login and the password to your Instagram profile (no API-related credentials needed).
+- For the following Twitter credentials, you have to create an app at `Twitter Developers Portal <https://developer.twitter.com/en>`_. After this, you get ``TWITTER_API_KEY`` and ``TWITTER_API_SECRET`` from your app page. Your access token and access token secret can be received using the ``tweepy`` library. In case you do not know how to get it, watch this `tutorial <https://www.youtube.com/watch?v=dvAurfBB6Jk>`_ up to 12:45 minutes. The access token and the access token secret are *permanent*, so this set up happens only once.
+
+Advanced explanation on GUI input
+---------------------------------
 
 .. image:: https://user-images.githubusercontent.com/64363269/102231548-c2711580-3ef6-11eb-8e22-42fffd9402d0.png
 
-.. raw:: html
-
-    <button class="collapsible active" type="button" style="{background-color: #eee; color: #444; cursor: pointer; padding: 18px; width: 100%; border: none; text-align: left; outline: none; font-size: 15px;} :hover {background-color: #ccc;}">Explanations on the red numbers</button>
-    <div class="content" style="{padding: 0 18px; display: none; overflow: hidden; background-color: #f1f1f1;}">
-    <ul>
-    <li>The field 1 - an ordinary input field, look at the label on the left to know which information you should enter. Fields "First name", "Last name" and "Location" are very recommended to be filled.</li>
-    <li>The field 2 - the additional information selector (used for searching on Google Search), the field 3 - the additional information input. To put it simple for 2 and 3, let's say you want to find the profile <i>pandrey2003</i> on <i>GitHub</i>. In this case, you write selector, "GitHub", into the field 2 and the profile name, "pandrey2003", into the field 3. <i>Note</i>: fields 2 and 3 are totally optional.</li>
-    <li>The button 4 is used to choose the PDF output directory on your PC. Mandatory: visualization is an essential logical part of the app.</li>
-    <li>The button 5 sends all your input data and the output directory to the logical part of the project. Press on it when you are sure you have entered all the necessary information.</li>
-    <li>The progress bar 6 reflects the progress of the logical part of the project (no your interaction, just to see the progress). 2% means scraping has already started, 60% means scraping has been done and your data is being analyzed, 75% indicates analysis has been done and the data is being visualized, 100% - you can see the PDF file in the requested directory.</li>
-    </ul>
-    </div>
-    <script>
-    var coll = document.getElementsByClassName("collapsible");
-    var i;
-    for (i = 0; i < coll.length; i++) {
-      coll[i].addEventListener("click", function() {
-        this.classList.toggle("active");
-        var content = this.nextElementSibling;
-        if (content.style.display === "block") {
-          content.style.display = "none";
-        } else {
-          content.style.display = "block";
-        }
-      });
-    }
-    </script>
+- The field 1 - an ordinary input field, look at the label on the left to know which information you should enter. Fields "First name", "Last name" and "Location" are very recommended to be filled.
+- The field 2 - the additional information selector (used for searching on Google Search), the field 3 - the additional information input. To put it simple for 2 and 3, let's say you want to find the profile *pandrey2003* on *GitHub*. In this case, you write selector, "GitHub", into the field 2 and the profile name, "pandrey2003", into the field 3. *Note*: fields 2 and 3 are totally optional.
+- The button 4 is used to choose the PDF output directory on your PC. Mandatory: visualization is an essential logical part of the app.
+- The button 5 sends all your input data and the output directory to the logical part of the project. Press on it when you are sure you have entered all the necessary information.
+- The progress bar 6 reflects the progress of the logical part of the project (no your interaction, just to see the progress). 2% means scraping has already started, 60% means scraping has been done and your data is being analyzed, 75% indicates analysis has been done and the data is being visualized, 100% - you can see the PDF file in the requested directory.
