@@ -101,10 +101,33 @@ However, you may get confused about what you should write in each field, see bel
 
 .. raw:: html
 
-    <div class="toggle-header open">
-    <p><strong>Explanations on the red numbers:</strong></p>
-    </div>
-    <div class="toggle-content docutils container">
+    <style>
+    /* Style the button that is used to open and close the collapsible content */
+    .collapsible {
+      background-color: #eee;
+      color: #444;
+      cursor: pointer;
+      padding: 18px;
+      width: 100%;
+      border: none;
+      text-align: left;
+      outline: none;
+      font-size: 15px;
+    }
+    /* Add a background color to the button if it is clicked on (add the .active class with JS), and when you move the mouse over it (hover) */
+    .active, .collapsible:hover {
+      background-color: #ccc;
+    }
+    /* Style the collapsible content. Note: hidden by default */
+    .content {
+      padding: 0 18px;
+      display: none;
+      overflow: hidden;
+      background-color: #f1f1f1;
+    }
+    </style>
+    <button type="button" class="collapsible">Explanations on the red numbers</button>
+    <div class="content">
     <ul>
     <li>The field 1 - an ordinary input field, look at the label on the left to know which information you should enter. Fields "First name", "Last name" and "Location" are very recommended to be filled.</li>
     <li>The field 2 - the additional information selector (used for searching on Google Search), the field 3 - the additional information input. To put it simple for 2 and 3, let's say you want to find the profile <i>pandrey2003</i> on <i>GitHub</i>. In this case, you write selector, "GitHub", into the field 2 and the profile name, "pandrey2003", into the field 3. <i>Note</i>: fields 2 and 3 are totally optional.</li>
@@ -113,3 +136,18 @@ However, you may get confused about what you should write in each field, see bel
     <li>The progress bar 6 reflects the progress of the logical part of the project (no your interaction, just to see the progress). 2% means scraping has already started, 60% means scraping has been done and your data is being analyzed, 75% indicates analysis has been done and the data is being visualized, 100% - you can see the PDF file in the requested directory.</li>
     </ul>
     </div>
+    <script>
+    var coll = document.getElementsByClassName("collapsible");
+    var i;
+    for (i = 0; i < coll.length; i++) {
+      coll[i].addEventListener("click", function() {
+        this.classList.toggle("active");
+        var content = this.nextElementSibling;
+        if (content.style.display === "block") {
+          content.style.display = "none";
+        } else {
+          content.style.display = "block";
+        }
+      });
+    }
+    </script>
