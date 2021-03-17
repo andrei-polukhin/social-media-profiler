@@ -85,6 +85,7 @@ How does it look interactively?
 Take a look at an example of finding information about Bill Gates:
 
 .. raw:: html
+
     <video src="https://user-images.githubusercontent.com/64363269/111447885-89735780-8716-11eb-96bd-1f9108fca340.mp4" controls></video>
 
 How does GUI look like?
