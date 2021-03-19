@@ -94,7 +94,7 @@ The initial GUI window looks like this:
 
 However, you may get confused about what you should write in each field, see the explanation on the bottom of the README.
 
-Explanations on environmental variables
+Explanations on environment variables
 ---------------------------------------
 
 - ``GOOGLE_DEVELOPER_KEY`` is your API key from `the Google Developers platform <https://developers.google.com/>`_.
