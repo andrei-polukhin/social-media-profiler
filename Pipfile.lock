@@ -915,7 +915,7 @@
                 "sha256:c729845434366216d320e936b8ad6f9d681aab72dc7cbc2d51bedc3582f3ad1e",
                 "sha256:fff4f0c04e1825522ce6949973e83110a6e907750cd92d128b0d14aaaadbffdc"
             ],
-            "markers": "python_version >= '3.6' and python_version < '4'",
+            "markers": "python_version >= '3.6' and python_version < '4.0'",
             "version": "==5.7.0"
         },
         "jinja2": {
@@ -1120,11 +1120,11 @@
         },
         "sphinx": {
             "hashes": [
-                "sha256:672cfcc24b6b69235c97c750cb190a44ecd72696b4452acaf75c2d9cc78ca5ff",
-                "sha256:ef64a814576f46ec7de06adf11b433a0d6049be007fefe7fd0d183d28b581fac"
+                "sha256:3f01732296465648da43dec8fb40dc451ba79eb3e2cc5c6d79005fd98197107d",
+                "sha256:ce9c228456131bab09a3d7d10ae58474de562a6f79abb3dc811ae401cf8c1abc"
             ],
             "index": "pypi",
-            "version": "==3.5.2"
+            "version": "==3.5.3"
         },
         "sphinx-rtd-theme": {
             "hashes": [
