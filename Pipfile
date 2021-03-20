@@ -28,6 +28,8 @@ certifi = "*"
 pylint = "*"
 tox = "*"
 flake8 = "*"
+sphinx = "*"
+sphinx-rtd-theme = "*"
 
 [requires]
 python_version = "3.9"

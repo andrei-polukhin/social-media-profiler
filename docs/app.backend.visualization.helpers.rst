@@ -12,14 +12,6 @@ app.backend.visualization.helpers.get\_and\_process\_image module
    :undoc-members:
    :show-inheritance:
 
-app.backend.visualization.helpers.limit\_string module
-------------------------------------------------------
-
-.. automodule:: app.backend.visualization.helpers.limit_string
-   :members:
-   :undoc-members:
-   :show-inheritance:
-
 Module contents
 ---------------
 
