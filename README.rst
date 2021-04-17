@@ -14,7 +14,19 @@ SocialMediaProfiler
 A GUI app to find social media information about any person on the world and put it into a neat PDF report.
 
 
-How does a final PDF report look like?
+My dear visitor...
+------------------
+As you are reading this text, I can safely assume you're willing to find social media information about some person.
+
+I have several questions for you. What if you could...
+
+- spend only 20-40 secs to retrieve your information from Twitter, Instagram, LinkedIn and Google Search;
+- get the information **you** need as you know there're pretty advanced sorting algorithms;
+- get the information in a neat PDF file with according links and pictures
+
+Sounds like a miracle, but that's exactly why we are here for you: to get, analyze and visualize the information you need.
+
+How does it look in practice?
 --------------------------------------
 
 .. image:: https://user-images.githubusercontent.com/64363269/101992093-6c635e80-3cb9-11eb-9658-74677e10b019.png
@@ -25,7 +37,7 @@ How does a final PDF report look like?
 
 .. image:: https://user-images.githubusercontent.com/64363269/102230902-14656b80-3ef6-11eb-86b4-5e4426075750.png
 
-For your convenience found profiles and additional information go with links included in PDF.
+We all like to see in action, so check out the file `here <https://github.com/pandrey2003/social-media-profiler/files/6329254/KevinGoldsmith_2021-04-17T15_50_58.pdf>`_, if you want.
 
 
 Installation
@@ -38,6 +50,7 @@ Clone this repository on your PC using git.
 
 Usage
 -----
+All this beauty takes several steps...
 1. Create the ``.env`` file into the ``app/backend/scraping`` directory with the following credentials:
 
 .. code-block:: python
