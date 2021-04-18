@@ -51,6 +51,7 @@ Clone this repository on your PC using git.
 Usage
 -----
 All this beauty takes several steps...
+
 1. Create the ``.env`` file into the ``app/backend/scraping`` directory with the following credentials:
 
 .. code-block:: python
@@ -67,7 +68,7 @@ All this beauty takes several steps...
    TWITTER_ACCESS_TOKEN=
    TWITTER_ACCESS_SECRET=
 
-Explanation on the provided credentials can be read on the bottom of the README. Take into account the setup happens only once.
+Explanation on the provided credentials can be read on the `bottom <https://github.com/pandrey2003/social-media-profiler#explanations-on-environment-variables>`_ of the README. The setup happens only once.
 
 *Note:* the caching algorithm has been enabled for Instagram interaction, which allows you to renew your cache settings only once per 2 months. LinkedIn throttling limit is 900 API calls/hour.
 
@@ -85,7 +86,7 @@ Explanation on the provided credentials can be read on the bottom of the README.
 
 4. Run the ``run.py`` file (opens GUI).
 
-5. Enter as many fields about the desired person as possible (below you can see more explanations if needed).
+5. Enter as many fields about the desired person as possible (`below <https://github.com/pandrey2003/social-media-profiler#advanced-explanation-on-gui-input>`_ you can see more explanations if needed).
 
 6. Choose the PDF output directory by clicking the according button.
 
@@ -95,9 +96,11 @@ the data about the desired person).
 How does it look interactively?
 -------------------------------
 
-Take a look at an example of finding information about Bill Gates:
+Take a look at an example of finding information about Sergey Bubka:
 
-.. image:: https://user-images.githubusercontent.com/64363269/111445458-1a94ff00-8714-11eb-8282-74268ccb55f4.gif
+.. raw:: html
+
+   <iframe width="560" height="315" src="https://www.youtube.com/embed/P3cUlp-FdYM" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 
 How does GUI look like?
 -----------------------
