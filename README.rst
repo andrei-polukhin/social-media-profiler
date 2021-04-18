@@ -96,11 +96,10 @@ the data about the desired person).
 How does it look interactively?
 -------------------------------
 
-Take a look at an example of finding information about Sergey Bubka:
+Take a look at an example of finding information about Sergey Bubka (YouTube link):
 
-.. raw:: html
-
-   <iframe width="560" height="315" src="https://www.youtube.com/embed/P3cUlp-FdYM" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+.. image:: https://img.youtube.com/vi/P3cUlp-FdYM/0.jpg
+   :target: https://www.youtube.com/watch?v=P3cUlp-FdYM
 
 How does GUI look like?
 -----------------------
