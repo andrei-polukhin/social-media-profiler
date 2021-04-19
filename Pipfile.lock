@@ -1,7 +1,7 @@
 {
     "_meta": {
         "hash": {
-            "sha256": "3fce16a6234a3eb4ff9429c57c5585a47e7a68ded6b9822f3582f5199b031f1f"
+            "sha256": "aa391e7601349d90922909c2e488ca3d84f62e9a9d3240713ad7dd113872af50"
         },
         "pipfile-spec": 6,
         "requires": {
@@ -259,11 +259,11 @@
         },
         "fpdf2": {
             "hashes": [
-                "sha256:121862cfc779ececf289ba73add22e030cea51e7f9456d77138f9c0b74e236cc",
-                "sha256:51142c8cfeefcc376692bce5cb517f708840f6338a0ee40cf1788aa356d1b054"
+                "sha256:a7583954ab7f9664c43ed1a3e523ee23f42649b366680f03b9a2397c795087ef",
+                "sha256:f13c77c2e28190354764764de08333dd75c0d8f6e0146edcf3d5a694eb70a7e3"
             ],
             "index": "pypi",
-            "version": "==2.3.2"
+            "version": "==2.3.0"
         },
         "google-api-core": {
             "hashes": [
