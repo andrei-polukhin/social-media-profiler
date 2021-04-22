@@ -37,7 +37,7 @@ How does it look in practice?
 
 .. image:: https://user-images.githubusercontent.com/64363269/102230902-14656b80-3ef6-11eb-86b4-5e4426075750.png
 
-We all like to see in action, so check out the file `here <https://github.com/pandrey2003/social-media-profiler/files/6329254/KevinGoldsmith_2021-04-17T15_50_58.pdf>`_, if you want.
+We all like to see in action, so check out the file `here <https://github.com/pandrey2003/social-media-profiler/files/6355945/KevinGoldsmith_2021-04-22T09_10_18.pdf>`_, if you want.
 
 
 Installation
