@@ -21,7 +21,7 @@ numpy = "*"
 PyQt5 = "*"
 bs4 = "*"
 emoji = "*"
-fpdf2 = "==2.3.0"
+fpdf2 = "*"
 certifi = "*"
 
 [dev-packages]
