@@ -129,3 +129,8 @@ Advanced explanation on GUI input
 - The button 4 is used to choose the PDF output directory on your PC. Mandatory: visualization is an essential logical part of the app.
 - The button 5 sends all your input data and the output directory to the logical part of the project. Press on it when you are sure you have entered all the necessary information.
 - The progress bar 6 reflects the progress of the logical part of the project (no your interaction, just to see the progress). 2% means scraping has already started, 60% means scraping has been done and your data is being analyzed, 75% indicates analysis has been done and the data is being visualized, 100% - you can see the PDF file in the requested directory.
+
+Awards
+------
+
+This project has been successfully defended as a scientific one and received the `2nd absolute place in Ukraine <http://man.gov.ua/upload/konkurs-zahyst/2021/Protokol/Comp_nauk/Pids_tabl_inform_sustemu_bazu_dannuh.pdf>`_. `Link <https://kman.org.ua/wp-content/uploads/2021/07/poluhin_robota.pdf>`_ to the work. All those wins would have been impossible but for the `people <https://github.com/pandrey2003/social-media-profiler/blob/master/AUTHORS.rst#contributors>`_ who had helped me.
