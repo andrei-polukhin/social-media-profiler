@@ -15,7 +15,7 @@ class TwitterVisualize(FPDF):
         self.analysis_response = analysis_response
         self.character_of_subjects = None
         self.tuples_with_info_and_posts = ()
-        self.set_doc_option("core_fonts_encoding", "utf-8")
+        self.core_fonts_encoding = "utf-8"
 
     def twitter_visualize(self):
         """

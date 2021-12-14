@@ -2,7 +2,7 @@
 """The Twitter scraping module to search for subjects using Twitter official API."""
 
 import re
-from tweepy.error import TweepError
+from tweepy.errors import TweepyException
 from app.backend.scraping.twitter._twitter_authorize import TwitterAuthorize
 
 
@@ -66,7 +66,7 @@ class TwitterSearch(TwitterAuthorize):
         for subject_screen_name in self._subject_screen_name:
             try:
                 subject_posts = self._api.user_timeline(screen_name=subject_screen_name)
-            except TweepError:
+            except TweepyException:
                 continue
             list_for_subject_posts_text = []
             for subject_post in subject_posts:
