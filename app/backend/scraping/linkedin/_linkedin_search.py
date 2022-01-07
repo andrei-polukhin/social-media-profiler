@@ -57,6 +57,7 @@ class LinkedinSearch:
         """
         for i in range(3):
             try:
+                # TODO: allow code duplication, but make code more explicit
                 results = self._api.search_people(
                     keyword_first_name=self.first_name,
                     keyword_last_name=self.last_name,

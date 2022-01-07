@@ -120,14 +120,19 @@ async def _find_elements(link: str, html_tree, conf: dict) -> dict:
         scraped = html_tree.xpath(xpath)
         if not scraped:
             continue
+
         try:
             scraped = list(map(lambda x: x.text, scraped))
         except AttributeError:
             scraped = list(scraped)
+
         for i, scraped_item in enumerate(scraped):
             scraped[i] = scraped_item if endpoint is None else endpoint + scraped_item
+
+        # for compound values
         if len(scraped) == 1:
             scraped = scraped[0]
+
         result[field] = scraped
     conf["service_name"] = service_name
     return result

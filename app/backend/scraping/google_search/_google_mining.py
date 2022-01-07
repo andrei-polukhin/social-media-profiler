@@ -28,7 +28,7 @@ def _get_country_code():
         `str`: the country code of the user.
     """
     api = os.getenv("IPSTACK_API_KEY")
-    url = f"http://api.ipstack.com/check?access_key={api}"
+    url = f"https://api.ipstack.com/check?access_key={api}"
     json = requests.get(url).json()
     return json["country_code"].lower()
 

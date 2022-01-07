@@ -106,7 +106,7 @@ class Window(QMainWindow):
         """Open the about message of this project."""
         msg = QMessageBox()
         msg.setWindowTitle("About")
-        msg.setText("This app has been built by Andrew Polukhin.")
+        msg.setText("This app has been built by Andrew Polukhin")
         msg.setIcon(QMessageBox.Information)
         msg.setStandardButtons(QMessageBox.Ok)
         msg.exec_()

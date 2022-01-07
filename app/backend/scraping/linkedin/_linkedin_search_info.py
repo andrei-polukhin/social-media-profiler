@@ -3,6 +3,9 @@
 
 from app.backend.scraping.linkedin._linkedin_find_ids import LinkedinFindIds
 
+IDS_IDX = 0
+INFO_IDX = 1
+
 
 class LinkedinSearchSubjects(LinkedinFindIds):
     """The class to search for info by filtered subjects' ids."""
@@ -19,19 +22,20 @@ class LinkedinSearchSubjects(LinkedinFindIds):
 
     def __linkedin_search_for_all_subjects(self):
         """Organize API calls for all types of subjects: found and potential."""
-        searching_instructions = [
-            {
-                0: self._found_subjects_public_ids,
-                1: self.found_subjects_info
-            },
-            {
-                0: self._potential_subjects_ids_after_filtering,
-                1: self.potential_subjects_info_after_filtering,
-            },
-        ]
+        searching_instructions = (
+            (
+                self._found_subjects_public_ids,
+                self.found_subjects_info
+            ),
+            (
+                self._potential_subjects_ids_after_filtering,
+                self.potential_subjects_info_after_filtering,
+            ),
+        )
+
         for dictionary_as_instructions in searching_instructions:
-            list_of_ids = dictionary_as_instructions[0]
-            list_to_append_subjects = dictionary_as_instructions[1]
+            list_of_ids = dictionary_as_instructions[IDS_IDX]
+            list_to_append_subjects = dictionary_as_instructions[INFO_IDX]
             for subject_id in list_of_ids:
                 subject_info = self._api.get_profile(subject_id)
                 list_to_append_subjects.append(subject_info)

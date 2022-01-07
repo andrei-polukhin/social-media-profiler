@@ -32,4 +32,4 @@ sphinx = "*"
 sphinx-rtd-theme = "*"
 
 [requires]
-python_version = "3.9"
+python_version = "3.8"  # can be changed to 3.9

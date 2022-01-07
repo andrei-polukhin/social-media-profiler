@@ -14,7 +14,7 @@ class InstagramVisualize(FPDF):
         super().__init__()
         self.analysis_response = analysis_response
         self.dict_of_instagram_subjects = {}
-        self.set_doc_option("core_fonts_encoding", "utf-8")
+        self.core_fonts_encoding = "utf-8"
 
     def instagram_visualize(self):
         """
@@ -81,12 +81,15 @@ class InstagramVisualize(FPDF):
                 ln=2
             )
         full_name = subject["full_name"]
+
+        # Code duplication with twitter visualization, but not knowledge duplication
         full_name_deemojified = demojize(full_name)
         full_name_without_emoji_signs = re.sub(r":[a-zA-Z-_.]+:", "", full_name_deemojified)
         if b"\\U" in full_name_without_emoji_signs.encode("unicode-escape"):
             self.cell(w=0, h=6, txt="\u2022 Full name: ", ln=2)
         else:
             self.cell(w=0, h=6, txt=f"\u2022 Full name: {full_name_without_emoji_signs}", ln=2)
+
         media_count = subject["media_count"]
         self.cell(w=0, h=6, txt=f"\u2022 Media count: {media_count}", ln=2)
         number_of_followers = subject["follower_count"]

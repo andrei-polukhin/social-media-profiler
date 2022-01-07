@@ -88,6 +88,8 @@ class TwitterVisualize(FPDF):
                 ln=2
             )
         full_name = info["name"]
+
+        # Code duplication with instagram visualization, but not knowledge duplication
         de_emojified_full_name = demojize(full_name)
         full_name_without_emoji_signs = re.sub(r":[a-zA-Z-_.]+:", "", de_emojified_full_name)
         if b"\\U" in full_name_without_emoji_signs.encode("unicode-escape"):

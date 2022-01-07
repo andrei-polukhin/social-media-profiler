@@ -22,7 +22,9 @@ def main_scraping(user_input: dict) -> dict:
             Instagram, LinkedIn, Twitter.
     """
     load_dotenv("app/backend/scraping/.env")
+
     full_name = " ".join([user_input["first_name"], user_input["last_name"]])
+
     with ProcessPoolExecutor(max_workers=5) as pool:
         linkedin_process = pool.submit(
             caller_linkedin,
@@ -40,6 +42,7 @@ def main_scraping(user_input: dict) -> dict:
             caller_twitter, query=user_input["twitter_profile"]
             if user_input["twitter_profile"] else full_name
         )
+
     try:
         # For Python3.9+
         scraping_results = google_search_process.result() | instagram_process.result() | \
@@ -52,4 +55,5 @@ def main_scraping(user_input: dict) -> dict:
             **linkedin_process.result(),
             **twitter_process.result(),
         }
+
     return scraping_results

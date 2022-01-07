@@ -12,7 +12,7 @@ class LinkedinVisualize(FPDF):
         self.analysis_response = analysis_response
         self.character_of_subjects = None
         self.lists_of_info = []
-        self.set_doc_option("core_fonts_encoding", "utf-8")
+        self.core_fonts_encoding = "utf-8"
 
     def linkedin_visualize(self):
         """

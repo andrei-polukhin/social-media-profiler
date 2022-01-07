@@ -13,7 +13,7 @@ class GoogleSearchVisualize(FPDF):
         super().__init__()
         self.analysis_response = analysis_response
         self.dict_of_results = {}
-        self.set_doc_option("core_fonts_encoding", "utf-8")
+        self.core_fonts_encoding = "utf-8"
         self.add_font("OpenSans", "", "app/backend/visualization/fonts/OpenSans-Regular.ttf", True)
         self.add_font("OpenSans", "B", "app/backend/visualization/fonts/OpenSans-Bold.ttf", True)
         self.add_font("OpenSans", "I", "app/backend/visualization/fonts/OpenSans-Italic.ttf", True)
@@ -55,12 +55,13 @@ class GoogleSearchVisualize(FPDF):
             service_name = subject_info["service_name"]
             self.__google_search_visualize_write_service_name(service_name)
             subject_info.pop("service_name", None)
+
             if subject_info.get("img_url") is not None:
                 self.__google_visualize_write_if_image(subject_info)
-                self.ln()
             else:
                 self.__google_visualize_write_if_no_image(subject_info)
-                self.ln()
+
+            self.ln()
 
     def __google_search_visualize_write_service_name(self, service_name: str):
         """Write service name from Google Search."""
@@ -103,4 +104,5 @@ class GoogleSearchVisualize(FPDF):
                     link=subject_info_filtered["link"]
                 )
                 continue
+
             self.cell(w=0, h=6, txt=f"\u2022 {description}{value_processed}.", ln=2)
